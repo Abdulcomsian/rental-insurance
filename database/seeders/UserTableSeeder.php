@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+
        $user1 =  User::create([
             'name' => 'User',
             'email' => 'user@user.com',
@@ -99,6 +100,5 @@ class UserTableSeeder extends Seeder
 
         ]);
         $user5->assignRole('user');
-
     }
 }
