@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController};
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,14 @@ Route::group(['middleware' => ['web']], function () {
         'reset' => false, // Password Reset Routes...
         'verify' => false, // Email Verification Routes...
     ]);
+    Route::group(['middleware' => ['web','auth','role:admin']], function () {
+        Route::get('/admin', [AdminController::class,'index'])->name('admin');
+    });
+    Route::group(['middleware' => ['web','auth','role:vendor_user']], function () {
+        Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
+    });
+    Route::group(['middleware' => ['web','auth','role:user']], function () {
+        Route::get('/user', [UserController::class,'index'])->name('user');
+    });
 });
 

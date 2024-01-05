@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(CountriesTableSeeder::class);
         $this->call(CountryInformationTableSeeder::class);
         $this->call(PackageTableSeeder::class);
+        $this->call(RoleSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(VendorUserSeeder::class);
+
     }
 }
