@@ -53,5 +53,16 @@ class LoginController extends Controller
 //             return redirect('/login')->with('error','These credentials do not match our records.');
 
 //         }
+  // Check user roles and redirect accordingly
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin');
+        } elseif ($user->hasRole('user')) {
+            return redirect()->route('user');
+        }elseif ($user->hasRole('vendor_user')) {
+            return redirect()->route('vendor_user');
+        }  else {
+            return redirect()->route('login');
+        }
     }
+    
 }
