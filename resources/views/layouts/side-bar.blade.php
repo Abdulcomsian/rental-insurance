@@ -41,7 +41,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Dashboard</span>
+                        <span class="menu-title">Manage Services</span>
                     </a>
                 </div>
                 {{--

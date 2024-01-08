@@ -38,7 +38,9 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Global Stylesheets Bundle-->
     @toastr_css
     {{-- Page Specific Styles        --}}
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     @yield('css')
+    @stack('page-css')
 
 </head>
 <!--end::Head-->

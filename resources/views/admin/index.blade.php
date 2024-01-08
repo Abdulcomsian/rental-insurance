@@ -1,49 +1,115 @@
 @extends('layouts.master' ,['page_title' => 'Dashboard'])
+@push('page-css')
+    <link rel="stylesheet" href="{{asset('assets/css/adminpage_css.css')}}">
+@endpush
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <!--begin::Toolbar-->
     <div class="toolbar" id="kt_toolbar">
-        <!--begin::Container-->
-        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-            <!--begin::Page title-->
-            <div data-kt-place="true" data-kt-place-mode="prepend" data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                <!--begin::Title-->
-                <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Dashboard
-                    <!--begin::Separator-->
-                    <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
-                    <!--end::Separator-->
-                </h1>
-                <!--end::Title-->
-            </div>
-            <!--end::Page title-->
+        <div id="kt_toolbar_container" class="container-fluid d-flex justify-content-end flex-stack">
+            <a href="#" class="btn btn-primary hover-elevate-up" data-bs-toggle="modal" data-bs-target="#addNewServiceModal">Add Service</a>
         </div>
-        <!--end::Container-->
     </div>
-    <!--end::Toolbar-->
-    <!--begin::Post-->
-    <div class="post d-flex flex-column-fluid" id="kt_post">
-        <!--begin::Container-->
+    <section class="card">
+        <table class="table table-admin-services">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Services</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>International Sign Language</td>
+                <td>
+                    <div class="icon-action">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon delet-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Live & Closed Captioning</td>
+                <td>
+                    <div class="icon-action">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon delet-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td >Mobility guides</td>
+                <td> <div class="icon-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon delet-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                    </svg>
+                </div></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td >Personal assistants</td>
+                <td> <div class="icon-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon delet-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                      </svg>
+                </div></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td >Tactile sign language</td>
+                <td> <div class="icon-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                      </svg>
+                </div></td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td >Ugandan Sign language</td>
+                <td> <div class="icon-action">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="table-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                      </svg>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+    </section>
+    {{-- <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container">
-            <!--begin::Row-->
             <div class="row gy-5 g-xl-8">
-                <!--begin::Col-->
                 <div class="col-xxl-12">
-                    <!--begin::Mixed Widget 2-->
                     <div class="card card-xxl-stretch">
-                        <!--begin::Body-->
                         <div class="card-body p-0">
-                            <!--begin::Stats-->
                             <div class="card-p position-relative">
                                 <h3 class="fw-bolder mb-7">Customers Information</h3>
-                                <!--begin::Row-->
                                 <div class="row" style="flex-wrap:nowrap;width:100%;">
-                                    <!--begin::Col-->
                                     <div class="col-xl-3 bg-light-primary px-6 py-8 rounded-2 mb-7">
-                                        <!--begin::Statistics Widget 5-->
                                         <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
-                                            <!--begin::Body-->
                                             <div class="card-body">
-                                                <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
                                                 <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -55,23 +121,15 @@
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->
                                                 <div class="text-inverse-dark fw-bolder fs-2 mb-2 mt-5">{{$users_today}}
                                                 </div>
                                                 <div class="text-inverse-success fw-bolder fs-3 mb-2 mt-5">Today Customers</div>
                                             </div>
-                                            <!--end::Body-->
                                         </a>
-                                        <!--end::Statistics Widget 5-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
                                     <div class="col-xl-3 bg-light-primary px-6 py-8 rounded-2 mb-7">
-                                        <!--begin::Statistics Widget 5-->
                                         <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
-                                            <!--begin::Body-->
                                             <div class="card-body">
-                                                <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
                                                 <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -83,22 +141,14 @@
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->
                                                 <div class="text-inverse-dark fw-bolder fs-2 mb-2 mt-5">{{$users_weekly}}</div>
                                                 <div class="text-inverse-success fw-bolder fs-3 mb-2 mt-5">Weekly Customers</div>
                                             </div>
-                                            <!--end::Body-->
                                         </a>
-                                        <!--end::Statistics Widget 5-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
                                     <div class="col-xl-3 bg-light-primary px-6 py-8 rounded-2 mb-7">
-                                        <!--begin::Statistics Widget 5-->
                                         <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
-                                            <!--begin::Body-->
                                             <div class="card-body">
-                                                <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
                                                 <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -110,22 +160,16 @@
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->
                                                 <div class="text-inverse-dark fw-bolder fs-2 mb-2 mt-5">{{$users_monthly}}</div>
                                                 <div class="text-inverse-success fw-bolder fs-3 mb-2 mt-5">Monthly Customers</div>
                                             </div>
-                                            <!--end::Body-->
+
                                         </a>
-                                        <!--end::Statistics Widget 5-->
                                     </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
+
                                     <div class="col-xl-3 bg-light-primary px-6 py-8 rounded-2 mb-7">
-                                        <!--begin::Statistics Widget 5-->
                                         <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
-                                            <!--begin::Body-->
                                             <div class="card-body">
-                                                <!--begin::Svg Icon | path: icons/duotone/Shopping/Chart-bar1.svg-->
                                                 <span class="svg-icon svg-icon-white svg-icon-3x ms-n1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -137,35 +181,22 @@
                                                         </g>
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->
                                                 <div class="text-inverse-dark fw-bolder fs-2 mb-2 mt-5">{{$users_yearly}}</div>
                                                 <div class="text-inverse-success fw-bolder fs-3 mb-2 mt-5">Yearly Customers</div>
                                             </div>
-                                            <!--end::Body-->
                                         </a>
-                                        <!--end::Statistics Widget 5-->
                                     </div>
-                                    <!--end::Col-->
                                 </div>
-                                <!--end::Row-->
                             </div>
-                            <!--end::Stats-->
                         </div>
-                        <!--end::Body-->
                     </div>
                     <hr>
-                    <!--end::Mixed Widget 2--> <!--begin::Mixed Widget 2-->
                     <div class="card card-xxl-stretch">
-                        <!--begin::Body-->
                         <div class="card-body p-0">
-                            <!--begin::Stats-->
                             <div class="card-p position-relative">
                                 <h3 class="fw-bolder mb-7">Transactions Information</h3>
-                                <!--begin::Row-->
                                 <div class="row" style="flex-wrap:nowrap;width:100%;">
-                                    <!--begin::Col-->
                                     <div class="col-xl-3 bg-light-primary px-6 py-8 rounded-2 mb-7">
-                                        <!--begin::Statistics Widget 5-->
                                         <a href="#" class="card bg-success hoverable card-xl-stretch mb-5 mb-xl-8">
                                             <!--begin::Body-->
                                             <div class="card-body">
@@ -411,7 +442,52 @@
             <!--end::Row-->
         </div>
         <!--end::Container-->
-    </div>
+    </div> --}}
     <!--end::Post-->
+
+    <div class="modal fade" id="addNewServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">New Service</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Title</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" >
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save Service</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" id="kt_modal_btnDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Modal title</h3>
+    
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                    </div>
+                    <!--end::Close-->
+                </div>
+    
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
