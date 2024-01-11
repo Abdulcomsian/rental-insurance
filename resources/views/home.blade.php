@@ -13,6 +13,7 @@
                     <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                     <!--end::Separator-->
                 </h1>
+
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
