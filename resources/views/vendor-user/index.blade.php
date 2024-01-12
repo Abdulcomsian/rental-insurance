@@ -6,13 +6,15 @@
         <!--begin::Container-->
         <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
             <!--begin::Page title-->
-            <div data-kt-place="true" data-kt-place-mode="prepend" data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
+            <div data-kt-place="true" data-kt-place-mode="prepend" data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center justify-content-between w-100 me-3 flex-wrap mb-5 mb-lg-0 lh-1">
                 <!--begin::Title-->
                 <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Dashboard
                     <!--begin::Separator-->
                     <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                     <!--end::Separator-->
                 </h1>
+                <a href="#" class="btn btn-primary hover-elevate-up" data-bs-toggle="modal" data-bs-target="#addNewProductsModal">Add Product</a>
+
                 <!--end::Title-->
             </div>
             <!--end::Page title-->
@@ -20,6 +22,47 @@
         <!--end::Container-->
     </div>
     <!--end::Toolbar-->
+
+    <div class="modal fade" id="addNewProductsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Products</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Description</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Price</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Service</label>
+                        <select class="form-control">
+                            <option>Default services</option>
+                            <option>Default services</option>
+                            <option>Default services</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Upload Picture</label>
+                        <input type="file" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -154,18 +197,18 @@
                         <!--end::Body-->
                     </div>
                     <!--end::Mixed Widget 2--> <!--begin::Mixed Widget 2-->
-                    
-                            <!--end::Stats-->
-                        </div>
-                        <!--end::Body-->
-                    </div>
+
+                    <!--end::Stats-->
                 </div>
-                <!--end::Col-->
+                <!--end::Body-->
             </div>
-            <!--end::Row-->
         </div>
-        <!--end::Container-->
+        <!--end::Col-->
     </div>
-    <!--end::Post-->
+    <!--end::Row-->
+</div>
+<!--end::Container-->
+</div>
+<!--end::Post-->
 </div>
 @endsection
