@@ -67,7 +67,23 @@
     </div>
 
     <!--begin::Post-->
-    <div class="">
+    <div class="services-section">
+        <div class="card filter-wraper">
+            <div class=" filter-section col-md-8">
+                <form>
+                    <h3>Search By Services:</h3>
+                    <div class="col-sm-4">
+                        <select class="form-select" aria-label=" select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
         <div class="card-section">
             <div class="card col-sm-2">
                 <div class="btn-group">
