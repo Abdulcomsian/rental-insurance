@@ -67,59 +67,202 @@
     </div>
 
     <!--begin::Post-->
-    <div class="container">
+    <div class="">
         <div class="card-section">
-            <div class="card col-sm-3">
+            <div class="card col-sm-2">
                 <div class="btn-group">
                     <div class="menuButton">
-                        <button type="button" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/images/dotmenu.svg')}}" />
                         </button>
-                    </div>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" type="button">Edit</button>
-                        <button class="dropdown-item" type="button">Delete</button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
                     </div>
                 </div>
-                <img src="{{asset('assets/images/test.svg')}}" />
+                <img src="{{asset('assets/images/test.png')}}" />
                 <div class="card-body">
                     <h5 class="card-title">Product name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
-            <div class="card col-sm-3">
+            <div class="card col-sm-2">
                 <div class="btn-group">
                     <div class="menuButton">
-                        <button type="button" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/images/dotmenu.svg')}}" />
                         </button>
-                    </div>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" type="button">Edit</button>
-                        <button class="dropdown-item" type="button">Delete</button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
                     </div>
                 </div>
-                <img src="{{asset('assets/images/test.svg')}}" />
+                <img src="{{asset('assets/images/test.png')}}" />
                 <div class="card-body">
                     <h5 class="card-title">Product name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
-            <div class="card col-sm-3">
+            <div class="card col-sm-2">
                 <div class="btn-group">
                     <div class="menuButton">
-                        <button type="button" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('assets/images/dotmenu.svg')}}" />
                         </button>
-                    </div>
-                    <div class="dropdown-menu">
-                        <button class="dropdown-item" type="button">Edit</button>
-                        <button class="dropdown-item" type="button">Delete</button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
                     </div>
                 </div>
-                <img src="{{asset('assets/images/test.svg')}}" />
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card col-sm-2">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <button class="dropdown-item" type="button">Edit</button>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
                 <div class="card-body">
                     <h5 class="card-title">Product name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">500$</h6>
