@@ -37,12 +37,11 @@
                             <li>Some quick example text to build on the card title and make up the bulk of the card's content.</li>
                             <li>Some quick example text to build on the card title and make up the bulk of the card's content.</li>
                             <li>Some quick example text to build on the card title and make up the bulk of the card's content.</li>
-
                         </ul>
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn btn-primary">Apply Service</button>
+                    <button type="submit" class="btn btn-primary">Apply service</button>
                 </div>
             </div>
         </div>

@@ -51,4 +51,8 @@ class UserController extends Controller
     {
         return view("user.serviceDetails");
     }
+    public function Payment()
+    {
+        return view("user.payment");
+    }
 }

@@ -1,9 +1,9 @@
 <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <!--begin::Brand-->
-    <div class="aside-logo flex-column-auto" id="kt_aside_logo">
+    <div class="aside-logo flex-column-auto" id="kt_aside_logo" style="background-color: rgb(55, 190, 167) !important;">
         <!--begin::Logo-->
         <a href="/">
-            <img alt="Logo" src="{{asset('assets/media/logos/logo.png')}}" class="logo" />
+            <img alt="Logo" src="{{asset('assets/images/logo.png')}}" class="logo" width="150" height="90" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
@@ -13,10 +13,12 @@
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <polygon points="0 0 24 0 24 24 0 24" />
-                        <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z" fill="#000000" fill-rule="nonzero" transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999)" />
-                        <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" />
+                        <path d="M5.29288961,6.70710318 C4.90236532,6.31657888 4.90236532,5.68341391 5.29288961,5.29288961 C5.68341391,4.90236532 6.31657888,4.90236532 6.70710318,5.29288961 L12.7071032,11.2928896 C13.0856821,11.6714686 13.0989277,12.281055 12.7371505,12.675721 L7.23715054,18.675721 C6.86395813,19.08284 6.23139076,19.1103429 5.82427177,18.7371505 C5.41715278,18.3639581 5.38964985,17.7313908 5.76284226,17.3242718 L10.6158586,12.0300721 L5.29288961,6.70710318 Z" fill="#ffffff" fill-rule="nonzero" transform="translate(8.999997, 11.999999) scale(-1, 1) translate(-8.999997, -11.999999)" style="fill: #ffffff;" />
+                        <path d="M10.7071009,15.7071068 C10.3165766,16.0976311 9.68341162,16.0976311 9.29288733,15.7071068 C8.90236304,15.3165825 8.90236304,14.6834175 9.29288733,14.2928932 L15.2928873,8.29289322 C15.6714663,7.91431428 16.2810527,7.90106866 16.6757187,8.26284586 L22.6757187,13.7628459 C23.0828377,14.1360383 23.1103407,14.7686056 22.7371482,15.1757246 C22.3639558,15.5828436 21.7313885,15.6103465 21.3242695,15.2371541 L16.0300699,10.3841378 L10.7071009,15.7071068 Z" fill="#ffffff" fill-rule="nonzero" opacity="0.5" transform="translate(15.999997, 11.999999) scale(-1, 1) rotate(-270.000000) translate(-15.999997, -11.999999)" style="fill: #ffffff;" />
                     </g>
                 </svg>
+
+
             </span>
             <!--end::Svg Icon-->
         </div>
@@ -47,83 +49,83 @@
                 {{--
                 <div class="menu-item">
                     <a class="menu-link  {{Request::is('customer*') ? 'active' : ''}}" href="{{route('customers.history')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
+                <span class="menu-icon">
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                            <polygon fill="#000000" points="23 8 12 20 1 8" />
+                        </svg>
+                    </span>
+                </span>
+                <span class="menu-title">Customers</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link {{Request::is('countries*') ? 'active' : ''}}" href="{{route('countries.index')}}">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                                <polygon fill="#000000" points="23 8 12 20 1 8" />
+                            </svg>
                         </span>
-                        <span class="menu-title">Customers</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link {{Request::is('countries*') ? 'active' : ''}}" href="{{route('countries.index')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
+                    </span>
+                    <span class="menu-title">Countries & Exchange Rates</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link  {{Request::is('payment*') ? 'active' : ''}}" href="{{route('payment_transactions.index')}}">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                                <polygon fill="#000000" points="23 8 12 20 1 8" />
+                            </svg>
                         </span>
-                        <span class="menu-title">Countries & Exchange Rates</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link  {{Request::is('payment*') ? 'active' : ''}}" href="{{route('payment_transactions.index')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
+                    </span>
+                    <span class="menu-title">Payment Transactions</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link  {{Request::is('insurance*') ? 'active' : ''}}" href="{{route('insurance_companies.index')}}">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                                <polygon fill="#000000" points="23 8 12 20 1 8" />
+                            </svg>
                         </span>
-                        <span class="menu-title">Payment Transactions</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link  {{Request::is('insurance*') ? 'active' : ''}}" href="{{route('insurance_companies.index')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
+                    </span>
+                    <span class="menu-title">Insurance Companies</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link {{Request::is('packages*') ? 'active' : ''}}" href="{{route('rates.index')}}">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                                <polygon fill="#000000" points="23 8 12 20 1 8" />
+                            </svg>
                         </span>
-                        <span class="menu-title">Insurance Companies</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link {{Request::is('packages*') ? 'active' : ''}}" href="{{route('rates.index')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
+                    </span>
+                    <span class="menu-title">Packages</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a class="menu-link {{Request::is('sanction*') ? 'active' : ''}}" href="{{route('sanction_request.index')}}">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
+                                <polygon fill="#000000" points="23 8 12 20 1 8" />
+                            </svg>
                         </span>
-                        <span class="menu-title">Packages</span>
-                    </a>
-                </div>
-                <div class="menu-item">
-                    <a class="menu-link {{Request::is('sanction*') ? 'active' : ''}}" href="{{route('sanction_request.index')}}">
-                        <span class="menu-icon">
-                            <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8" />
-                                    <polygon fill="#000000" points="23 8 12 20 1 8" />
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="menu-title">Sanction Request</span>
-                    </a>
-                </div>
-                <!-- <div class="menu-item">
+                    </span>
+                    <span class="menu-title">Sanction Request</span>
+                </a>
+            </div>
+            <!-- <div class="menu-item">
                     <a class="menu-link {{Request::is('activity*') ? 'active' : ''}}" href="{{route('activity')}}">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-2">
@@ -136,10 +138,10 @@
                         <span class="menu-title">Activity Log</span>
                     </a>
                 </div> -->
-                --}}
-            </div>
-            <!--end::Menu-->
+            --}}
         </div>
+        <!--end::Menu-->
     </div>
-    <!--end::Aside menu-->
+</div>
+<!--end::Aside menu-->
 </div>

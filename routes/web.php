@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => ['web','auth','role:user']], function () {
         Route::get('/user', [UserController::class,'index'])->name('user');
         Route::get('/details', [UserController::class,'details'])->name('details');
+        Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
     });
 });
 

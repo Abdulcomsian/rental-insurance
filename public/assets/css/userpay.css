@@ -1,0 +1,48 @@
+.Left-side {
+    padding: 1rem;
+}
+
+.Left-side .card .transactionTitles {
+    margin-bottom: 1rem;
+}
+
+.Left-side .card .transactionDetails .price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Left-side .card .transactionDetails .total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    padding-top: 10px;
+}
+
+.Right-side {
+    padding: 1rem;
+}
+
+.Right-side .main-wraper {
+    width: 70%;
+    margin: auto;
+}
+
+.Right-side .pay-page .InputSection .cardSection {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 2rem;
+}
+
+.Right-side .pay-page .InputSection .cardSection input[type="checkbox"] {
+    padding: 0.8rem;
+}
+
+.Right-side .pay-page .InputSection .cardSection input[type="checkbox"]:checked {
+    background-color: rgb(55, 190, 167) !important;
+    border-color: rgb(55, 190, 167) !important;
+}

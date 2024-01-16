@@ -16,10 +16,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        {{ config('app.name') }}
-        @isset($page_title)
-        | {{ $page_title }}
-        @endisset
+        Dasuns
     </title>
     <meta name="description" content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
     <meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard" />
@@ -27,6 +24,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/venderIndex.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/userpay.css')}}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css">
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -37,7 +35,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     <!--end::Global Stylesheets Bundle-->
-    
+
     @toastr_css
     {{-- Page Specific Styles        --}}
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
