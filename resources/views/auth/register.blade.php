@@ -137,19 +137,7 @@
                     </button>
 
                 </div>
-                <div class="row g-3 mb-9 ">
-                    <!--begin::Col-->
-                    <div class="m-0">
-                        <!--begin::Google link--->
-
-                        <!--end::Google link--->
-                    </div>
-                    <!--end::Col-->
-
-                    <!--begin::Col-->
-
-                    <!--end::Col-->
-                </div>
+               
                 <!--end::Submit button-->
 
                 <!--begin::Sign up-->

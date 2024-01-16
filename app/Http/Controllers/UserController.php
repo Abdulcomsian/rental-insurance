@@ -47,7 +47,7 @@ class UserController extends Controller
             return back();
         }
     }
-    public function details()
+    public function Details()
     {
         return view("user.serviceDetails");
     }

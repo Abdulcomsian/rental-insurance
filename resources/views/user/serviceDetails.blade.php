@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-center">
-                    <button type="submit" class="btn btn-primary">Apply service</button>
+                    <a type="submit" class="btn btn-primary" href="{{route('Payment')}}">Apply service</a>
                 </div>
             </div>
         </div>
