@@ -35,25 +35,14 @@
             <div class="d-flex justify-content-center">
                 <div class="card col-sm-8">
                     <h5 class="transactionTitles text-center">
-                        Transaction details
+                        service Price
                     </h5>
                     <div class="transactionDetails">
                         <div class="price-section">
                             <h6>service</h6>
                             <h6>50$</h6>
                         </div>
-                        <div class="price-section">
-                            <h6>service</h6>
-                            <h6>50$</h6>
-                        </div>
-                        <div class="price-section">
-                            <h6>service</h6>
-                            <h6>50$</h6>
-                        </div>
-                        <div class="total-section">
-                            <h6>Total</h6>
-                            <h6>150$</h6>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -101,7 +90,7 @@
                                 <option>services</option>
                             </select>
                         </div>
-                        <div class="">
+                        <!-- <div class="">
                             <div class=" card cardSection">
                                 <input class="form-check-input" type="checkbox" value="">
                                 <div class=" Describe-section ">
@@ -109,7 +98,7 @@
                                     <p>Pay faster on Stripe Atlas and everywhere Link is accepted.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="">
                             <div class=" Describe-section ">
                                 <p>To pay your company formation fee, make sure you’re not using an anonymous IP address or a VPN.</p>

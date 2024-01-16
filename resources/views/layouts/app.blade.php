@@ -34,7 +34,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
 
     <!--end::Global Stylesheets Bundle-->
-    @toastr_css
+
 
     {{-- Page Specific Styles        --}}
     @yield('css')
@@ -108,7 +108,5 @@ License: For each use you must have a valid license purchased only from above li
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-@jquery
-@toastr_js
-@toastr_render
+
 </html>
