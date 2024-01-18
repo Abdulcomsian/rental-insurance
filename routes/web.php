@@ -36,6 +36,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/user', [UserController::class,'index'])->name('user');
         Route::get('/details', [UserController::class,'Details'])->name('Details');
         Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
+        Route::get('/transactions', [UserController::class,'Transactions'])->name('Transactions');
     });
 });
 
