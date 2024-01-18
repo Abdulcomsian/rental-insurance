@@ -16,8 +16,8 @@
             <div class="mb-6">
                 <nav>
                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Approved</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Pending</button>
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Approved Payments</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Pending Payments</button>
                     </div>
                 </nav>
             </div>
@@ -30,14 +30,16 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Provider Name</th>
                                 <th>Services</th>
-                                <th>Actions</th>
+                                <th>Status</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <td>nauman</td>
                                 <td>International Sign Language</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -45,6 +47,7 @@
                             </tr>
                             <tr>
                                 <td>2</td>
+                                <td>nauman</td>
                                 <td>Live &amp; Closed Captioning</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -52,6 +55,7 @@
                             </tr>
                             <tr>
                                 <td>3</td>
+                                <td>nauman</td>
                                 <td>Mobility guides</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -59,6 +63,7 @@
                             </tr>
                             <tr>
                                 <td>4</td>
+                                <td>nauman</td>
                                 <td>Personal assistants</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -66,6 +71,7 @@
                             </tr>
                             <tr>
                                 <td>5</td>
+                                <td>nauman</td>
                                 <td>Tactile sign language</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -73,6 +79,7 @@
                             </tr>
                             <tr>
                                 <td>6</td>
+                                <td>nauman</td>
                                 <td>Ugandan Sign language</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
@@ -86,8 +93,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Provider Name</th>
                                 <th>Services</th>
-                                <th>Actions</th>
+                                <th>Status</th>
                                 <th>Date</th>
 
                             </tr>
@@ -95,43 +103,49 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <td>nauman</td>
                                 <td>International Sign Language</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
 
                             </tr>
                             <tr>
                                 <td>2</td>
+                                <td>nauman</td>
                                 <td>Live &amp; Closed Captioning</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
 
                             </tr>
                             <tr>
                                 <td>3</td>
+                                <td>nauman</td>
                                 <td>Mobility guides</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
 
                             </tr>
                             <tr>
                                 <td>4</td>
+                                <td>nauman</td>
                                 <td>Personal assistants</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
 
                             </tr>
                             <tr>
                                 <td>5</td>
+                                <td>nauman</td>
                                 <td>Tactile sign language</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
 
                             </tr>
                             <tr>
                                 <td>6</td>
+                                <td>nauman</td>
                                 <td>Ugandan Sign language</td>
-                                <td>Pending</td>
+                                <td>held with plateform</td>
                                 <td>10/01/24</td>
                             </tr>
                         </tbody>

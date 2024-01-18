@@ -13,7 +13,7 @@
                     <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
                     <!--end::Separator-->
                 </h1>
-                <a href="#" class="btn btn-primary hover-elevate-up" data-bs-toggle="modal" data-bs-target="#addNewProductsModal">Add Product</a>
+                <a href="#" class="btn btn-primary hover-elevate-up" data-bs-toggle="modal" data-bs-target="#addNewProductsModal">Add Services</a>
 
                 <!--end::Title-->
             </div>
@@ -27,7 +27,7 @@
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Products</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Services</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                            <textarea type="text" rows="4" class="form-control" id="exampleFormControlInput1"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Price</label>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Service</label>
-                            <select class="form-control">
+                            <select class="form-select">
                                 <option>services</option>
                                 <option>services</option>
                                 <option>services</option>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save Product</button>
+                        <button type="submit" class="btn btn-primary">Save Services</button>
                     </div>
                 </form>
             </div>
@@ -69,8 +69,8 @@
     <!--begin::Post-->
     <div class="services-section">
         <div class="card filter-wraper">
-            <div class=" filter-section col-md-8">
-                <form>
+            <form>
+                <div class=" filter-section col-md-8">
                     <h3>Search By Services:</h3>
                     <div class="col-sm-4">
                         <select class="form-select" aria-label=" select example">
@@ -81,8 +81,8 @@
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
         <div class="card-section">
             <div class="card col-sm-2">
