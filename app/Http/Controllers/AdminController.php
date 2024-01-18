@@ -47,4 +47,21 @@ class AdminController extends Controller
             return back();
         }
     }
+
+    public function ServiceProvider()
+    {
+        return view("admin.serviceProvider");
+    }
+    public function UserAccounts()
+    {
+        return view("admin.userAccounts");
+    }
+    public function AdminAccounts()
+    {
+        return view("admin.adminAccounts");
+    }
+    public function Approvals()
+    {
+        return view("admin.approvals");
+    }
 }

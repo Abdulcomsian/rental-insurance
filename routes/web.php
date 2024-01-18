@@ -28,6 +28,10 @@ Route::group(['middleware' => ['web']], function () {
     Auth::routes();
     Route::group(['middleware' => ['web','auth','role:admin']], function () {
         Route::get('/admin', [AdminController::class,'index'])->name('admin');
+        Route::get('/provider', [AdminController::class,'ServiceProvider'])->name('ServiceProvider');
+        Route::get('/userAccounts', [AdminController::class,'UserAccounts'])->name('UserAccounts');
+        Route::get('/adminAccounts', [AdminController::class,'AdminAccounts'])->name('AdminAccounts');
+        Route::get('/approvals', [AdminController::class,'Approvals'])->name('Approvals');
     });
     Route::group(['middleware' => ['web','auth','role:vendor_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
