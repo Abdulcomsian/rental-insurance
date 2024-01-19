@@ -42,7 +42,7 @@
                             <h6>service</h6>
                             <h6>50$</h6>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
@@ -50,22 +50,23 @@
         <div class="Right-side col-sm-6">
             <div class="main-wraper">
                 <div class="pay-section">
-                    <div class="title">
+                    <div class="title text-center">
                         <h1>Pay with card</h1>
                     </div>
                 </div>
                 <form class="pay-page">
                     <div class="InputSection">
-                        <div class="">
+                        <div class="mb-2">
+                            <label class="form-label">Email</label>
                             <input class="form-control" placeholder="Eamil"></input>
                         </div>
-                        <div class="">
+                        <div class="mb-2">
                             <div class=" Describe-section">
-                                <h2>Card Information</h2>
+                                <label class="form-label">Card Information</label>
                                 <input class="form-control"></input>
                             </div>
                         </div>
-                        <div class="">
+                        <div class="mb-2">
                             <div class=" Describe-section">
                                 <div class="d-flex align-items-center">
                                     <input class="form-control"></input>
@@ -73,15 +74,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="">
+                        <div class="mb-2">
                             <div class=" Describe-section">
-                                <h2>Cardholder name</h2>
+                                <label class="form-label">Cardholder name</label>
                                 <input class="form-control"></input>
                             </div>
                         </div>
-                        <div class="">
+                        <div class="mb-2">
                             <div class=" Describe-section">
-                                <h2>Country or region</h2>
+                                <label class="form-label">Country or region</label>
                             </div>
 
                             <select class="form-control mb-4">
@@ -89,6 +90,14 @@
                                 <option>services</option>
                                 <option>services</option>
                             </select>
+                        </div>
+                        <div class="mb-2 Describe-section">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="mb-2 Describe-section">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-control">
                         </div>
                         <!-- <div class="">
                             <div class=" card cardSection">
