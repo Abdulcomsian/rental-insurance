@@ -25,6 +25,7 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/venderIndex.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/userpay.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/vendor/profile.css')}}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css">
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -34,6 +35,7 @@ License: For each use you must have a valid license purchased only from above li
     <link href="{{asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--end::Global Stylesheets Bundle-->
 
     @toastr_css

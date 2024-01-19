@@ -93,7 +93,8 @@
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
                                 {{-- <a href="authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>--}}
-                                <a class="menu-link px-5" href="{{ route('logout') }}" onclick="event.preventDefault();
+                               
+                                <a class=" menu-link px-5" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>

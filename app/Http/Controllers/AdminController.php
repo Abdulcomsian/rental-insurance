@@ -64,4 +64,8 @@ class AdminController extends Controller
     {
         return view("admin.approvals");
     }
+    public function VenderDetails()
+    {
+        return view("admin.venderDetails");
+    }
 }

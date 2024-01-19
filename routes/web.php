@@ -32,9 +32,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/userAccounts', [AdminController::class,'UserAccounts'])->name('UserAccounts');
         Route::get('/adminAccounts', [AdminController::class,'AdminAccounts'])->name('AdminAccounts');
         Route::get('/approvals', [AdminController::class,'Approvals'])->name('Approvals');
+        Route::get('/venderdetails', [AdminController::class,'VenderDetails'])->name('VenderDetails');
     });
     Route::group(['middleware' => ['web','auth','role:vendor_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
+        Route::get('/profile', [VendorController::class,'Profile'])->name('Profile');
     });
     Route::group(['middleware' => ['web','auth','role:user']], function () {
         Route::get('/user', [UserController::class,'index'])->name('user');

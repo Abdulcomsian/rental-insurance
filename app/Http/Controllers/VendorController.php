@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class VendorController extends Controller
 {
     public function index()
-        {
+    {
         try {
             //Related to transactions
             $transactions_today = 0;
@@ -46,5 +46,9 @@ class VendorController extends Controller
             toastr()->error('Something went wrong, try again');
             return back();
         }
+    }
+    public function Profile()
+    {
+        return view("vendor-user.profile");
     }
 }
