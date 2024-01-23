@@ -51,4 +51,8 @@ class VendorController extends Controller
     {
         return view("vendor-user.profile");
     }
+    public function Payments()
+    {
+        return view("vendor-user.paymentTransaction");
+    }
 }

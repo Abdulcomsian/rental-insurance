@@ -32,6 +32,7 @@
                                 <th>#</th>
                                 <th>Provider Name</th>
                                 <th>Services</th>
+                                <th>Price</th>
                                 <th>Status</th>
                                 <th>Date</th>
                             </tr>
@@ -41,6 +42,7 @@
                                 <td>1</td>
                                 <td>nauman</td>
                                 <td>International Sign Language</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
 
@@ -49,6 +51,7 @@
                                 <td>2</td>
                                 <td>nauman</td>
                                 <td>Live &amp; Closed Captioning</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
 
@@ -57,6 +60,7 @@
                                 <td>3</td>
                                 <td>nauman</td>
                                 <td>Mobility guides</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
 
@@ -65,6 +69,7 @@
                                 <td>4</td>
                                 <td>nauman</td>
                                 <td>Personal assistants</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
 
@@ -73,6 +78,7 @@
                                 <td>5</td>
                                 <td>nauman</td>
                                 <td>Tactile sign language</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
 
@@ -81,6 +87,7 @@
                                 <td>6</td>
                                 <td>nauman</td>
                                 <td>Ugandan Sign language</td>
+                                <td>150$</td>
                                 <td>Approved</td>
                                 <td>10/01/24</td>
                             </tr>
@@ -95,6 +102,7 @@
                                 <th>#</th>
                                 <th>Provider Name</th>
                                 <th>Services</th>
+                                <th>Price</th>
                                 <th>Status</th>
                                 <th>Date</th>
 
@@ -105,6 +113,7 @@
                                 <td>1</td>
                                 <td>nauman</td>
                                 <td>International Sign Language</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
 
@@ -113,6 +122,7 @@
                                 <td>2</td>
                                 <td>nauman</td>
                                 <td>Live &amp; Closed Captioning</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
 
@@ -121,6 +131,7 @@
                                 <td>3</td>
                                 <td>nauman</td>
                                 <td>Mobility guides</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
 
@@ -129,6 +140,7 @@
                                 <td>4</td>
                                 <td>nauman</td>
                                 <td>Personal assistants</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
 
@@ -137,6 +149,7 @@
                                 <td>5</td>
                                 <td>nauman</td>
                                 <td>Tactile sign language</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
 
@@ -145,6 +158,7 @@
                                 <td>6</td>
                                 <td>nauman</td>
                                 <td>Ugandan Sign language</td>
+                                <td>150$</td>
                                 <td>held with plateform</td>
                                 <td>10/01/24</td>
                             </tr>

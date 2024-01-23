@@ -27,6 +27,7 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="stylesheet" href="{{asset('assets/css/userpay.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/vendor/profile.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/approval.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/vendor/paymentTransaction.css')}}" />
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css">
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />

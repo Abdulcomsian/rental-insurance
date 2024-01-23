@@ -1,0 +1,41 @@
+.card-heading {
+    margin-bottom: 1rem;
+}
+
+.Avalible {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.Avalible .Balacne-section {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.Avalible .Balacne-section .Balance {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-right:2px solid lightgray;
+    padding: 2rem;
+    margin-right: 2rem;
+}
+.table .actionButton{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.table .actionButton .menu {
+    padding: 0 !important;
+}
+
+.table .actionButton  button img {
+    transform: rotate(90deg);
+}
