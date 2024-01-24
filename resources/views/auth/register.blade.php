@@ -11,11 +11,7 @@
     <div style="background-color: rgb(55, 190, 167)!important;text-align: center;padding: 42px 24px;margin-top: 58px;">
         <img src="{{asset('assets/images/logo.png')}}" height="150" />
     </div>
-    <div class="" style="    position: absolute;
-    top: 60%;
-    left: 0;
-    transform: translate(0, -50%);
-    width: 100%;">
+    <div class="" style="width: 100%;">
         <!--begin::Wrapper-->
         <!--begin::Form-->
         <!--begin::Wrapper-->

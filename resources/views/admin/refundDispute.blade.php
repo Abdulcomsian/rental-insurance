@@ -1,7 +1,6 @@
 @extends('layouts.master' ,['page_title' => 'Dashboard'])
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
     <div class="toolbar" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
             <div data-kt-place="true" data-kt-place-mode="prepend" data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center justify-content-between w-100 me-3 flex-wrap mb-5 mb-lg-0 lh-1">
@@ -43,7 +42,6 @@
                 <input type="date" class="form-control ">
                 <h3>To</h3>
                 <input type="date" class="form-control">
-
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
@@ -58,7 +56,6 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Action</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -77,7 +74,6 @@
                             </svg>
                         </a>
                     </td>
-
                 </tr>
                 <tr>
                     <td>2</td>
@@ -94,8 +90,6 @@
                             </svg>
                         </a>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td>3</td>
@@ -112,8 +106,6 @@
                             </svg>
                         </a>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td>4</td>
@@ -130,8 +122,6 @@
                             </svg>
                         </a>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td>5</td>
@@ -148,8 +138,6 @@
                             </svg>
                         </a>
                     </td>
-
-
                 </tr>
                 <tr>
                     <td>6</td>
@@ -166,7 +154,6 @@
                             </svg>
                         </a>
                     </td>
-
                 </tr>
             </tbody>
         </table>

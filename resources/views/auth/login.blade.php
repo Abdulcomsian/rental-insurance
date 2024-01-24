@@ -4,7 +4,7 @@
     <!--begin::Wrapper-->
     <!-- <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y"> -->
     <!--begin::Content-->
-    <img src="{{asset('assets/images/loginPage.jpg')}}" style="width: 100%;height:100%;object-fit: cover;"/>
+    <img src="{{asset('assets/images/loginPage.jpg')}}" style="width: 100%;height:100%;object-fit: cover;" />
     <!-- <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
 
         </div> -->
@@ -22,11 +22,7 @@
     <div style="background-color: rgb(55, 190, 167)!important;text-align: center;padding: 42px 24px;margin-top: 58px;">
         <img src="{{asset('assets/images/logo.png')}}" height="150" />
     </div>
-    <div class="" style="    position: absolute;
-    top: 55%;
-    left: 0;
-    transform: translate(0, -50%);
-    width: 100%;">
+    <div class="" style="width: 100%; ">
         <!--begin::Wrapper-->
         <div class="w-lg-500px p-10 " style="margin: auto;">
             <!--begin::Form-->

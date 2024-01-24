@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="card-section">
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -59,7 +59,7 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -67,7 +67,7 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -75,7 +75,7 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -83,7 +83,7 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -91,7 +91,7 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
+                            <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
                                 <div class="card-body">
                                     <h5 class="card-title">Product name</h5>
@@ -99,38 +99,8 @@
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                            <div class="card col-sm-2">
-                                <img src="{{asset('assets/images/test.png')}}" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Product name</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card col-sm-2">
-                                <img src="{{asset('assets/images/test.png')}}" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Product name</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card col-sm-2">
-                                <img src="{{asset('assets/images/test.png')}}" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Product name</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card col-sm-2">
-                                <img src="{{asset('assets/images/test.png')}}" />
-                                <div class="card-body">
-                                    <h5 class="card-title">Product name</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
+                            
+
 
                         </div>
                     </div>

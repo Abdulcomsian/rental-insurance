@@ -3,7 +3,7 @@
     <div class="aside-logo flex-column-auto" id="kt_aside_logo" style="background-color: rgb(55, 190, 167) !important;">
         <!--begin::Logo-->
         <a href="/">
-            <img alt="Logo" src="{{asset('assets/images/logo.png')}}" class="logo" width="150" height="90" />
+            <img alt="Logo" src="{{asset('assets/images/logo.png')}}" class="logo" width="auto" height="90" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
