@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/approvals', [AdminController::class,'Approvals'])->name('Approvals');
         Route::get('/venderdetails', [AdminController::class,'VenderDetails'])->name('VenderDetails');
         Route::get('/alltransactions', [AdminController::class,'Transactions'])->name('Transactions');
+        Route::get('/dispute', [AdminController::class,'Dispute'])->name('Dispute');
     });
     Route::group(['middleware' => ['web','auth','role:vendor_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');

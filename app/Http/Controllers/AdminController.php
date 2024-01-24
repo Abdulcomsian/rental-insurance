@@ -72,4 +72,8 @@ class AdminController extends Controller
     {
         return view("admin.alltransactions");
     }
+    public function Dispute()
+    {
+        return view("admin.refundDispute");
+    }
 }
