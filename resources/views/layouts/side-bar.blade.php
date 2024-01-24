@@ -97,7 +97,49 @@
                         <span class="menu-title">Approvals</span>
                     </a>
 
-                    <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/transactions">
+                    <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/alltransactions">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">All Transactions</span>
+                    </a>
+                    <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/dispute">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Dispute Transactions</span>
+                    </a>
+
+
+                    <!--   vender -->
+                    <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/payments">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-credit-card-fill" viewBox="0 0 16 16">
+                                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Payments</span>
+                    </a>
+
+
+                     <!--   user -->
+                     <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/transactions">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -109,6 +151,8 @@
                         </span>
                         <span class="menu-title">Transactions</span>
                     </a>
+
+                    
                 </div>
                 {{--
                 <div class="menu-item">
