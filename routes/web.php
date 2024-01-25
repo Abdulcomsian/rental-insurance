@@ -37,15 +37,18 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/dispute', [AdminController::class,'Dispute'])->name('Dispute');
     });
     Route::group(['middleware' => ['web','auth','role:vendor_user']], function () {
-        Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
         Route::get('/profile', [VendorController::class,'Profile'])->name('Profile');
         Route::get('/payments', [VendorController::class,'Payments'])->name('Payments');
     });
     Route::group(['middleware' => ['web','auth','role:user']], function () {
-        Route::get('/user', [UserController::class,'index'])->name('user');
         Route::get('/details', [UserController::class,'Details'])->name('Details');
         Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
         Route::get('/transactions', [UserController::class,'Transactions'])->name('Transactions');
     });
+    Route::group(['middleware' => ['web','auth']], function () {
+        Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
+
+    });
+    
 });
 
