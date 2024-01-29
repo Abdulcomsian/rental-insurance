@@ -34,7 +34,7 @@
             <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
 
                 <div class="menu-item">
-                    @if(Auth::user()->hasAnyRole(['vendor_user', 'admin']))
+                    @if(Auth::user()->hasAnyRole(['vendor_user', 'admin','user']))
                     <a class="menu-link {{Request::is('/dashboard') ? 'active' : ''}}" href="/dashboard">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->

@@ -48,6 +48,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/details', [UserController::class,'Details'])->name('Details');
         Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
         Route::get('/transactions', [UserController::class,'Transactions'])->name('Transactions');
+        Route::get('/dashboard', [UserController::class,'Dashboard'])->name('Dashboard');
+
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');

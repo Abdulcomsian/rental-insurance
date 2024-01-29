@@ -59,4 +59,8 @@ class UserController extends Controller
     {
         return view("user.orderDetails");
     }
+    public function Dashboard()
+    {
+        return view("user.dashboard");
+    }
 }
