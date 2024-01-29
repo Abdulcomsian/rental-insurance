@@ -48,140 +48,142 @@
             </div>
         </div>
         <h3 class="card-heading">Recent Activity</h3>
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tansaction ID</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Action</th>
+        <div class="table-responsive">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tansaction ID</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2541</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2541</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>5498</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>5498</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
+                        </th>
 
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>7845</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>7845</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
+                        </th>
 
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>9624</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>9624</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
+                        </th>
 
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>1144</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1144</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
+                        </th>
 
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>5544</td>
-                    <td>150$</td>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-                    <th>
-                        <div class="actionButton">
-                            <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('assets/images/dotgray.svg')}}" />
-                            </button>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>5544</td>
+                        <td>150$</td>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+                        <th>
+                            <div class="actionButton">
+                                <button type="button" class="btn menu" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{asset('assets/images/dotgray.svg')}}" />
+                                </button>
 
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <button class="dropdown-item" type="button">Refund</button>
-                                <button class="dropdown-item" type="button">Dispute</button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <button class="dropdown-item" type="button">Refund</button>
+                                    <button class="dropdown-item" type="button">Dispute</button>
+                                </div>
                             </div>
-                        </div>
-                    </th>
+                        </th>
 
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
 
