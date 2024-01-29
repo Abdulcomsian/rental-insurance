@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController};
+use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController};
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +28,11 @@ Route::group(['middleware' => ['web']], function () {
     Auth::routes();
     Route::group(['middleware' => ['web','auth','role:admin','approved_user']], function () {
         Route::get('/admin', [AdminController::class,'index'])->name('admin');
+        Route::resource('service-categories',ServiceCategoryController::class);
         Route::get('/provider', [AdminController::class,'ServiceProvider'])->name('ServiceProvider');
         Route::get('/userAccounts', [AdminController::class,'UserAccounts'])->name('UserAccounts');
+        Route::get('/get-Vendor-Details/{id}', [AdminController::class,'getVendorDetails'])->name('getVendorDetails');
+        Route::post('/updateVendor', [AdminController::class,'updateVendor'])->name('UpdateVendor');
         Route::get('/adminAccounts', [AdminController::class,'AdminAccounts'])->name('AdminAccounts');
         Route::get('/approvals', [AdminController::class,'Approvals'])->name('Approvals');
         Route::get('/venderdetails', [AdminController::class,'VenderDetails'])->name('VenderDetails');
@@ -40,6 +43,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => ['web','auth','role:vendor_user','approved_user']], function () {
         Route::get('/profile', [VendorController::class,'Profile'])->name('Profile');
         Route::get('/payments', [VendorController::class,'Payments'])->name('Payments');
+        Route::post('add-service',[VendorController::class,'addService'])->name('addService');
     });
     Route::group(['middleware' => ['web','auth','role:user']], function () {
         Route::get('/user', [UserController::class,'index'])->name('user');

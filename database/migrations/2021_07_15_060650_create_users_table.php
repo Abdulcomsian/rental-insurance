@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('last_login_at')->nullable();
             $table->string('password');
             $table->string('office_number')->nullable();
-            $table->enum('is_approved',['0','1'])->default(1);
+            $table->integer('is_approved')->default(1);
             $table->string('company_name')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('address')->nullable();

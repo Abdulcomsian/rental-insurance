@@ -5,43 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Models\ServiceCategory;
 class AdminController extends Controller
 {
     public function index()
     {
         try {
-            //Related to transactions
-            $transactions_today = 0;
-            $transactions_weekly = 0;
-            $transactions_monthly = 0;
-            $transactions_yearly = 0;
-
-            //Related to users
-            $users_today = 0;
-            $users_weekly = 0;
-            $users_monthly = 0;
-            $users_yearly = 0;
-
-            //Companies
-            $total_companies = 0;
-            $total_users = 0;
-            $total_packages = 0;
-            $total_transactions = 0;
-
+           $serviceCategories = ServiceCategory::all();
+       
             return view('admin.index', compact(
-                'transactions_today',
-                'transactions_weekly',
-                'transactions_monthly',
-                'transactions_yearly',
-                'users_today',
-                'users_weekly',
-                'users_monthly',
-                'users_yearly',
-                'total_companies',
-                'total_users',
-                'total_packages',
-                'total_transactions'
-
+                'serviceCategories'
             ));
         } catch (\Exception $exception) {
             toastr()->error('Something went wrong, try again');
@@ -51,7 +24,8 @@ class AdminController extends Controller
 
     public function ServiceProvider()
     {
-        return view("admin.serviceProvider");
+        $approvedVendors =User::role('vendor_user')->where('is_approved',1)->get();
+        return view("admin.serviceProvider",compact('approvedVendors'));
     }
     public function UserAccounts()
     {
@@ -63,7 +37,7 @@ class AdminController extends Controller
     }
     public function Approvals()
     {
-        $unapprovedVendors =User::role('vendor_user')->get();
+        $unapprovedVendors =User::role('vendor_user')->where('is_approved',0)->get();
         return view("admin.approvals",compact('unapprovedVendors'));
     }
     public function VenderDetails()
@@ -81,6 +55,25 @@ class AdminController extends Controller
     public function Dashboard()
     {
         return view("admin.dashboard");
+    }
+
+    public function getVendorDetails($id)
+    {
+        $vendorDetails = User::where('id',$id)->first();
+         return response()->json([
+            "status" => true, 
+            "vendorDetails" => $vendorDetails
+        ]);
+    
+    }
+    public function updateVendor(Request $request)
+    {
+        $updateVendor = User::where('id',$request->user_id)->first();
+        $updateVendor->is_approved  = 1;
+        if($updateVendor->save())
+        {
+            return redirect()->to('/approvals');
+        }
     }
 
 }

@@ -8,7 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Notification;
+use App\Notifications\RegisterNotification;
 class RegisterController extends Controller
 {
     /*
@@ -69,10 +70,13 @@ class RegisterController extends Controller
         {
             $role = 1;
             $userRole = 'user';
+            $userType = 'User';
+
         }
         else{
             $role = 0;
             $userRole = 'vendor_user';
+            $userType = 'Vendor';
         }
 
          $createUser = User::create([
@@ -84,6 +88,7 @@ class RegisterController extends Controller
             'is_approved' => $role,
         ]);
         $createUser->assignRole($userRole);
+        Notification::route('mail', 'admin@admin.com')->notify(new RegisterNotification($createUser,$userType));
         return $createUser;
     }
 }

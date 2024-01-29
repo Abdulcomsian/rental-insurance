@@ -30,13 +30,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @isset($approvedVendors)
+                    @foreach($approvedVendors as $index=>$approvedVendor)
                     <tr>
-                        <td>1</td>
-                        <td>Nauman</td>
+                        <td>{{$index+1}}</td>
+                        <td>{{$approvedVendor->name}}</td>
                         <td>Arshad </td>
                         <td>Male</td>
-                        <td>noman@gmail.com</td>
-                        <td>+923345417521</td>
+                        <td>{{$approvedVendor->email}}</td>
+                        <td>{{$approvedVendor->mobile_number}}</td>
                         <td>service provider</td>
                         <td>Active</td>
                         <td>
@@ -54,6 +56,9 @@
                             </div>
                         </td>
                     </tr>
+                    @endforeach
+                    @endisset
+                {{--
                     <tr>
                         <td>2</td>
                         <td>Nauman</td>
@@ -174,6 +179,7 @@
                             </div>
                         </td>
                     </tr>
+                     --}}
                 </tbody>
             </table>
         </div>

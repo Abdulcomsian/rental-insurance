@@ -30,31 +30,34 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Services</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form>
+                <form action  = "{{route('addService')}}" method = "post" enctype = "multipart/form-data">
+                    @csrf
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                            <input type="text" name  = "title" class="form-control" id="exampleFormControlInput1">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Description</label>
-                            <textarea type="text" rows="4" class="form-control" id="exampleFormControlInput1"></textarea>
+                            <textarea type="text"name  = "description" rows="4" class="form-control ckeditor" id="exampleFormControlInput1"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1">
+                            <input type="number" name = "price" class="form-control" id="exampleFormControlInput1">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Service</label>
-                            <select class="form-select">
-                                <option>services</option>
-                                <option>services</option>
-                                <option>services</option>
+                            <label for="exampleFormControlInput1"  class="form-label">Service</label>
+                            <select class="form-select" name = "service_category_id">
+                                @isset($serviceCategories)
+                                @foreach($serviceCategories as $index=>$serviceCategory)
+                                <option value = "{{$serviceCategory->id}}" {{$index == 0 ? 'selected' : ''}}>{{$serviceCategory->name}}</option>
+                                @endforeach
+                                @endisset
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Upload Picture</label>
-                            <input type="file" class="form-control" id="exampleFormControlInput1">
+                            <input type="file" class="form-control" name  = "upload_media" id="exampleFormControlInput1">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -85,6 +88,31 @@
             </form>
         </div>
         <div class="card-section">
+            @isset($services)
+            @foreach($services as  $index=>$service)
+            <div class="card col-sm-3 col-md-4 col-lg-3">
+                <div class="btn-group">
+                    <div class="menuButton">
+                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <a href="#" class = "dropdown-item Delete-Service-Category-Button" data-bs-toggle="modal" data-bs-target="#deleteModal" id = "{{$service->id}}">Edit</a>
+                            <button class="dropdown-item" type="button">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="{{asset('assets/images/test.png')}}" />
+                <div class="card-body">
+                    <h5 class="card-title">{{$service->title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{$service->price}}$</h6>
+                    <p class="card-text">{!! $service->description !!}</p>
+                </div>
+            </div>
+            @endforeach
+            @endisset
+        {{--
             <div class="card col-sm-3 col-md-4 col-lg-3">
                 <div class="btn-group">
                     <div class="menuButton">
@@ -245,27 +273,7 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
-            <div class="card col-sm-3 col-md-4 col-lg-3">
-                <div class="btn-group">
-                    <div class="menuButton">
-                        <button type="button" class="btn btn-light" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('assets/images/dotmenu.svg')}}" />
-                        </button>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <button class="dropdown-item" type="button">Edit</button>
-                            <button class="dropdown-item" type="button">Delete</button>
-                        </div>
-                    </div>
-                </div>
-                <img src="{{asset('assets/images/test.png')}}" />
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-
+                  --}}
         </div>
     </div>
     <!--end::Row-->
@@ -274,4 +282,32 @@
 </div>
 <!--end::Post-->
 </div>
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action = "" id = "delete-service-category-form" method = "post">
+             @csrf
+             @method('DELETE')
+            <div class="modal-body">
+                Are you sure to delete ? 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section('script')
+<script type="text/javascript">
+    $(document).ready(function() {
+       $('.ckeditor').ckeditor();
+    });
+</script>
+@endsection
 @endsection

@@ -3,45 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\{ServiceCategory, Service};
+use Auth;
 class VendorController extends Controller
 {
     public function index()
     {
         try {
             //Related to transactions
-            $transactions_today = 0;
-            $transactions_weekly = 0;
-            $transactions_monthly = 0;
-            $transactions_yearly = 0;
+          $serviceCategories = ServiceCategory::all();
+          $services = Service::where('user_id',Auth::id())->get();
 
-            //Related to users
-            $users_today = 0;
-            $users_weekly = 0;
-            $users_monthly = 0;
-            $users_yearly = 0;
-
-            //Companies
-            $total_companies = 0;
-            $total_users = 0;
-            $total_packages = 0;
-            $total_transactions = 0;
-
-            return view('vendor-user.index', compact(
-                'transactions_today',
-                'transactions_weekly',
-                'transactions_monthly',
-                'transactions_yearly',
-                'users_today',
-                'users_weekly',
-                'users_monthly',
-                'users_yearly',
-                'total_companies',
-                'total_users',
-                'total_packages',
-                'total_transactions'
-
-            ));
+            return view('vendor-user.index', compact('serviceCategories','services'));
         } catch (\Exception $exception) {
             toastr()->error('Something went wrong, try again');
             return back();
@@ -54,5 +27,27 @@ class VendorController extends Controller
     public function Payments()
     {
         return view("vendor-user.paymentTransaction");
+    }
+
+    public function addService(Request $request)
+    {
+        $upload_media = '';
+        if($request->file('upload_media'))
+        {
+            $serviceFilePath = serviceFilePath();
+            $upload_media = saveFile($serviceFilePath,$request->upload_media);
+        }
+        $addService = new Service;
+        $addService->title = $request->title;
+        $addService->description = $request->description;
+        $addService->price = $request->price;
+        $addService->upload_media = $upload_media;
+        $addService->service_category_id = $request->service_category_id;
+        $addService->user_id = Auth::id();
+        if($addService->save())
+        {
+            return redirect()->back()->with('status','Service Saved Successfully');
+        }
+
     }
 }

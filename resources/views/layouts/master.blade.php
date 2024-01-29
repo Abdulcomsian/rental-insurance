@@ -23,6 +23,7 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="{{asset('assets/media/logos/favicon.ico')}}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/venderIndex.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/userpay.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/vendor/profile.css')}}" />
@@ -103,6 +104,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{asset('assets/js/custom/apps/chat/chat.js')}}"></script>
     <script src="{{asset('assets/js/custom/modals/create-app.js')}}"></script>
     <script src="{{asset('assets/js/custom/modals/upgrade-plan.js')}}"></script>
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
     @toastr_js
     @toastr_render
