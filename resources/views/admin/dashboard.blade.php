@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="dashboard">
-            <div class="row">
-                <div class="col-md-3">
+            <div class="row justify-content-center">
+                <div class="mb-2  col-sm-5 col-lg-3">
                     <div class="card text-center">
                         <div class="mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="100" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -28,7 +28,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                <div class="mb-2  col-sm-5 col-lg-3">
                     <div class="card text-center">
                         <div class="mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="100" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                <div class="mb-2  col-sm-5 col-lg-3">
                     <div class="card text-center">
                         <div class="mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="100" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
@@ -53,7 +53,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-3">
+                <div class="mb-2  col-sm-5 col-lg-3">
                     <div class="card text-center">
                         <div class="mb-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="100" fill="currentColor" class="bi bi-person-check-fill" viewBox="0 0 16 16">
