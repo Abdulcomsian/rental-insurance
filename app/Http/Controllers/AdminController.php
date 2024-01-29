@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Auth;
 class AdminController extends Controller
 {
     public function index()
@@ -62,7 +63,8 @@ class AdminController extends Controller
     }
     public function Approvals()
     {
-        return view("admin.approvals");
+        $unapprovedVendors =User::role('vendor_user')->get();
+        return view("admin.approvals",compact('unapprovedVendors'));
     }
     public function VenderDetails()
     {

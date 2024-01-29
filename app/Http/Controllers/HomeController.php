@@ -37,7 +37,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'verified']);
+        // $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -47,7 +47,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return redirect()->route('login');
+         return view('auth.login');
     }
 
     // public function customerHistory(Request $request)

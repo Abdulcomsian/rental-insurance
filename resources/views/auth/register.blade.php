@@ -29,6 +29,24 @@
                 <!--begin::Input group--->
                 <div class="fv-row mb-8 fv-plugins-icon-container">
                     <!--begin::Name-->
+                    <select  placeholder="Name" name="role"   class="form-control bg-transparent form-control @error('role') is-invalid @enderror">
+                        <option value = "">Select</option>
+                        <option value = "user">User</option>
+                        <option value = "vendor">Vendor</option>
+                    </select>
+                    <!--end::Name-->
+
+                    @error('role')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+
+                    </div>
+                </div>
+                <div class="fv-row mb-8 fv-plugins-icon-container">
+                    <!--begin::Name-->
                     <input type="text" placeholder="Name" name="name" value="{{ old('name') }}" autocomplete="off" class="form-control bg-transparent form-control @error('name') is-invalid @enderror">
                     <!--end::Name-->
 
