@@ -96,7 +96,7 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Javascript-->
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
-    @jquery
+
     <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->
@@ -106,8 +106,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{asset('assets/js/custom/modals/upgrade-plan.js')}}"></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
-    @toastr_js
-    @toastr_render
+
     <!--end::Page Custom Javascript-->
     @yield('script')
     <!--end::Javascript-->

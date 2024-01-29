@@ -28,7 +28,7 @@ class VendorController extends Controller
     {
         return view("vendor-user.paymentTransaction");
     }
-
+  
     public function addService(Request $request)
     {
         $upload_media = '';
@@ -49,5 +49,8 @@ class VendorController extends Controller
             return redirect()->back()->with('status','Service Saved Successfully');
         }
 
+    public function Dashboard()
+    {
+        return view("vendor-user.dashboard");
     }
 }
