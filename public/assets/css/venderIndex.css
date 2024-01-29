@@ -10,6 +10,7 @@
 
 .services-section .filter-wraper .filter-section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
 }

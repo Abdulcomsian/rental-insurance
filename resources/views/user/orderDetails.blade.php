@@ -25,146 +25,147 @@
             <div class="tab-content" id="nav-tabContent">
 
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="table-responsive">
+                        <table class="table text-center ">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Provider Name</th>
+                                    <th>Services</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>nauman</td>
+                                    <td>International Sign Language</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
 
-                    <table class="table text-center ">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Provider Name</th>
-                                <th>Services</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>nauman</td>
-                                <td>International Sign Language</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>nauman</td>
+                                    <td>Live &amp; Closed Captioning</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>nauman</td>
-                                <td>Live &amp; Closed Captioning</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>nauman</td>
+                                    <td>Mobility guides</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>nauman</td>
-                                <td>Mobility guides</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>nauman</td>
+                                    <td>Personal assistants</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>nauman</td>
-                                <td>Personal assistants</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>nauman</td>
+                                    <td>Tactile sign language</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>nauman</td>
-                                <td>Tactile sign language</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
-
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>nauman</td>
-                                <td>Ugandan Sign language</td>
-                                <td>150$</td>
-                                <td>Approved</td>
-                                <td>10/01/24</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>nauman</td>
+                                    <td>Ugandan Sign language</td>
+                                    <td>150$</td>
+                                    <td>Approved</td>
+                                    <td>10/01/24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="table-responsive">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Provider Name</th>
+                                    <th>Services</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
 
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Provider Name</th>
-                                <th>Services</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>nauman</td>
+                                    <td>International Sign Language</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>nauman</td>
-                                <td>International Sign Language</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>nauman</td>
+                                    <td>Live &amp; Closed Captioning</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>nauman</td>
-                                <td>Live &amp; Closed Captioning</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>nauman</td>
+                                    <td>Mobility guides</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>nauman</td>
-                                <td>Mobility guides</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>nauman</td>
+                                    <td>Personal assistants</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>nauman</td>
-                                <td>Personal assistants</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>nauman</td>
+                                    <td>Tactile sign language</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
 
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>nauman</td>
-                                <td>Tactile sign language</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
-
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>nauman</td>
-                                <td>Ugandan Sign language</td>
-                                <td>150$</td>
-                                <td>held with plateform</td>
-                                <td>10/01/24</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>nauman</td>
+                                    <td>Ugandan Sign language</td>
+                                    <td>150$</td>
+                                    <td>held with plateform</td>
+                                    <td>10/01/24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
     </div>

@@ -19,7 +19,7 @@
         </div>
         <!--end::Container-->
     </div>
-    <div class="post d-flex flex-column-fluid p-4" id="kt_post">
+    <div class="row post d-flex flex-column-fluid p-4" id="kt_post">
         <div class="Left-side col-sm-6">
             <h1>Service details</h1>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -33,7 +33,7 @@
                 <li>Some quick example text to build on the card title and make up the bulk of the card's content.</li>
             </ul>
             <div class="d-flex justify-content-center">
-                <div class="card col-sm-8">
+                <div class="card col-12 col-sm-8">
                     <h5 class="transactionTitles text-center">
                         service Price
                     </h5>

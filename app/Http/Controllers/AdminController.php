@@ -76,4 +76,9 @@ class AdminController extends Controller
     {
         return view("admin.refundDispute");
     }
+    public function Dashboard()
+    {
+        return view("admin.dashboard");
+    }
+
 }

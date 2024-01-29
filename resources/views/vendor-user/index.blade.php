@@ -70,7 +70,7 @@
     <div class="services-section">
         <div class="card filter-wraper">
             <form>
-                <div class=" filter-section col-md-8">
+                <div class=" filter-section col-md-12">
                     <h3>Search By Services:</h3>
                     <div class="col-sm-4">
                         <select class="form-select" aria-label=" select example">
