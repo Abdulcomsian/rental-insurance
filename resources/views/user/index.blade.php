@@ -37,7 +37,7 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="services-section">
                         <div class="card filter-wraper">
-                            <div class=" filter-section col-md-8">
+                            <div class=" filter-section col-md-12">
                                 <h3>Search By Services:</h3>
                                 <div class="col-sm-4">
                                     <select class="form-select" aria-label=" select example">
@@ -53,189 +53,190 @@
                         <div class="card-section">
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
-                             
-                                    <div class="card-body">
+
+                                <div class="card-body">
                                     <a href="/details" style="color: black;">
                                         <h5 class="card-title">Product name</h5>
                                         <h6 class="card-subtitle mb-2 text-muted">500$</h6>
                                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     </a>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="card">
-                        <table class="table text-center">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Provider Name</th>
-                                    <th>Services</th>
-                                    <th>Price</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
+                        <div class="table-responsive">
+                            <table class="table text-center">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Provider Name</th>
+                                        <th>Services</th>
+                                        <th>Price</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>nauman</td>
-                                    <td>International Sign Language</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>nauman</td>
+                                        <td>International Sign Language</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>nauman</td>
-                                    <td>Live &amp; Closed Captioning</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>nauman</td>
+                                        <td>Live &amp; Closed Captioning</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>nauman</td>
-                                    <td>Mobility guides</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>nauman</td>
+                                        <td>Mobility guides</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>nauman</td>
-                                    <td>Personal assistants</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>nauman</td>
+                                        <td>Personal assistants</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>nauman</td>
-                                    <td>Tactile sign language</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>nauman</td>
+                                        <td>Tactile sign language</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
 
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>nauman</td>
-                                    <td>Ugandan Sign language</td>
-                                    <td>150$</td>
-                                    <td>10/01/24</td>
-                                    <td>
-                                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>nauman</td>
+                                        <td>Ugandan Sign language</td>
+                                        <td>150$</td>
+                                        <td>10/01/24</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#refund">Refund</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

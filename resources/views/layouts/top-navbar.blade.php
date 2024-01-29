@@ -19,11 +19,12 @@
         </div>
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
-        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+
+        <!-- <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="/" class="d-lg-none">
                 <img alt="Logo" src="{{asset('assets/media/logos/logo-3.svg')}}" class="h-30px" />
             </a>
-        </div>
+        </div> -->
         <!--end::Mobile logo-->
         <!--begin::Wrapper-->
         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">

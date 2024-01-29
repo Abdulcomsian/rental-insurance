@@ -37,9 +37,9 @@
     </div>
 
     <section class="card">
-        <div class="d-flex align-items-center gap-10 my-10">
+        <div class="d-flex align-items-center gap-10 my-10 flex-wrap">
             <h3>Search By Date:</h3>
-            <div class="d-flex align-items-center gap-10">
+            <div class="d-flex align-items-center gap-5 gap-sm-10 flex-wrap flex-sm-nowrap">
                 <input type="date" class="form-control ">
                 <h3>To</h3>
                 <input type="date" class="form-control">
@@ -47,86 +47,88 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <table class="table text-center">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Tansaction ID</th>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Role</th>
-                    <th>Date</th>
-                    <th>Status</th>
+        <div class="table-responsive">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tansaction ID</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Role</th>
+                        <th>Date</th>
+                        <th>Status</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>2541</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>Service Provider</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2541</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>Service Provider</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
 
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>5498</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>User</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
-
-
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>7845</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>Service Provider</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>5498</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>User</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
 
 
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>9624</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>User</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>7845</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>Service Provider</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
 
 
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>1144</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>Service Provider</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>9624</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>User</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
 
 
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>5544</td>
-                    <td>nouman</td>
-                    <td>150$</td>
-                    <th>User</th>
-                    <td>20/1/2024</td>
-                    <th>Successfull</th>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1144</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>Service Provider</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
 
-                </tr>
-            </tbody>
-        </table>
+
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>5544</td>
+                        <td>nouman</td>
+                        <td>150$</td>
+                        <th>User</th>
+                        <td>20/1/2024</td>
+                        <th>Successfull</th>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
 

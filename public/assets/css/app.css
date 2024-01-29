@@ -8,6 +8,7 @@
 .card {
     padding: 24px 50px;
 }
+
 .table {
     margin-bottom: 0;
 }
@@ -37,4 +38,16 @@
 .button--primary:hover {
     background-color: #6db579;
     color: black;
+}
+
+
+
+@media (max-width:510px) {
+    .card {
+        padding: 14px 15px;
+    }
+
+    .content {
+        padding: 20px 15px !important;
+    }
 }
