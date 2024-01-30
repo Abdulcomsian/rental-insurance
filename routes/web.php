@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController};
+use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController};
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +53,7 @@ Route::group(['middleware' => ['web']], function () {
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
+        Route::resource('services',ServiceController::class);
     });
 
 });

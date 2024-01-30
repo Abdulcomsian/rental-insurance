@@ -28,26 +28,4 @@ class VendorController extends Controller
     {
         return view("vendor-user.paymentTransaction");
     }
-
-    public function addService(Request $request)
-    {
-        $upload_media = '';
-        if($request->file('upload_media'))
-        {
-            $serviceFilePath = serviceFilePath();
-            $upload_media = saveFile($serviceFilePath,$request->upload_media);
-        }
-        $addService = new Service;
-        $addService->title = $request->title;
-        $addService->description = $request->description;
-        $addService->price = $request->price;
-        $addService->upload_media = $upload_media;
-        $addService->service_category_id = $request->service_category_id;
-        $addService->user_id = Auth::id();
-        if($addService->save())
-        {
-            return redirect()->back()->with('status','Service Saved Successfully');
-        }
-
-    }
 }
