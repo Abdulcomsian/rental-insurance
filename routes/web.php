@@ -44,12 +44,15 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/profile', [VendorController::class,'Profile'])->name('Profile');
         Route::get('/payments', [VendorController::class,'Payments'])->name('Payments');
         Route::post('add-service',[VendorController::class,'addService'])->name('addService');
+        Route::get('/dashboard', [VendorController::class,'Dashboard'])->name('Dashboard');
     });
     Route::group(['middleware' => ['web','auth','role:user']], function () {
         Route::get('/user', [UserController::class,'index'])->name('user');
         Route::get('/details', [UserController::class,'Details'])->name('Details');
         Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
         Route::get('/transactions', [UserController::class,'Transactions'])->name('Transactions');
+        Route::get('/dashboard', [UserController::class,'Dashboard'])->name('Dashboard');
+
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
