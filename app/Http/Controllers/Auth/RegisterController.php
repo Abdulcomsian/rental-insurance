@@ -51,7 +51,6 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'role' => 'required',
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -66,18 +65,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($data['role'] == 'user')
-        {
-            $role = 1;
-            $userRole = 'user';
-            $userType = 'User';
+        // if($data['role'] == 'user')
+        // {
+        //     $role = 1;
+        //     $userRole = 'user';
+        //     $userType = 'User';
 
-        }
-        else{
-            $role = 0;
-            $userRole = 'vendor_user';
-            $userType = 'Vendor';
-        }
+        // }
+        // else{
+        //     $role = 0;
+        //     $userRole = 'vendor_user';
+        //     $userType = 'Vendor';
+        // }
+
+             $role = 1;
+             $userRole = 'user';
+             $userType = 'User';
 
          $createUser = User::create([
             'name' => $data['name'],
@@ -87,7 +90,7 @@ class RegisterController extends Controller
             'is_approved' => $role,
         ]);
         $createUser->assignRole($userRole);
-        Notification::route('mail', 'admin@admin.com')->notify(new RegisterNotification($createUser,$userType));
+        Notification::route('mail', 'mudassar.saeed@accrualhub.com')->notify(new RegisterNotification($createUser,$userType));
         return $createUser;
     }
 }

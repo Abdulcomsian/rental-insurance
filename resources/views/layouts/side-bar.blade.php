@@ -60,7 +60,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Manage Services</span>
+                        <span class="menu-title">Manage Companies</span>
                     </a>
                     @endif
                     @if(Auth::user()->hasAnyRole(['user']))
@@ -75,7 +75,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Manage Services</span>
+                        <span class="menu-title">Manage Companies</span>
                     </a>
                     @endif
                     @if(Auth::user()->hasAnyRole(['admin']))
