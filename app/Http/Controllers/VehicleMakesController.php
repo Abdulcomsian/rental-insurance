@@ -37,4 +37,42 @@ class VehicleMakesController extends Controller
         }       
             
     }
+
+    public function editMake($id){
+
+        $make = vehiclemake::where('id', $id)->first();
+        return view('editmake', compact('make'));
+    }
+
+    public function updateVehicleMake(Request $request){
+
+        
+          // validation
+          $request->validate([
+            'makname'=>'required'
+            
+        ],[
+            'makname.required' => 'Make name is required',
+           
+        ]);
+    // error handling using try and catch
+    try {
+        
+            $id = $request->makeid;
+ 
+            $make=vehiclemake::find($id);
+            
+            $make->make_name = $request->makname;
+          
+            
+            if($make->update()){
+                return redirect('vehicle-makes')->with('success', 'Make name is added to the menu');
+            }else{
+                return redirect()->back()->with('error', 'Make name not inserted');
+            }
+        } catch (\Exception $e) {
+            return redirect()->url('vehicleMakes')->with('error', $e->getMessage());
+        }       
+
+    }
 }

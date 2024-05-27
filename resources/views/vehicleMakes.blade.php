@@ -63,8 +63,15 @@
                     <tr>
                         <td>{{$vehiclemake->id}}</td>
                         <td>{{$vehiclemake->make_name}}</td>
-                        <td>Eide</td>
-                        <td>Delete</td>
+                        <td>
+                            <a href="{{url('edit_make/'.$vehiclemake->id)}}" class="text-primary action-button">
+                                <i class="las la-edit"></i>
+                            </a>
+                            <a href="#"  class="text-danger action-button delete-button" data-id="{{$vehiclemake->id}}">
+                                <i class="las la-trash"></i>
+                            </a>
+                        </td>
+                      
                     </tr>
                     @endforeach
                 </tbody>

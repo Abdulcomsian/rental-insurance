@@ -23,20 +23,23 @@
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid p-4" id="kt_post">
         <section class="w-100">
+            
             <div class="card mb-6">
                 <nav>
+                    <a href="{{url('add-company')}}"><button  class="btn btn-primary vehicle-button ">Add Company</button></a>
+
                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Services</button>
-                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Booked Services</button>
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">All Companies</button>
+                        {{-- <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Booked Services</button> --}}
                     </div>
                 </nav>
             </div>
 
             <div class="tab-content" id="nav-tabContent">
-
+               
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="services-section">
-                        <div class="card filter-wraper">
+                        {{-- <div class="card filter-wraper">
                             <div class=" filter-section col-md-12">
                                 <h3>Search By Services:</h3>
                                 <div class="col-sm-4">
@@ -49,113 +52,28 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="card-section">
+                        @foreach ($componies as $compony)
                             <div class="card col-sm-3 col-md-4 col-lg-3">
                                 <img src="{{asset('assets/images/test.png')}}" />
 
                                 <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
+                                    {{-- <a href="/details" style="color: black;"> --}}
+                                        <h5 class="card-title">Name:{{$compony->name}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Email:{{$compony->email}}</h6>
+                                        <p class="card-text">ABN:{{$compony->abn_number}}</p>
+                                    {{-- </a> --}}
                                 </div>
                             </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card col-sm-3 col-md-4 col-lg-3">
-                                <img src="{{asset('assets/images/test.png')}}" />
-
-                                <div class="card-body">
-                                    <a href="/details" style="color: black;">
-                                        <h5 class="card-title">Product name</h5>
-                                        <h6 class="card-subtitle mb-2 text-muted">500$</h6>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="card">
                         <div class="table-responsive">
+                            
                             <table class="table text-center">
                                 <thead>
                                     <tr>

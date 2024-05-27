@@ -41,12 +41,18 @@ class CompanyController extends Controller
             $company->phone = $request->phone; 
             $company->password = $request->password; 
             if($company->save()){
-                return redirect()->back()->with('success', 'Company is added to the menu');
+                return redirect('user')->with('success', 'Company is added to the menu');
             }else{
                 return redirect()->back()->with('error', 'Company not inserted');
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }       
+    }
+
+    public function editCompany($id){
+
+        $company = Company::where('id', $id)->first();
+        return view('editcompany', compact('company'));
     }
 }

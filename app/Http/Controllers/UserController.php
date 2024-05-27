@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\{
     vehiclemake,
     vehiclemodel,
+    Company,
+    Vehicle,
+    
    
 };
 
@@ -32,7 +35,7 @@ class UserController extends Controller
             $total_users = 0;
             $total_packages = 0;
             $total_transactions = 0;
-
+            $componies = Company::get();
             return view('user.index', compact(
                 'transactions_today',
                 'transactions_weekly',
@@ -45,7 +48,8 @@ class UserController extends Controller
                 'total_companies',
                 'total_users',
                 'total_packages',
-                'total_transactions'
+                'total_transactions',
+                'componies'
 
             ));
         } catch (\Exception $exception) {
@@ -83,8 +87,14 @@ class UserController extends Controller
         
         $vehiclemodels = vehiclemodel::get();
         $vehiclemakes = vehiclemake::get();
-        $vehiclemakes = vehiclemake::get();
         return view('vehicleModels', compact('vehiclemodels','vehiclemakes'));
     }
 
+    public function allVehicles(){
+        $vehiclemakes = vehiclemake::get();
+        $vehiclemodels = vehiclemodel::get();
+        $vehicles=Vehicle::get();
+        return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels'));
+
+    }
 }

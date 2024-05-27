@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController, VehicleModelsController};
+use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController, VehicleModelsController, VehicleController};
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +60,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/vehicle-models', [UserController::class,'vehicleModels'])->name('vehicleModels');
         Route::post('/submit_make', [VehicleMakesController::class,'addMake']);
         Route::post('/submit_model', [VehicleModelsController::class,'addModel']);
+        Route::get('/vehicles', [UserController::class,'allVehicles'])->name('allVehicles');
+        Route::get('/getModels/{makeId}', [VehicleModelsController::class,'getModel'])->name('getModel');
+        Route::post('/submit_vehicle', [VehicleController::class,'addVehicle'])->name('addVehicle');
+        Route::get('/edit_make/{id}', [VehicleMakesController::class,'editMake']);
+        Route::post('/submit_editmake', [VehicleMakesController::class,'updateVehicleMake']);
         
         
     });

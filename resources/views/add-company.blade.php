@@ -88,7 +88,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="d-flex align-items-center justify-content-center">
-                                                <button type="submit" class="btn btn-primary" href="{{route('Payment')}}">Add Company</button>
+                                                <button type="submit" class="btn btn-primary" href="{{route('Payment')}}">Submit</button>
                                             </div>  
                                         </div>
                                     </div> 

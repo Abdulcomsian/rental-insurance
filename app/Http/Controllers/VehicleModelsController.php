@@ -42,4 +42,9 @@ class VehicleModelsController extends Controller
 
 
     }
+
+    public function getModel($id){
+        $model = vehiclemodel::where('make_id', $id)->get();
+        return response()->json(["data" => $model]);
+    }
 }
