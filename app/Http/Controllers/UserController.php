@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\{
+    vehiclemake,
+    vehiclemodel,
+   
+};
+
 class UserController extends Controller
 {
     public function index()
@@ -63,4 +69,22 @@ class UserController extends Controller
     {
         return view("user.dashboard");
     }
+    public function addCompany(){
+
+        return view("add-company");
+    }
+    public function vehicleMakes(){
+
+        $vehiclemakes = vehiclemake::get();
+        return view('vehicleMakes', compact('vehiclemakes'));
+    }
+    public function vehicleModels(){
+
+        
+        $vehiclemodels = vehiclemodel::get();
+        $vehiclemakes = vehiclemake::get();
+        $vehiclemakes = vehiclemake::get();
+        return view('vehicleModels', compact('vehiclemodels','vehiclemakes'));
+    }
+
 }

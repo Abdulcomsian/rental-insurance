@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('reg_number');
             $table->string('color');
             $table->foreign('make_id')->references('id')->on('vehiclemakes');
-            $table->foreign('model_id')->references('id')->on('vehiclemodelsgit');
+            $table->foreign('model_id')->references('id')->on('vehiclemodels');
             $table->timestamps();
         });
     }

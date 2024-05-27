@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+use App\Models\vehiclemake;
+
+use Illuminate\Http\Request;
+
+class VehicleMakesController extends Controller
+{
+    public function addMake(Request $request){
+
+          // validation
+          $request->validate([
+            'makname'=>'required'
+            
+        ],[
+            'makname.required' => 'Make name is required',
+           
+        ]);
+    // error handling using try and catch
+    try {
+        $user_id = Auth::user()->id;  /// to get current logged in user id
+        
+            $make=new vehiclemake;
+            $make->make_name = $request->makname;
+          
+            
+            if($make->save()){
+                return redirect()->back()->with('success', 'Make name is added to the menu');
+            }else{
+                return redirect()->back()->with('error', 'Make name not inserted');
+            }
+        } catch (\Exception $e) {
+            return redirect()->url('vehicleMakes')->with('error', $e->getMessage());
+        }       
+            
+    }
+}
