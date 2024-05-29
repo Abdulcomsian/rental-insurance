@@ -54,7 +54,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/payment', [UserController::class,'Payment'])->name('Payment');
         Route::get('/transactions', [UserController::class,'Transactions'])->name('Transactions');
         Route::get('/dashboard', [UserController::class,'Dashboard'])->name('Dashboard');
-        Route::get('/add-company', [UserController::class,'addCompany'])->name('addCompany');
+        Route::get('/manage-componies', [CompanyController::class,'allComponies'])->name('allComponies');
         Route::post('/submit_company', [CompanyController::class,'creatCompany']);
         Route::get('/vehicle-makes', [UserController::class,'vehicleMakes'])->name('vehicleMakes');
         Route::get('/vehicle-models', [UserController::class,'vehicleModels'])->name('vehicleModels');
@@ -65,6 +65,16 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/submit_vehicle', [VehicleController::class,'addVehicle'])->name('addVehicle');
         Route::get('/edit_make/{id}', [VehicleMakesController::class,'editMake']);
         Route::post('/submit_editmake', [VehicleMakesController::class,'updateVehicleMake']);
+        Route::post('/delete_make', [VehicleMakesController::class,'deleteVehicleMake']);
+        Route::get('/edit_model/{id}', [VehicleModelsController::class,'editModel']);
+        Route::post('/delete_model', [VehicleModelsController::class,'deleteModel']);
+        Route::post('/submit_edit_model', [VehicleModelsController::class,'updateVehicleModel']);
+        Route::post('/delete_company', [CompanyController::class,'deleteCompany']);
+        Route::get('/edit_company/{id}', [CompanyController::class,'editCompany']);
+        Route::post('/submit_eidt_company', [CompanyController::class,'updateCompany']);
+        Route::post('/delete_vehicle', [VehicleController::class,'deleteVehicle']);
+        Route::get('/edit_vehicle/{id}', [VehicleController::class,'editVehicle']);
+        Route::post('/submit_eidt_vehicle', [VehicleController::class,'updateVehicle']);
         
         
     });

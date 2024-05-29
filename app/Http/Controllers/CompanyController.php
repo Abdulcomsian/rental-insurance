@@ -9,6 +9,13 @@ use App\Models\Company;
 
 class CompanyController extends Controller
 {
+    
+    public function allComponies(){
+
+        $componies = Company::get();
+        return view('manage-componies', compact('componies'));
+    }
+    
     public function creatCompany(Request $request){
 
 
@@ -41,7 +48,7 @@ class CompanyController extends Controller
             $company->phone = $request->phone; 
             $company->password = $request->password; 
             if($company->save()){
-                return redirect('user')->with('success', 'Company is added to the menu');
+                return redirect('manage-componies')->with('success', 'Company is added to the menu');
             }else{
                 return redirect()->back()->with('error', 'Company not inserted');
             }
@@ -55,4 +62,68 @@ class CompanyController extends Controller
         $company = Company::where('id', $id)->first();
         return view('editcompany', compact('company'));
     }
+
+    public function deleteCompany(Request $request){
+
+
+        $id=$request->commpanyId;
+        try{
+           $result=Company::where('id',$id)->delete();
+           if($result){
+               return redirect()->back()->with('success', 'Company deleted successfully');
+           }
+           else{
+               return redirect()->back()->with('error', 'Company not deleted');           }
+
+           
+        }
+        catch (\Exception $e) {  
+
+           return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
+
+    public function updateCompany(Request $request){
+        //   dd($request->all());
+           // validation
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'abnNumber'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+            'password'=>'required'
+        ],[
+            'name.required' => 'Company name is required',
+            'email.required' => 'Email is required',
+            'abnNumber.required' => 'ABN number is required',
+            'phone.required' => 'Phone  is required',
+            'address.required' => 'Address is required',
+            'password.required' => 'password is required',
+        ]);
+    // error handling using try and catch
+    try {
+        
+            $id = $request->companyId;
+            $company=Company::find($id);
+            
+            $company->name = $request->name;
+            $company->email = $request->email;
+            $company->abn_number = $request->abnNumber;
+            $company->phone = $request->phone;
+            $company->Address = $request->address;
+            $company->password = $request->password;
+          
+            
+            if($company->update()){
+                return redirect('manage-componies')->with('success', 'Company name is updated');
+            }else{
+                return redirect()->back()->with('error', 'Company name not updated');
+            }
+        } catch (\Exception $e) {
+           // dd($e->getMessage());
+             return redirect()->url('manage-componies')->with('error', $e->getMessage());
+        }       
+    }
+    
 }

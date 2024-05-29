@@ -11,31 +11,66 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="addNewServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+    <div class="modal fade col-md-12" id="AddmodelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered col-md-12">
+            <form method="POST" action="{{url('submit_model')}}" enctype="multipart/form-data" class="addForm">
+                @csrf
+            <div class="modal-content col-md-12">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Withdraw</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add  Vehicle Model</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="d-flex align-items-center">
-                        <h2>Balance:&nbsp;</h2>
-                        <h2 style="color: #2f953f;">500$</h2>
+                    <div class="col-md-12 mb-3">
+                        <label>Select Make:</label><br>
+                                <select name="make" id="make" style="width: 160px;">
+                                    @foreach ($vehiclemakes as $make )
+                                    <option value="{{$make->id}}">{{$make->make_name}}</option>
+                                    @endforeach
+                                 
+                                </select>
+                                @error('makname')
+                                <span class="text-danger">{{$message}}</span>
+                                 @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Amount</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1">
+                    <div class="col-md-12 mb-3">
+                        <label>Add Model:</label><br>
+                                <input type="text" class="form-control" name="modelname" required placeholder="Enter Model Name" data-type="add">
+                                @error('modelname')
+                                <span class="text-danger">{{$message}}</span>
+                                 @enderror
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer col-md-12">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit </button>
+                    <button type="submit" class="btn btn-primary">Submit </button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
-
+{{-- for deletion --}}
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-data">
+            <form action="{{url('/delete_model')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <img src="assets/images/warning.svg" alt="">
+                <input type="hidden" name="modelId" id="modelId" class="modelId">
+                <h3>Delete <b>Vehicle Model</b></h3> 
+                <p>You're going to delete the <b>"Vehicle Model"</b></p>
+                <div class="modal-action">
+                    <button type="button" class="btn btn-action-cancel" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-action-approve">Yes</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <section class="card">
        <div class="d-flex align-items-center gap-10 my-10 flex-wrap">
            {{--   <h3>Search By Date:</h3>
@@ -69,8 +104,13 @@
                         <td>1</td>
                         <td>{{$makeName}}</td>
                          <td>{{$model->model_name}}</td>
-                        <td><button>Edit</button>
-                            <button>Delete</button></td>
+                        <td>
+                            <a href="{{url('edit_model/'.$model->id)}}" class="text-primary action-button">
+                            <i class="las la-edit"></i>
+                            </a>
+                            <a href="#"  class="text-danger action-button delete-button" data-id="{{$model->id}}">
+                                <i class="las la-trash"></i>
+                            </a>
                     </tr> 
                     @endforeach
                 </tbody>
@@ -78,7 +118,7 @@
         </div>
     </section>
 </div>
-<div class="modal fade" id="AddmodelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="AddmodelModalold" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
@@ -118,24 +158,14 @@
                         </div>
                     </div> 
                 </form>
-            {{-- <form action="{{url('/delete_order')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <img src="assets/images/warning.svg" alt="">
-                <input type="hidden" name="orderId" id="orderId" class="itemId">
-                <h3>Delete <b>Product Name</b></h3> 
-                <p>You're going to delete the <b>"Restaurant Order"</b></p>
-                <div class="modal-action">
-                    <button type="button" class="btn btn-action-cancel" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-action-approve">Yes</button>
-                </div>
-            </form> --}}
+            
           </div>
         </div>
       </div>
     </div>
     <script>
-        let deleteButton = document.querySelectorAll('.model-button');
-        deleteButton.forEach(el => {
+        let addButton = document.querySelectorAll('.model-button');
+        addButton.forEach(el => {
             el.addEventListener('click', function(){
                 // let itemId = this.getAttribute('data-id');
                 // document.getElementById('ItemId').value = itemId;
@@ -144,5 +174,17 @@
                 modal.show();
             })
         })
+
+         //for deletion
+         let deleteButton = document.querySelectorAll('.delete-button');
+    deleteButton.forEach(el => {
+        el.addEventListener('click', function(){
+            let modelId = this.getAttribute('data-id');
+            document.getElementById('modelId').value = modelId;
+            // showing the Modal
+            var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            modal.show();
+        })
+    })
     </script>
 @endsection

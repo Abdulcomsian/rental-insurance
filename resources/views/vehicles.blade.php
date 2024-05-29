@@ -13,7 +13,7 @@
     </div>
     <div class="modal fade" id="addvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form action="{{url('submit_vehicle')}}" name="frm" method="POST">
+            <form  action="{{url('submit_vehicle')}}" name="frm" method="POST">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -72,7 +72,30 @@
             </form>
         </div>
     </div>
+ {{-- for deletion --}}
+ <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="modal-data">
+            <form action="{{url('/delete_vehicle')}}" name="frm2" method="POST" enctype="multipart/form-data">
+                @csrf
+                <img src="assets/images/warning.svg" alt="">
+                <input type="hidden" name="vehicleId" id="vehicleId" class="vehicleId">
+                <h3>Delete <b>Vehicle</b></h3> 
+                <p>You're going to delete the <b>"Vehicle"</b></p>
+                <div class="modal-action">
+                    <button type="button" class="btn btn-action-cancel" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-action-approve">Yes</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  
     <section class="card">
        <div class="d-flex align-items-center gap-10 my-10 flex-wrap">
            
@@ -108,8 +131,14 @@
                         <td>{{$modelName}}</td>
                         <td>{{$vehicle->reg_number}}</td>
                         <td>{{$vehicle->color}}</td> 
-                        <td><button>Edit</button>
-                            <button>Delete</button></td>
+                        <td>
+                            <a href="{{url('edit_vehicle/'.$vehicle->id)}}" class="text-primary action-button">
+                                <i class="las la-edit"></i>
+                            </a>
+                            <a href="#"  class="text-danger action-button delete-button" data-id="{{$vehicle->id}}">
+                                <i class="las la-trash"></i>
+                            </a>
+                        </td>
                     </tr> 
                     @endforeach
                 </tbody>
@@ -121,8 +150,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </script>
     <script>
-        let deleteButton = document.querySelectorAll('.vehicle-button');
-        deleteButton.forEach(el => {
+        // to vehicle modal
+        let addButton = document.querySelectorAll('.vehicle-button');
+        addButton.forEach(el => {
             el.addEventListener('click', function(){
                 // let itemId = this.getAttribute('data-id');
                 // document.getElementById('ItemId').value = itemId;
@@ -131,6 +161,17 @@
                 modal.show();
             })
         })
+        ////// to delete vehicle modal
+        let deleteButton = document.querySelectorAll('.delete-button');
+         deleteButton.forEach(el => {
+        el.addEventListener('click', function(){
+            let vehicleId = this.getAttribute('data-id');
+            document.getElementById('vehicleId').value = vehicleId;
+            // showing the Modal
+            var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            modal.show();
+        })
+    })
 
         document.addEventListener("DOMContentLoaded", function() {
         var makeSelect = document.getElementById("make");

@@ -64,7 +64,7 @@
                     </a>
                     @endif
                     @if(Auth::user()->hasAnyRole(['user']))
-                    <a class="menu-link {{Request::is('/user') ? 'active' : ''}}" href="/user">
+                    {{-- <a class="menu-link {{Request::is('/user') ? 'active' : ''}}" href="/user">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -76,8 +76,8 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span class="menu-title">Manage Companies</span>
-                    </a>
-                    <a class="menu-link" href=" {{url('add-company')}}">
+                    </a> --}}
+                    <a class="menu-link" href=" {{url('manage-componies')}}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -88,7 +88,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Add New Company</span>
+                        <span class="menu-title">Manage Companies</span>
                     </a>
                     <a class="menu-link" href=" {{url('vehicle-makes')}}">
                         <span class="menu-icon">
@@ -242,7 +242,7 @@
                     @if(Auth::user()->hasAnyRole(['user']))
 
                     <!--   user -->
-                    <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/transactions">
+                    {{-- <a class="menu-link {{Request::is('/transactions') ? 'active' : ''}}" href="/transactions">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotone/Design/PenAndRuller.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -253,7 +253,7 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span class="menu-title">Transactions</span>
-                    </a>
+                    </a> --}}
                     @endif
 
                 </div>

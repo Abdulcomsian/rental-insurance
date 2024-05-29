@@ -75,4 +75,25 @@ class VehicleMakesController extends Controller
         }       
 
     }
+
+    public function deleteVehicleMake(Request $request){
+
+        $id=$request->makeId;
+        try{
+           $result=vehiclemake::where('id',$id)->delete();
+           if($result){
+               return redirect()->back()->with('success', 'Vehicle make deleted successfully');
+           }
+           else{
+               return redirect()->back()->with('error', 'Vehicle make not deleted');
+           }
+
+           
+        }
+        catch (\Exception $e) {  
+
+           return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
 }
