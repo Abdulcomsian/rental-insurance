@@ -28,7 +28,7 @@ class CompanyController extends Controller
             'phone' => 'required',
             'password' => 'required'
         ],[
-            'name.required' => 'Compan name is required',
+            'name.required' => 'Company name is required',
             'email.required' => 'Email is required',
             'abnNumber.required' => 'ABN Number is required',
             'address.required' => 'Address is required',

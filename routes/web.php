@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController, VehicleModelsController, VehicleController};
+use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController,
+     VehicleModelsController, VehicleController, InsuranceCompanyController, SubInsuranceCompanyController, AssignVehicleController};
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,22 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/delete_vehicle', [VehicleController::class,'deleteVehicle']);
         Route::get('/edit_vehicle/{id}', [VehicleController::class,'editVehicle']);
         Route::post('/submit_eidt_vehicle', [VehicleController::class,'updateVehicle']);
-        
+
+        //// insurance conpanies
+        Route::get('/manage-insurance-componies', [InsuranceCompanyController::class,'insuranceCompanies']);
+        Route::post('/submit_insurance_company', [InsuranceCompanyController::class,'addInsuranceCompany']);
+        Route::post('/delete_Inscompany', [InsuranceCompanyController::class,'deleteInsuranceCompany']);
+        Route::get('/edit_insurance_company/{id}', [InsuranceCompanyController::class,'editInsuranceCompany']);
+        Route::post('/submit_edit_insurance_company', [InsuranceCompanyController::class,'updateInsuranceCompany']);
+        //////////// sub insurance companies
+        Route::get('/sub-insurance-componies', [SubInsuranceCompanyController::class,'subinsuranceCompanies']);
+        Route::post('/submit_subinsurance_company', [SubInsuranceCompanyController::class,'addSubInsuranceCompany']);
+        Route::post('/delete_SubInscompany', [SubInsuranceCompanyController::class,'deleteSubInsuranceCompany']);
+        Route::get('/edit_subinsurance_company/{id}', [SubInsuranceCompanyController::class,'editSubInsuranceCompany']);
+        Route::post('/submit_edit_subinsurance_company', [SubInsuranceCompanyController::class,'updateSubnsuranceCompany']);
+        /////////// assign vehicle to insurance companies
+        Route::get('assign-vehicle', [AssignVehicleController::class,'assignComapny']);
+
         
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {

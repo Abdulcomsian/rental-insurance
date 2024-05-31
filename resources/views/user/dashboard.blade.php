@@ -24,7 +24,7 @@
                             </svg>
                         </div>
                         <h4>23</h4>
-                        <h3>ACTIVE SERVICES</h3>
+                        <h3>RENTAL COMPANIES</h3>
                     </div>
 
                 </div>
@@ -37,7 +37,7 @@
                             </svg>
                         </div>
                         <h4>23</h4>
-                        <h3>COMPLETE SERVICES</h3>
+                        <h3>iNSURANCE COMPANIES</h3>
                     </div>
 
                 </div>
