@@ -32,7 +32,7 @@
                                 <input type="hidden" name="vehicleId" value="{{$vehicles->id}}">
                                 <div class="row">
                                     <div class="mb-3 col-lg-6">
-                                        <label for="exampleFormControlInput1" class="form-label">Make</label>
+                                        <label for="exampleFormControlInput1" class="form-label">Make</label><br>
                                         <select name="make" id="make" style="width: 160px;">
                                             <option value="" selected>Select Make</option>
                                             @foreach ($vehiclemakes as $make )
@@ -43,7 +43,7 @@
                                         </select>
                                     </div>
                                     <div class="mb-3 col-lg-6">
-                                        <label for="exampleFormControlInput1" class="form-label">Model</label>
+                                        <label for="exampleFormControlInput1" class="form-label">Model</label><br>
                                         <select name="model" id="model" style="width: 160px;">
                                             <option value="" selected>Select Model</option>                                            
                                             @foreach ($models as $model )
@@ -57,16 +57,29 @@
                 
                                     <div class="row">
                                         <div class="mb-3 col-lg-6">
+                                            <label for="exampleFormControlInput1" class="form-label">Rental Company</label><br>
+                                            <select name="rental_company" id="rental_company" style="width: 160px;">
+                                                <option value="" selected>Select Rental Company</option>
+                                                @foreach ($rentalcompanies as $rentalcompany )
+                                                    <option value="{{$rentalcompany->id}}" @php
+                                                        if($rentalcompany->id==$vehicles->rental_company_id) {echo "selected";}
+                                                    @endphp>{{$rentalcompany->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label">Name</label>
                                             <input type="text" name="name" value="{{$vehicles->name}}" class="form-control" id="exampleFormControlInput1">
                                         </div>
+                                       
+                                    </div>
+                
+                                    <div class="row">
+
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label">Reg No</label>
                                             <input type="text" name="reg_no" value="{{$vehicles->reg_number}}" class="form-control" id="exampleFormControlInput1">
                                         </div>
-                                    </div>
-                
-                                    <div class="row">
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label">Color</label>
                                             <input type="text" name="color" value="{{$vehicles->color}}" class="form-control" id="exampleFormControlInput1">

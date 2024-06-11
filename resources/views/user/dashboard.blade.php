@@ -23,7 +23,7 @@
                                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
                             </svg>
                         </div>
-                        <h4>23</h4>
+                        <h4>{{ count($rentalcompanies);}}</h4>
                         <h3>RENTAL COMPANIES</h3>
                     </div>
 
@@ -36,8 +36,8 @@
                                 <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
                             </svg>
                         </div>
-                        <h4>23</h4>
-                        <h3>iNSURANCE COMPANIES</h3>
+                        <h4>{{ count($insurancecompanies);}}</h4>
+                        <h3><Inp></Inp>NSURANCE COMPANIES</h3>
                     </div>
 
                 </div>
@@ -50,8 +50,8 @@
                                 <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5" />
                             </svg>
                         </div>
-                        <h4>23</h4>
-                        <h3>PENDING SERVICES</h3>
+                        <h4>{{ count($vehicles);}}</h4>
+                        <h3>VEHICLES</h3>
                     </div>
 
                 </div>
@@ -63,8 +63,8 @@
                                 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
                             </svg>
                         </div>
-                        <h4>23</h4>
-                        <h3>BOOKED SERVICES</h3>
+                        <h4>{{count($assignVehicles);}}</h4>
+                        <h3>ASSIGNED VEHICLES</h3>
                     </div>
 
                 </div>
@@ -73,76 +73,30 @@
                 <div class="col-md-6 ">
                     <div class="card">
                         <div class="Request-Title">
-                            <h3>ACTIVE SERVICES</h3>
+                            <h3>Rental Companies</h3>
                         </div>
                         <div>
                             <div class="table-responsive">
                                 <table class="table table-admin-services ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Name</th>
-                                            <th>Service</th>
-                                            <th>Price</th>
+                                            <th>Email</th>
+                                            <th>ABN</th>
                                             <th>Phone</th>
-                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ( $rentalcompanies as $rentalcompany )
+                                       
                                         <tr>
-                                            <td>1</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
+                                            <td>{{$rentalcompany->name}}</td>
+                                            <td>{{$rentalcompany->email}} </td>
+                                            <td>{{$rentalcompany->abn_number}}</td>
+                                            <td>{{$rentalcompany->phone}}</td>
 
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -152,75 +106,29 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="Transaction-Title">
-                            <h3>COMPLETE SERVICES</h3>
+                            <h3>Insurance Companies</h3>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-admin-services ">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Name</th>
-                                        <th>Service</th>
-                                        <th>Price</th>
+                                        <th>Email</th>
+                                        <th>RegNo</th>
                                         <th>Phone</th>
-                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ( $insurancecompanies as $insurancecompany )
                                     <tr>
-                                        <td>1</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
+                                        <td>{{$insurancecompany->name}}</td>
+                                        <td>{{$insurancecompany->email}} </td>
+                                        <td>{{$insurancecompany->reg_number}}</td>
+                                        <td>{{$insurancecompany->phone}}</td>
 
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
+                                    @endforeach
+                                  
                                 </tbody>
                             </table>
                         </div>
@@ -231,76 +139,34 @@
                 <div class="col-md-6 ">
                     <div class="card">
                         <div class="Request-Title">
-                            <h3>PENDING SERVICES</h3>
+                            <h3>All Vehicles</h3>
                         </div>
                         <div>
                             <div class="table-responsive">
                                 <table class="table table-admin-services ">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Name</th>
-                                            <th>Service</th>
-                                            <th>Price</th>
-                                            <th>Phone</th>
-                                            <th>Status</th>
+                                            <th>Make</th>
+                                            <th>Model</th>
+                                            <th>Rental Company</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ( $vehicles as $vehicle )
+                                        @php
+                                        $makeName = App\Models\vehiclemake::where('id', $vehicle->make_id)->value('make_name');
+                                        $modelName = App\Models\vehiclemodel::where('id', $vehicle->model_id)->value('model_name');
+                                        $companyName = App\Models\Company::where('id', $vehicle->rental_company_id)->value('name');
+                                        @endphp
                                         <tr>
-                                            <td>1</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
+                                            <td>{{$vehicle->name}}</td>
+                                            <td>{{$makeName}} </td>
+                                            <td>{{$modelName}}</td>
+                                            <td>{{$companyName}}</td>
 
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Active</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Nauman</td>
-                                            <td>Arshad </td>
-                                            <td>150$</td>
-                                            <td>+923345417521</td>
-                                            <td>Pending</td>
-
-                                        </tr>
+                                      @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -310,75 +176,29 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="Transaction-Title">
-                            <h3>BOOKED SERVICES</h3>
+                            <h3>Assigned Vehicles</h3>
                         </div>
                         <div class="table-responsive">
                             <table class="table table-admin-services ">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Service</th>
-                                        <th>Price</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
+                                        <th>Rental Company	</th>
+                                        <th>Vehicle</th>
+                                        <th>Insurance Company</th>
+                                        <th>Sub Insurance Company</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($assignVehicles as $assignVehicle)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
+                                        <td>{{$assignVehicle->rentalCompany->name}}</td>
+                                        <td>{{$assignVehicle->vehicle->name}}</td>
+                                        <td>{{$assignVehicle->insuranceCompany->name}} </td>
+                                        <td>{{$assignVehicle->subInsuranceCompany->name ?? ''}}</td>
+                                       
 
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Active</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Nauman</td>
-                                        <td>Arshad </td>
-                                        <td>150$</td>
-                                        <td>+923345417521</td>
-                                        <td>Pending</td>
-
-                                    </tr>
+                                  @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -91,7 +91,12 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/submit_edit_subinsurance_company', [SubInsuranceCompanyController::class,'updateSubnsuranceCompany']);
         /////////// assign vehicle to insurance companies
         Route::get('assign-vehicle', [AssignVehicleController::class,'assignComapny']);
-
+        Route::get('/getVehicles/{companyId}', [AssignVehicleController::class,'getVehicle'])->name('getVehicle');
+        Route::get('/getsubcompany/{companyId}', [AssignVehicleController::class,'getSubCompany'])->name('getSubCompany');
+        Route::post('/submit_assign_vehicle', [AssignVehicleController::class,'assignVehicle'])->name('assignVehicle');
+        Route::get('/edit_assignvehicle/{id}', [AssignVehicleController::class,'editAssignVehicle']);
+        Route::post('/submit_edit_assignvehicle', [AssignVehicleController::class,'updateAssignVehicle']);
+        Route::post('/delete_assignVehicle',[AssignVehicleController::class,'deleteAssignVehicle']);
         
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {

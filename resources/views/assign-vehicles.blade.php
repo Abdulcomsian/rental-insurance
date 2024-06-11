@@ -11,13 +11,13 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="addvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="assignvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit_vehicle')}}" name="frm" method="POST">
+            <form  action="{{url('submit_assign_vehicle')}}" name="frm" method="POST">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Vehicle</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Assign Vehicle</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Vehicles</label>
-                        <select name="model" id="model" style="width: 160px;">
+                        <select name="vehicles" id="vehicles" style="width: 160px;">
                             <option value="" selected>Select Vehicle</option>
                             @foreach ($vehicles   as $vehicle)
                                 <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Inusurance Company</label>
-                            <select name="model" id="model" style="width: 160px;">
+                            <select name="insurance_main_company" id="insurance_main_company" style="width: 160px;">
                                 <option value="" selected>Inusurance Company</option>
                                 @foreach ($insmaincompanies   as $insmaincompany)
                                     <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
-                            <select name="model" id="model" style="width: 160px;">
+                            <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
                                 <option value="" selected>Sub Inusurance Company</option>
                                 @foreach ($inssubcompanies   as $inssubcompany)
                                     <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
@@ -69,14 +69,14 @@
                         </div>
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Start Date</label>
-                            <input type="date" name="amonut" class="form-control" id="amonut">
+                            <input type="date" name="startdate" class="form-control" id="amonut">
                         </div>
                     </div>
                     <div class="row">
              
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">End Date</label>
-                            <input type="date" name="amonut" class="form-control" id="amonut">
+                            <input type="date" name="enddate" class="form-control" id="amonut">
                         </div>
                     </div>
 
@@ -97,10 +97,10 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="modal-data">
-            <form action="{{url('/delete_vehicle')}}" name="frm2" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/delete_assignVehicle')}}" name="frm2" method="POST" enctype="multipart/form-data">
                 @csrf
                 <img src="assets/images/warning.svg" alt="">
-                <input type="hidden" name="vehicleId" id="vehicleId" class="vehicleId">
+                <input type="hidden" name="assignVehicleId" id="assignVehicleId" class="assignVehicleId">
                 <h3>Delete <b>Vehicle</b></h3> 
                 <p>You're going to delete the <b>"Vehicle"</b></p>
                 <div class="modal-action">
@@ -137,31 +137,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                   @foreach ($vehicles as $vehicle)
-                   @php
-                   // dd($item->order_id);
-                       $makeName = App\Models\vehiclemake::where('id', $vehicle->make_id)->value('make_name');
-                       $modelName = App\Models\vehiclemodel::where('id', $vehicle->model_id)->value('model_name');
-                       // this is jugaad 
-                   @endphp
+                    @php
+                        $i=1;
+                    @endphp
+                   @foreach ($assignVehicles as $assignVehicle)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td> 
-                        <td></td> 
-                        <td></td> 
+                        <td>{{$i}}</td>
+                        <td>{{$assignVehicle->rentalCompany->name}}</td>
+                        <td>{{$assignVehicle->vehicle->name}}</td>
+                        <td>{{$assignVehicle->insuranceCompany->name}}</td>
+                        <td>{{$assignVehicle->subInsuranceCompany->name ?? ''}}</td>
+                        <td>{{$assignVehicle->amount}}</td> 
+                        <td>{{$assignVehicle->start_date}}</td> 
+                        <td>{{$assignVehicle->end_date}}</td> 
                         <td>
-                            <a href="{{url('edit_vehicle/'.$vehicle->id)}}" class="text-primary action-button">
+                            <a href="{{url('edit_assignvehicle/'.$assignVehicle->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>
                             </a>
-                            <a href="#"  class="text-danger action-button delete-button" data-id="{{$vehicle->id}}">
+                            <a href="#"  class="text-danger action-button delete-button" data-id="{{$assignVehicle->id}}">
                                 <i class="las la-trash"></i>
                             </a>
                         </td>
                     </tr> 
+                    @php
+                        $i++;
+                    @endphp
                     @endforeach
                 </tbody>
             </table>
@@ -179,7 +179,7 @@
                 // let itemId = this.getAttribute('data-id');
                 // document.getElementById('ItemId').value = itemId;
                 // showing the Modal
-                var modal = new bootstrap.Modal(document.getElementById('addvehicleModal'));
+                var modal = new bootstrap.Modal(document.getElementById('assignvehicleModal'));
                 modal.show();
             })
         })
@@ -187,8 +187,8 @@
         let deleteButton = document.querySelectorAll('.delete-button');
          deleteButton.forEach(el => {
         el.addEventListener('click', function(){
-            let vehicleId = this.getAttribute('data-id');
-            document.getElementById('vehicleId').value = vehicleId;
+            let assignVehicleId = this.getAttribute('data-id');
+            document.getElementById('assignVehicleId').value = assignVehicleId;
             // showing the Modal
             var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
             modal.show();
@@ -196,28 +196,53 @@
     })
 
         document.addEventListener("DOMContentLoaded", function() {
-        var makeSelect = document.getElementById("make");
-        var modelSelect = document.getElementById("model");
+        var makeSelect = document.getElementById("rental_company");
+        var modelSelect = document.getElementById("vehicles");
 
         makeSelect.addEventListener("change", function() {
-            var makeId = this.value;
-            if (makeId) {
-                fetch("/getModels/" + makeId)
+            var companyId = this.value;
+            if (companyId) {
+                fetch("/getVehicles/" + companyId)
                     .then(response => response.json())
                     .then(data => {
-                        modelSelect.innerHTML = '<option value="" selected>Select Model</option>';
+                        modelSelect.innerHTML = '<option value="" selected>Select Vehicle</option>';
                         data.data.forEach(function(key) {
                             var option = document.createElement("option");
                             option.value = key.id;
-                            option.text = key.model_name;
+                            option.text = key.name;
                             modelSelect.appendChild(option);
                         });
                     })
                     .catch(error => console.error('Error:', error));
             } else {
-                modelSelect.innerHTML = '<option value="" selected>Select Model</option>';
+                modelSelect.innerHTML = '<option value="" selected>Select Vehicle</option>';
             }
         });
+
+
+        var inscompanySelect = document.getElementById("insurance_main_company");
+        var inssubcompanySelect = document.getElementById("insurance_sub_company");
+
+        inscompanySelect.addEventListener("change", function() {
+            var insCompanyId = this.value;
+            if (insCompanyId) {
+                fetch("/getsubcompany/" + insCompanyId)
+                    .then(response => response.json())
+                    .then(data => {
+                        inssubcompanySelect.innerHTML = '<option value="" selected>Sub Inusurance Company</option>';
+                        data.data.forEach(function(key) {
+                            var option = document.createElement("option");
+                            option.value = key.id;
+                            option.text = key.name;
+                            inssubcompanySelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                inssubcompanySelect.innerHTML = '<option value="" selected>Sub Inusurance Company</option>';
+            }
+        });
+
     });
     </script>
 @endsection

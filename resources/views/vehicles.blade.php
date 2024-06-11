@@ -22,35 +22,45 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                    <div class="mb-3 col-lg-6">
-                        <label for="exampleFormControlInput1" class="form-label">Make</label>
-                        <select name="make" id="make" style="width: 160px;">
-                            <option value="" selected>Select Make</option>
-                            @foreach ($vehiclemakes as $make )
-                                <option value="{{$make->id}}">{{$make->make_name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3 col-lg-6">
-                        <label for="exampleFormControlInput1" class="form-label">Model</label>
-                        <select name="model" id="model" style="width: 160px;">
-                            <option value="" selected>Select Model</option>
-                        </select>
-                    </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Make</label>
+                            <select name="make" id="make" style="width: 160px;">
+                                <option value="" selected>Select Make</option>
+                                @foreach ($vehiclemakes as $make )
+                                    <option value="{{$make->id}}">{{$make->make_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Model</label>
+                            <select name="model" id="model" style="width: 160px;">
+                                <option value="" selected>Select Model</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="row">
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Rental Company</label>
+                            <select name="rental_company" id="rental_company" style="width: 160px;">
+                                <option value="" selected>Select Rental Company</option>
+                                @foreach ($rentalcompanies as $rentalcompany )
+                                    <option value="{{$rentalcompany->id}}">{{$rentalcompany->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="exampleFormControlInput1">
                         </div>
+                       
+                    </div>
+
+                    <div class="row">
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Reg No</label>
                             <input type="text" name="reg_no" class="form-control" id="exampleFormControlInput1">
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Color</label>
                             <input type="text" name="color" class="form-control" id="exampleFormControlInput1">
@@ -106,6 +116,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Rental Company</th>
                         <th>Name</th>
                         <th>Make</th>
                         <th>Model</th>
@@ -122,10 +133,12 @@
                    // dd($item->order_id);
                        $makeName = App\Models\vehiclemake::where('id', $vehicle->make_id)->value('make_name');
                        $modelName = App\Models\vehiclemodel::where('id', $vehicle->model_id)->value('model_name');
+                       $companyName = App\Models\Company::where('id', $vehicle->rental_company_id)->value('name');
                        // this is jugaad 
                    @endphp
                     <tr>
                         <td>1</td>
+                        <td>{{$companyName}}</td>
                         <td>{{$vehicle->name}}</td>
                         <td>{{$makeName}}</td>
                         <td>{{$modelName}}</td>

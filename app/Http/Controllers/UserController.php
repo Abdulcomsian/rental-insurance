@@ -9,6 +9,8 @@ use App\Models\{
     vehiclemodel,
     Company,
     Vehicle,
+    InsuranceCompany,
+    AssignVehicle,
     
    
 };
@@ -71,7 +73,15 @@ class UserController extends Controller
     }
     public function Dashboard()
     {
-        return view("user.dashboard");
+        $rentalcompanies = Company::get();
+        $vehiclemakes = vehiclemake::get();
+        $vehiclemodels = vehiclemodel::get();
+        $vehicles=Vehicle::get();
+        $insurancecompanies=InsuranceCompany::get();
+        //$assignVehicles=AssignVehicle::get();
+
+        $assignVehicles = AssignVehicle::with('rentalCompany', 'vehicle', 'insuranceCompany', 'subInsuranceCompany')->get();
+        return view("user.dashboard", compact('rentalcompanies','insurancecompanies','vehicles','assignVehicles'));
     }
     public function addCompany(){
 
@@ -91,10 +101,11 @@ class UserController extends Controller
     }
 
     public function allVehicles(){
+        $rentalcompanies = Company::get();
         $vehiclemakes = vehiclemake::get();
         $vehiclemodels = vehiclemodel::get();
         $vehicles=Vehicle::get();
-        return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels'));
+        return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels','rentalcompanies'));
 
     }
 }
