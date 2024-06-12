@@ -1,9 +1,9 @@
 <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
     <!--begin::Brand-->
-    <div class="aside-logo flex-column-auto d-flex align-items-center  flex-lg-grow-0" id="kt_aside_logo" style="background-color: rgb(55, 190, 167) !important;">
+    <div class="aside-logo flex-column-auto d-flex align-items-center  flex-lg-grow-0" id="kt_aside_logo" style="align:left">
         <!--begin::Logo-->
         <a href="/">
-            <img alt="Logo" src="{{asset('assets/images/logo.png')}}" class="logo" width="auto" height="90" />
+            <img alt="Logo" src="{{asset('assets/images/rental_insurance_logo.png')}}" class="logo" width="auto" height="90" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->

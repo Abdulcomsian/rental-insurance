@@ -45,6 +45,7 @@ class AssignVehicleController extends Controller
 
     public function assignVehicle(Request $request){
 
+
         // validation
             $request->validate([
             'rental_company'=>'required',
@@ -61,28 +62,38 @@ class AssignVehicleController extends Controller
             'startdate.required' => 'State Date is required',
             'enddate.required' => 'End Date is required',
         ]);
-    // error handling using try and catch
-    try {
-        $user_id = Auth::user()->id;  /// to get current logged in user id
-        
-            $assigncehicle=new AssignVehicle;
-            $assigncehicle->user_id = $user_id;
-            $assigncehicle->vehicle_id  =   $request->vehicles;
-            $assigncehicle->rental_company_id =  $request->rental_company;
-            $assigncehicle->insurance_company_id  =  $request->insurance_main_company;
-            $assigncehicle->insurance_sub_company_id  = $request->insurance_sub_company;
-            $assigncehicle->amount  = $request->amonut;
-            $assigncehicle->start_date =  $request->startdate;
-            $assigncehicle->end_data = $request->enddate; 
-            if($assigncehicle->save()){
-                return redirect()->back()->with('success', 'Vehicle is added to the menu');
-            }else{
-                return redirect()->back()->with('error', 'Vehicle not inserted');
-            }
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
-        }       
+    $alreadyassign = AssignVehicle::where('rental_company_id',$request->rental_company)->where('vehicle_id',$request->vehicles)->where('insurance_company_id',$request->insurance_main_company)->where('start_date','>=',$request->startdate)->where('end_data','<=',$request->enddate)->get();
+    //dd(count($alreadyassign)) ;
+    //dd($request->all()) ;
+    if(count($alreadyassign)<1){  
 
+        // error handling using try and catch
+        try {
+            $user_id = Auth::user()->id;  /// to get current logged in user id
+
+        
+                $assigncehicle=new AssignVehicle;
+                $assigncehicle->user_id = $user_id;
+                $assigncehicle->vehicle_id  =   $request->vehicles;
+                $assigncehicle->rental_company_id =  $request->rental_company;
+                $assigncehicle->insurance_company_id  =  $request->insurance_main_company;
+                $assigncehicle->insurance_sub_company_id  = $request->insurance_sub_company;
+                $assigncehicle->amount  = $request->amonut;
+                $assigncehicle->start_date =  $request->startdate;
+                $assigncehicle->end_data = $request->enddate; 
+                if($assigncehicle->save()){
+                    return redirect()->back()->with('success', 'Vehicle is added to the menu');
+                }else{
+                    return redirect()->back()->with('error', 'Vehicle not inserted');
+                }
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', $e->getMessage());
+            }       
+    }
+    else{
+
+        return redirect()->back()->with('error', 'Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate);
+    }           
       
   }
 

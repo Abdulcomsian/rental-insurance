@@ -80,12 +80,12 @@
                                                  @enderror
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        {{-- <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Password:</label>
                                                 <input name="password" type="password" class="form-control" required value="{{$company->password}}" data-type="add">
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">

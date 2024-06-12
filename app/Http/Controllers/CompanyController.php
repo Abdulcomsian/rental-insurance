@@ -25,15 +25,13 @@ class CompanyController extends Controller
             'email'=>'required',
             'abnNumber'=>'required',
             'address' => 'required',
-            'phone' => 'required',
-            'password' => 'required'
+            'phone' => 'required'
         ],[
             'name.required' => 'Company name is required',
             'email.required' => 'Email is required',
             'abnNumber.required' => 'ABN Number is required',
             'address.required' => 'Address is required',
             'phone.required' => 'Phone is required',
-            'password.required' => 'Password is required',
         ]);
     // error handling using try and catch
     try {
@@ -46,7 +44,6 @@ class CompanyController extends Controller
             $company->abn_number =  $request->abnNumber;
             $company->Address = $request->address; 
             $company->phone = $request->phone; 
-            $company->password = $request->password; 
             if($company->save()){
                 return redirect('manage-componies')->with('success', 'Company is added to the menu');
             }else{
@@ -91,15 +88,13 @@ class CompanyController extends Controller
             'email'=>'required',
             'abnNumber'=>'required',
             'phone'=>'required',
-            'address'=>'required',
-            'password'=>'required'
+            'address'=>'required'
         ],[
             'name.required' => 'Company name is required',
             'email.required' => 'Email is required',
             'abnNumber.required' => 'ABN number is required',
             'phone.required' => 'Phone  is required',
             'address.required' => 'Address is required',
-            'password.required' => 'password is required',
         ]);
     // error handling using try and catch
     try {
@@ -112,7 +107,6 @@ class CompanyController extends Controller
             $company->abn_number = $request->abnNumber;
             $company->phone = $request->phone;
             $company->Address = $request->address;
-            $company->password = $request->password;
           
             
             if($company->update()){

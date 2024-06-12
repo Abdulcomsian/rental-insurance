@@ -101,8 +101,8 @@
                 @csrf
                 <img src="assets/images/warning.svg" alt="">
                 <input type="hidden" name="assignVehicleId" id="assignVehicleId" class="assignVehicleId">
-                <h3>Delete <b>Vehicle</b></h3> 
-                <p>You're going to delete the <b>"Vehicle"</b></p>
+                <h3>Delete <b>Assigned Vehicle</b></h3> 
+                <p>You're going to delete the <b>"Assigned Vehicle"</b></p>
                 <div class="modal-action">
                     <button type="button" class="btn btn-action-cancel" data-bs-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-action-approve">Yes</button>

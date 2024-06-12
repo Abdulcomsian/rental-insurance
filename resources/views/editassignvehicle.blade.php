@@ -70,10 +70,11 @@
                                         <div class="mb-3 col-lg-6">
                                             <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label><br>
                                             <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
+                                                @ph
                                                 <option value="" selected>Sub Inusurance Company</option>
                                                 @foreach ($inssubcompanies   as $inssubcompany)
-                                                    <option value="{{$inssubcompany->id}}" @php
-                                                    if($inssubcompany->id==$assignVehicles->subInsuranceCompany->id){ echo "selected";}      
+                                                    <option value="{{$inssubcompany->id}}" @php if(isset($assignVehicles->subInsuranceCompany->id)){
+                                                    if($inssubcompany->id==$assignVehicles->subInsuranceCompany->id){ echo "selected";} }     
                                                     @endphp>{{$inssubcompany->name}}</option>
                                                 @endforeach
                                             </select>                        </div>

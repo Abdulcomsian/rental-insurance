@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="d-flex flex-column col-sm-7 positon-xl-relative">
-    <img src="{{asset('assets/images/loginPage.jpg')}}" style="width: 100%;height:100%;object-fit: cover;" />
+    <img src="{{asset('assets/images/rental-insurance.jpg')}}" style="width: 100%;height:100%;object-fit: cover;" />
 </div>
 <!--end::Aside-->
 <!--begin::Body-->
 <div class="d-flex flex-column col-sm-5 " style="position: relative;">
     <!--begin::Content-->
-    <div style="background-color: rgb(55, 190, 167)!important;text-align: center;padding: 42px 24px;margin-top: 58px;">
-        <img src="{{asset('assets/images/logo.png')}}" height="150" />
+    <div style="text-align: center;padding: 42px 24px;margin-top: 58px;">
+        <img src="{{asset('assets/images/rental_insurance_logo.png')}}" height="150" />
     </div>
     <div class="" style="width: 100%;">
         <!--begin::Wrapper-->

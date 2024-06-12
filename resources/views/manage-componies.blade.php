@@ -56,16 +56,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="mb-3 col-lg-6">
+                        <div class="mb-3 col-lg-12">
                             <label>phone:</label>
                             <input name="phone" type="text" class="form-control" required placeholder="Enter phone" data-type="add">
                             @error('phone')
                             <span class="text-danger">{{$message}}</span>
                                 @enderror                        </div>
-                        <div class="mb-3 col-lg-6">
+                        {{-- <div class="mb-3 col-lg-6">
                             <label>Password:</label>
                             <input name="password" type="password" class="form-control" required placeholder="Enter Password" data-type="add">
-                        </div>
+                        </div> --}}
                     </div>
 
 

@@ -37,7 +37,7 @@
                             </svg>
                         </div>
                         <h4>{{ count($insurancecompanies);}}</h4>
-                        <h3><Inp></Inp>NSURANCE COMPANIES</h3>
+                        <h3>INSURANCE COMPANIES</h3>
                     </div>
 
                 </div>
@@ -69,142 +69,7 @@
 
                 </div>
             </div>
-            <div class="row my-8">
-                <div class="col-md-6 ">
-                    <div class="card">
-                        <div class="Request-Title">
-                            <h3>Rental Companies</h3>
-                        </div>
-                        <div>
-                            <div class="table-responsive">
-                                <table class="table table-admin-services ">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>ABN</th>
-                                            <th>Phone</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ( $rentalcompanies as $rentalcompany )
-                                       
-                                        <tr>
-                                            <td>{{$rentalcompany->name}}</td>
-                                            <td>{{$rentalcompany->email}} </td>
-                                            <td>{{$rentalcompany->abn_number}}</td>
-                                            <td>{{$rentalcompany->phone}}</td>
-
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="Transaction-Title">
-                            <h3>Insurance Companies</h3>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-admin-services ">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>RegNo</th>
-                                        <th>Phone</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ( $insurancecompanies as $insurancecompany )
-                                    <tr>
-                                        <td>{{$insurancecompany->name}}</td>
-                                        <td>{{$insurancecompany->email}} </td>
-                                        <td>{{$insurancecompany->reg_number}}</td>
-                                        <td>{{$insurancecompany->phone}}</td>
-
-                                    </tr>
-                                    @endforeach
-                                  
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-8">
-                <div class="col-md-6 ">
-                    <div class="card">
-                        <div class="Request-Title">
-                            <h3>All Vehicles</h3>
-                        </div>
-                        <div>
-                            <div class="table-responsive">
-                                <table class="table table-admin-services ">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Make</th>
-                                            <th>Model</th>
-                                            <th>Rental Company</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ( $vehicles as $vehicle )
-                                        @php
-                                        $makeName = App\Models\vehiclemake::where('id', $vehicle->make_id)->value('make_name');
-                                        $modelName = App\Models\vehiclemodel::where('id', $vehicle->model_id)->value('model_name');
-                                        $companyName = App\Models\Company::where('id', $vehicle->rental_company_id)->value('name');
-                                        @endphp
-                                        <tr>
-                                            <td>{{$vehicle->name}}</td>
-                                            <td>{{$makeName}} </td>
-                                            <td>{{$modelName}}</td>
-                                            <td>{{$companyName}}</td>
-
-                                        </tr>
-                                      @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="Transaction-Title">
-                            <h3>Assigned Vehicles</h3>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-admin-services ">
-                                <thead>
-                                    <tr>
-                                        <th>Rental Company	</th>
-                                        <th>Vehicle</th>
-                                        <th>Insurance Company</th>
-                                        <th>Sub Insurance Company</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($assignVehicles as $assignVehicle)
-                                    <tr>
-                                        <td>{{$assignVehicle->rentalCompany->name}}</td>
-                                        <td>{{$assignVehicle->vehicle->name}}</td>
-                                        <td>{{$assignVehicle->insuranceCompany->name}} </td>
-                                        <td>{{$assignVehicle->subInsuranceCompany->name ?? ''}}</td>
-                                       
-
-                                    </tr>
-                                  @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
