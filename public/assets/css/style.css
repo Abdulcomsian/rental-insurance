@@ -334,3 +334,6 @@ table.attachmentTable, table.attachmentTable td, table.attachmentTable th {
     font-size: 18px;
     font-weight: 700;
 }
+img.logo {
+    margin-left: -15px;
+}

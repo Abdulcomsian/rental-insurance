@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController,
      VehicleModelsController, VehicleController, InsuranceCompanyController, SubInsuranceCompanyController, AssignVehicleController};
-
+// use PDF;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,5 +104,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::resource('services',ServiceController::class);
     });
 
+
+    Route::get('test', function(){
+        $pdf = \PDF::loadView('pdf.test');
+        return $pdf->download('invoice.pdf');
+    });
 });
 
