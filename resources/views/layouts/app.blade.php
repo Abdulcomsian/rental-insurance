@@ -46,6 +46,7 @@ License: For each use you must have a valid license purchased only from above li
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <x-rich-text::styles theme="richtextlaravel" data-turbo-track="false" />
 </head>
 <body>
     <div id="app">

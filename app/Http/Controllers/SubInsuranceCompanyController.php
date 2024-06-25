@@ -26,17 +26,10 @@ class SubInsuranceCompanyController extends Controller
 
         // validation
         $request->validate([
-        'name'=>'required',
-        'email'=>'required',
-        'address' => 'required',
-        'phone' => 'required',
-        'password' => 'required',
+        'name'=>'required'
     ],[
         'name.required' => 'Company name is required',
-        'email.required' => 'Email is required',
-        'address.required' => 'Address is required',
-        'phone.required' => 'Phone is required',
-        'password.required' => 'Password is required',
+        
     ]);
     // error handling using try and catch
     try {
@@ -45,10 +38,7 @@ class SubInsuranceCompanyController extends Controller
         $inscompany=new SubInsuranceCompany;
         $inscompany->main_company_id = $request->mainCompany;;
         $inscompany->name = $request->name;
-        $inscompany->email  = $request->email;
-        $inscompany->Address = $request->address; 
-        $inscompany->phone = $request->phone; 
-        $inscompany->password = $request->password; 
+       
         if($inscompany->save()){
             return redirect('sub-insurance-componies')->with('success', 'Insurance sub company is added to the menu');
         }else{

@@ -23,22 +23,22 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                    <div class="mb-3 col-lg-6">
+                    <div class="mb-3 col-lg-12">
                         <label>Name:</label><br>
                         <input type="text" class="form-control" name="name" required placeholder="Enter Name" data-type="add">
                         @error('name')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="mb-3 col-lg-6">
+                    {{-- <div class="mb-3 col-lg-6">
                         <label>Email:</label>
                         <input type="email" class="form-control" name="email" required placeholder="Enter Email">
                         @error('email')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
+                    </div> --}}
                     </div>
-                    </div>
-
+{{-- 
                     <div class="row">
                         <div class="mb-3 col-lg-6">
                             <label>Reg Number:</label>
@@ -66,12 +66,12 @@
                             <label>Password:</label>
                             <input name="password" type="password" class="form-control" required placeholder="Enter Password" data-type="add">
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
                 </div>
-                <div class="modal-footer col-lg-9">
+                <div class="modal-footer col-lg-12">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Submit </button>
                 </div>
@@ -120,24 +120,27 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        {{-- <th>Email</th>
                         <th>Reg No</th>
                         <th>Phone</th>
-                        <th>Address</th>
+                        <th>Address</th> --}}
                         <th colspan="2">Action</th>
                        
 
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $i=1;
+                    @endphp
                     @foreach ($insurancecomponies as $insurancecompony)
                     <tr>
-                        <td>{{$insurancecompony->id}}</td>
+                        <td>{{$i}}</td>
                         <td>{{$insurancecompony->name}}</td>
-                        <td>{{$insurancecompony->email}}</td>
+                        {{-- <td>{{$insurancecompony->email}}</td>
                         <td>{{$insurancecompony->reg_number}}</td>
                         <td>{{$insurancecompony->phone}}</td>
-                        <td>{{$insurancecompony->address}}</td>
+                        <td>{{$insurancecompony->address}}</td> --}}
                         <td>
                             <a href="{{url('edit_insurance_company/'.$insurancecompony->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>
@@ -148,6 +151,9 @@
                         </td>
                       
                     </tr>
+                    @php
+                    $i++;
+                @endphp
                     @endforeach
                 </tbody>
             </table>

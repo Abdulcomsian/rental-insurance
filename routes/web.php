@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{HomeController,AdminController,UserController,VendorController, ServiceCategoryController, ServiceController, CompanyController, VehicleMakesController,
-     VehicleModelsController, VehicleController, InsuranceCompanyController, SubInsuranceCompanyController, AssignVehicleController};
+     VehicleModelsController, VehicleController, InsuranceCompanyController, SubInsuranceCompanyController, AssignVehicleController, RentalAgreementController};
 // use PDF;
 /*
 |--------------------------------------------------------------------------
@@ -97,6 +97,18 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/edit_assignvehicle/{id}', [AssignVehicleController::class,'editAssignVehicle']);
         Route::post('/submit_edit_assignvehicle', [AssignVehicleController::class,'updateAssignVehicle']);
         Route::post('/delete_assignVehicle',[AssignVehicleController::class,'deleteAssignVehicle']);
+
+        //Rental agreements and invoices
+        Route::get('rental-agreements', [RentalAgreementController::class,'rentalAgreements']);
+        Route::post('/submit_add_agreement', [RentalAgreementController::class,'addAgreement'])->name('addAgreement');
+        Route::get('viewPdf', [RentalAgreementController::class,'viewPdf']);
+        Route::get('terms-conditions', [RentalAgreementController::class,'rentalTermsConditions']);
+        Route::POST('submit_terms_conditions', [RentalAgreementController::class,'updateTermsConditions']);
+        Route::get('rental-invoice/{id}', [RentalAgreementController::class,'generateRentaInvoice']);
+        // Route::get('manage-invoices', [ManageInoviceController::class,'manageInvoices']);
+        
+        
+        
         
     });
     Route::group(['middleware' => ['web','auth','approved_user']], function () {
@@ -108,6 +120,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('test', function(){
         $pdf = \PDF::loadView('pdf.test');
         return $pdf->download('invoice.pdf');
+        // $pdf->stream('invoice.pdf');
+        //return $pdf->download('invoice.pdf');
     });
 });
 

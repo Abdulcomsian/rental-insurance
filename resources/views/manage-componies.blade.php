@@ -62,10 +62,7 @@
                             @error('phone')
                             <span class="text-danger">{{$message}}</span>
                                 @enderror                        </div>
-                        {{-- <div class="mb-3 col-lg-6">
-                            <label>Password:</label>
-                            <input name="password" type="password" class="form-control" required placeholder="Enter Password" data-type="add">
-                        </div> --}}
+                        
                     </div>
 
 

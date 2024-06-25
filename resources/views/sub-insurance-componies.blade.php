@@ -45,37 +45,7 @@
                    
                     </div>
 
-                    <div class="row">
-
-                        <div class="mb-3 col-lg-6">
-                            <label>Email:</label>
-                            <input type="email" class="form-control" name="email" required placeholder="Enter Email">
-                            @error('email')
-                            <span class="text-danger">{{$message}}</span>
-                            @enderror
-                        </div>    
-                        <div class="mb-3 col-lg-6">
-                            <label>Address:</label>
-                            <input name="address" type="text" class="form-control" required placeholder="Enter Address" data-type="add">
-                            @error('address')
-                            <span class="text-danger">{{$message}}</span>
-                                @enderror                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label>phone:</label>
-                            <input name="phone" type="text" class="form-control" required placeholder="Enter phone" data-type="add">
-                            @error('phone')
-                            <span class="text-danger">{{$message}}</span>
-                                @enderror                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label>Password:</label>
-                            <input name="password" type="password" class="form-control" required placeholder="Enter Password" data-type="add">
-                        </div>
-                    </div>
-
-
+                   
 
                 </div>
                 <div class="modal-footer col-lg-9">
@@ -128,9 +98,9 @@
                         <th>#</th>
                         <th>Parent Company</th>
                         <th>Name</th>
-                        <th>Email</th>
+                        {{-- <th>Email</th>
                         <th>Phone</th>
-                        <th>Address</th>
+                        <th>Address</th> --}}
                         <th colspan="2">Action</th>
                        
 
@@ -145,9 +115,9 @@
                         <td>{{$subcompony->id}}</td>
                         <td>{{$ParentCompanyName}}</td>
                         <td>{{$subcompony->name}}</td>
-                        <td>{{$subcompony->email}}</td>
+                        {{-- <td>{{$subcompony->email}}</td>
                         <td>{{$subcompony->phone}}</td>
-                        <td>{{$subcompony->address}}</td>
+                        <td>{{$subcompony->address}}</td> --}}
                         <td>
                             <a href="{{url('edit_subinsurance_company/'.$subcompony->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>

@@ -24,19 +24,11 @@ class InsuranceCompanyController extends Controller
 
          // validation
          $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'reg_no'=>'required',
-            'address' => 'required',
-            'phone' => 'required',
-            'password' => 'required'
+            'name'=>'required'
+           
         ],[
             'name.required' => 'Company name is required',
-            'email.required' => 'Email is required',
-            'reg_no.required' => 'Reg No is required',
-            'address.required' => 'Address is required',
-            'phone.required' => 'Phone is required',
-            'password.required' => 'Password is required',
+            
         ]);
     // error handling using try and catch
     try {
@@ -45,11 +37,7 @@ class InsuranceCompanyController extends Controller
             $inscompany=new InsuranceCompany;
             $inscompany->user_id = $user_id;
             $inscompany->name = $request->name;
-            $inscompany->email  = $request->email;
-            $inscompany->reg_number =  $request->reg_no;
-            $inscompany->Address = $request->address; 
-            $inscompany->phone = $request->phone; 
-            $inscompany->password = $request->password; 
+           
             if($inscompany->save()){
                 return redirect('manage-insurance-componies')->with('success', 'Insurance company is added to the menu');
             }else{
