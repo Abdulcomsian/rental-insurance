@@ -35,8 +35,17 @@ class CompanyController extends Controller
         ]);
     // error handling using try and catch
     try {
-        $user_id = Auth::user()->id;  /// to get current logged in user id
-        
+            $user_id = Auth::user()->id;  /// to get current logged in user id
+            $path = '';
+            if( $request->hasFile('file') ) {
+                $file = $request->file('file');
+                // Get the Image Name
+                $logofileName = time().'.'.$file->getClientOriginalExtension();
+                // Set the Filepath 
+                $path = public_path('uploads/companylogo') ;
+                // Move the file to the upload Folder
+                $file = $file->move($path, $logofileName);
+            }
             $company=new Company;
             $company->user_id = $user_id;
             $company->name = $request->name;
@@ -44,6 +53,7 @@ class CompanyController extends Controller
             $company->abn_number =  $request->abnNumber;
             $company->Address = $request->address; 
             $company->phone = $request->phone; 
+            $company->logoimage  = $logofileName;
             if($company->save()){
                 return redirect('manage-componies')->with('success', 'Company is added to the menu');
             }else{

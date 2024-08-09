@@ -11,7 +11,7 @@
     <div style="width: 100%; margin-bottom: 32px;">
         <div style="float: left; width: 30%; text-align: center; margin-right: 5%;">
           {{-- <img src="{{asset('assets/images/rental_insurance_logo.png')}}" alt="logo" style="width: 90%; height: auto;" /> --}}
-          <img src="http://localhost/rental-insurance/public/assets/images/rental_insurance_logo.png" alt="logo" style="width: 90%; height: auto;" />
+          <img src="http://localhost/rental-insurance/public/uploads/companylogo/{{$data->rentalCompany->logoimage}}" alt="logo" style="width: 90%; height: auto;" />
         </div>
         <div style="float: left; width: 65%;">
           <table style="width: 100%; border-collapse: collapse; font-size: 10px;">

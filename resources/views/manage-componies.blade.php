@@ -56,13 +56,21 @@
                     </div>
 
                     <div class="row">
-                        <div class="mb-3 col-lg-12">
+                        <div class="mb-3 col-lg-6">
                             <label>phone:</label>
                             <input name="phone" type="text" class="form-control" required placeholder="Enter phone" data-type="add">
                             @error('phone')
                             <span class="text-danger">{{$message}}</span>
                                 @enderror                        </div>
                         
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Logo</label>
+                            <input type="file" name="file" />
+                                @error('logo')
+                                <span class="text-danger">{{$message}}</span>
+                                    @enderror                       
+                        </div>
+                                
                     </div>
 
 
@@ -117,6 +125,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Logo</th>
                         <th>Email</th>
                         <th>ABN No</th>
                         <th>Phone</th>
@@ -130,6 +139,7 @@
                     @foreach ($componies as $compony)
                     <tr>
                         <td>{{$compony->id}}</td>
+                        <td><img src="http://localhost/rental-insurance/public/uploads/companylogo/{{$compony->logoimage}}" width="180"></td>
                         <td>{{$compony->name}}</td>
                         <td>{{$compony->email}}</td>
                         <td>{{$compony->abn_number}}</td>
