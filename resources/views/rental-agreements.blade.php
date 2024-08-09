@@ -19,7 +19,7 @@
     </div>
     <div class="modal fade" id="assignvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit_add_agreement')}}" name="frm" method="POST">
+            <form  action="{{url('submit_add_agreement')}}" name="frm" method="POST" id="agreement_form" enctype="multipart/form-data">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -38,7 +38,18 @@
                             <input type="text" name="address" class="form-control" id="address" required="required">
                         </div>
                         </div>
-
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Out KM</label>
+                                <input type="text" name="out_km" class="form-control" id="out_km" required="required">
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">In KM</label>
+                                <input type="text" name="in_km" class="form-control" id="in_km" required="required">
+                            </div>
+                            
+                        </div>
+                            
 
                     <div class="row">
                     <div class="mb-3 col-lg-6">
@@ -156,14 +167,36 @@
                             <label for="exampleFormControlInput1" class="form-label">Vehicle Cleaning Fee</label>
                             <input type="text" value="180.00" name="cleaning_fee" class="form-control" id="cleaning_fee" required="required">
                         </div>
-                        
+                        <div class="d-flex inputDiv my-0" id="sign"
+                                        style="align-items: center;border:none">
+                                        <!-- <label class="d-flex align-items-center fs-6 fw-bold mb-2">
+                                                    <span class="required">Signature:</span>
+                                                </label>
+                                                <br/> -->
+                                        <canvas id="sig" onblure="draw()"
+                                            style="background: gray; border-radius:10px"></canvas>
+                                        <br />
+                                        <textarea id="signature" name="signed" style="display: none"></textarea>
+                                        <span id="clear" class="fa fa-undo cursor-pointer"
+                                            style="line-height: 6; position:relative; top:51px; right:26px"></span>
+                                    </div>    
+                    
+                    </div>
+                    
+                    <div class="row">
+                        <div class="mb-3 col-lg-6"><br>
+                            <label for="exampleFormControlInput1" class="form-label">Licence Image</label>
+                            <input type="file" name="file" />
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                        </div>
                      
                     </div>
                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit </button>
+                    <button type="submit" id="submitButton" class="btn btn-primary">Submit </button>
                 </div>
             </div>
             </form>
@@ -221,7 +254,7 @@
                         <th>Delivery Fee</th>
                         <th>Rental Inovice</th>
                         <th>Rental Agreement</th>
-                        <th colspan="2">Action</th>
+                        {{-- <th colspan="2">Action</th> --}}
 
                     </tr>
                 </thead>
@@ -279,14 +312,16 @@
                                 {{-- Download Rental Agreement PDF --}}
                               </a>    
                         </td> 
-                        <td>
+                        {{-- <td>
                             <a href="{{url('edit_assignvehicle/'.$rentalagreement->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>
                             </a>
                             <a href="#"  class="text-danger action-button delete-button" data-id="{{$rentalagreement->id}}">
                                 <i class="las la-trash"></i>
                             </a>
-                        </td>
+
+                           
+                        </td> --}}
                     </tr> 
                     @php
                         $i++;
@@ -297,10 +332,31 @@
         </div>
     </section>
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{{asset('assets/js/signature_pad.umd.min.js')}}"></script>
+
 <script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</script>
-    <script>
+    const canvas = document.getElementById("sig");
+    if(canvas){
+        var signaturePad = new SignaturePad(canvas);
+    }
+    $(document).on("submit", "#agreement_form", function(e){
+        e.preventDefault();
+        console.log(signaturePad);
+        // return;
+        if(signaturePad){
+            $("#signature").val(signaturePad.toDataURL('image/png'));
+        }
+        this.submit();
+    })
+    
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        signaturePad.clear();
+        $("#signature").val('');
+    });
+
         // to vehicle modal
         let addButton = document.querySelectorAll('.vehicle-button');
         addButton.forEach(el => {
@@ -312,7 +368,6 @@
                 modal.show();
             })
         })
-        ////// to delete vehicle modal
         let deleteButton = document.querySelectorAll('.delete-button');
          deleteButton.forEach(el => {
         el.addEventListener('click', function(){

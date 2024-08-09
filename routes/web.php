@@ -106,6 +106,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::POST('submit_terms_conditions', [RentalAgreementController::class,'updateTermsConditions']);
         Route::get('rental-invoice/{id}', [RentalAgreementController::class,'generateRentaInvoice']);
         // Route::get('manage-invoices', [ManageInoviceController::class,'manageInvoices']);
+        Route::get('/generate-pdf', [RentalAgreementController::class, 'generatePDF']);
         
         
         

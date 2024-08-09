@@ -46,7 +46,12 @@ class RentalAgreementController extends Controller
 
         return $pdf->stream('rental_agreement.pdf');
     }
-
+ public function generatePDF()
+    {
+        $data = ['title' => 'domPDF in Laravel 10'];
+        $pdf = PDF::loadView('pdf.rental_agreement', $data);
+        return $pdf->download('document.pdf');
+    }
     
     public function getVehicle($id){
         $renalcompany = Vehicle::where('rental_company_id', $id)->get();
@@ -58,8 +63,8 @@ class RentalAgreementController extends Controller
     }
 
     public function addAgreement(Request $request){
-    //dd($requst->all());
 
+        //dd($request->all());
         // // validation
         //     $request->validate([
         //     'customer_name'=>'required',
@@ -110,11 +115,22 @@ class RentalAgreementController extends Controller
         //dd($rentalAgreemant);
         //dd(count($alreadyassign)) ;
         if($rentalAgreemant<1){  
-
+          
         // error handling using try and catch
         try {
             $user_id = Auth::user()->id;  /// to get current logged in user id
 
+                $path = '';
+                if( $request->hasFile('file') ) {
+                    $file = $request->file('file');
+                    // Get the Image Name
+                    $licencefileName = time().'.'.$file->getClientOriginalExtension();
+                    // Set the Filepath 
+                    $path = public_path('uploads/licence_images') ;
+                    // Move the file to the upload Folder
+                    $file = $file->move($path, $licencefileName);
+                }
+                
                 $filename =rand().'rental-agreement.pdf';
                 $rentalagreement=new RentalAgreement;
                 $rentalagreement->customer_name  = $request->customer_name;
@@ -136,15 +152,36 @@ class RentalAgreementController extends Controller
                 $rentalagreement->fuel_topup  = $request->fuel_topup_fee;
                 $rentalagreement->cleaning_fee  = $request->cleaning_fee;
                 $rentalagreement->pdf_file  = $filename;
-
-
+                $rentalagreement->in_km  =  $request->in_km;
+                $rentalagreement->out_km  =  $request->out_km;
+                //if($request->hasFile("file")){
+                    $rentalagreement->licence_image  = $licencefileName;
+                //}
+               
+              ////for signature
+              if($request->signed != null){
+                $folderPath = public_path('assets/signature/');
+                $image = explode(",", $request->signed)[1];
+                // $image_type = explode("image/", $image[0]);
+                $image_base64 = base64_decode($image);
+                $image_name = uniqid() . '-signature-image.png';
+                $file = $folderPath . $image_name;
+                file_put_contents($file, $image_base64);
+                //dd($file);
+                //if(is_string($image_name)){
+                    $rentalagreement->signature = $image_name;
+                //}
+              }
+               
+             
                 if($rentalagreement->save()){
-                    //dd($rentalagreement);
+                   
                 $termsconditions=TermsCondition::get();    
                 $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement],['termsdata' => $termsconditions]);
+               
                 $path = public_path('pdf');
                 $pdf->save($path . '/' . $filename);
-
+               
                 return redirect()->back()->with('success', 'Rental Agreement is added to the menu');
                 }else{
                     return redirect()->back()->with('error', 'Rental Agreement not inserted');
