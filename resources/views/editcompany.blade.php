@@ -80,12 +80,14 @@
                                                  @enderror
                                             </div>
                                         </div>
-                                        {{-- <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label>Password:</label>
-                                                <input name="password" type="password" class="form-control" required value="{{$company->password}}" data-type="add">
-                                            </div>
-                                        </div> --}}
+                                        <div class="mb-3 col-lg-6">
+                                            <label for="exampleFormControlInput1" class="form-label">Logo</label>
+                                            <input type="file" name="file" />
+                                                @error('logo')
+                                                <span class="text-danger">{{$message}}</span>
+                                                    @enderror        
+                                                    <img src="{{asset('uploads/companylogo/'.$company->logoimage)}}" width="200">                    
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-12">

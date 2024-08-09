@@ -108,6 +108,17 @@ class CompanyController extends Controller
         ]);
     // error handling using try and catch
     try {
+
+           $path = '';
+            if( $request->hasFile('file') ) {
+                $file = $request->file('file');
+                // Get the Image Name
+                $logofileName = time().'.'.$file->getClientOriginalExtension();
+                // Set the Filepath 
+                $path = public_path('uploads/companylogo') ;
+                // Move the file to the upload Folder
+                $file = $file->move($path, $logofileName);
+            }
         
             $id = $request->companyId;
             $company=Company::find($id);
@@ -117,12 +128,14 @@ class CompanyController extends Controller
             $company->abn_number = $request->abnNumber;
             $company->phone = $request->phone;
             $company->Address = $request->address;
-          
+            if( $request->hasFile('file') ) {
+                $company->logoimage  = $logofileName;
+            }
             
             if($company->update()){
-                return redirect('manage-componies')->with('success', 'Company name is updated');
+                return redirect('manage-componies')->with('success', 'Company updated successfully');
             }else{
-                return redirect()->back()->with('error', 'Company name not updated');
+                return redirect()->back()->with('error', 'Company not updated');
             }
         } catch (\Exception $e) {
            // dd($e->getMessage());
