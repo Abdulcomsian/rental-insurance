@@ -139,7 +139,7 @@
                     @foreach ($componies as $compony)
                     <tr>
                         <td>{{$compony->id}}</td>
-                        <td><img src="http://localhost/rental-insurance/public/uploads/companylogo/{{$compony->logoimage}}" width="180"></td>
+                        <td><img src="{{asset('uploads/companylogo/'.$compony->logoimage)}}" width="180"></td>
                         <td>{{$compony->name}}</td>
                         <td>{{$compony->email}}</td>
                         <td>{{$compony->abn_number}}</td>

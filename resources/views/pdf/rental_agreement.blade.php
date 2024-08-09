@@ -11,7 +11,7 @@
     <div style="width: 100%; margin-bottom: 32px;">
         <div style="float: left; width: 30%; text-align: center; margin-right: 5%;">
           {{-- <img src="{{asset('assets/images/rental_insurance_logo.png')}}" alt="logo" style="width: 90%; height: auto;" /> --}}
-          <img src="http://localhost/rental-insurance/public/uploads/companylogo/{{$data->rentalCompany->logoimage}}" alt="logo" style="width: 90%; height: auto;" />
+          <img src="https://test8.accrualdev.com/public/uploads/companylogo/{{$data->rentalCompany->logoimage}}" alt="logo" style="width: 90%; height: auto;" />
         </div>
         <div style="float: left; width: 65%;">
           <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
@@ -821,7 +821,7 @@
             margin-bottom: 12px;
           "
         >
-        <img src="http://localhost/rental-insurance/public/assets/signature/{{$data->signature}}"  alt="signature" width="200">
+        <img src="https://test8.accrualdev.com/public/assets/signature/{{$data->signature}}"  alt="signature" width="200">
       </p>
         <p style="margin-bottom: 16px; font-weight: bold">
           Signed by or on Behalf of {{$data->customer_name}}
@@ -879,7 +879,7 @@
           >
           <div style="width: calc(45% - 48px); float: left; margin: 0 0 16px 0">
             <p style="border-bottom: 2px dotted black; margin: 0; padding: 0">
-              <img src="http://localhost/rental-insurance/public/assets/signature/{{$data->signature}}" width="200" alt="signature">
+              <img src="https://test8.accrualdev.com/public/assets/signature/{{$data->signature}}" width="200" alt="signature">
             </p>
             <p style="margin: 0; padding: 0; font-weight: bold">
               (Signed by or on behalf of the owner of the damaged vehicle)
@@ -920,7 +920,7 @@
         >
         <p style="float: left; margin-right: 12px; font-weight: bold" >Licence Image:</p>
         <p>
-          <img src="http://localhost/rental-insurance/public/uploads/licence_images/{{$data->licence_image}}" width="300" alt="signature">        </p>
+          <img src="https://test8.accrualdev.com/public/uploads/licence_images/{{$data->licence_image}}" width="300" alt="signature">        </p>
         </div>
       </div>
       <!-- Definition paragraph ends -->
