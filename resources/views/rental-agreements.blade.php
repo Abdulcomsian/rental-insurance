@@ -341,15 +341,15 @@
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
     }
-    // $(document).on("submit", "#agreement_form", function(e){
-    //     e.preventDefault();
-    //     console.log(signaturePad);
-    //     // return;
-    //     if(signaturePad){
-    //         $("#signature").val(signaturePad.toDataURL('image/png'));
-    //     }
-    //     this.submit();
-    // })
+    $(document).on("submit", "#agreement_form", function(e){
+     e.preventDefault();
+        //console.log(signaturePad);
+        // return;
+        if(signaturePad){
+            $("#signature").val(signaturePad.toDataURL('image/png'));
+        }
+         this.submit();
+  })
     
     $('#clear').click(function(e) {
         e.preventDefault();

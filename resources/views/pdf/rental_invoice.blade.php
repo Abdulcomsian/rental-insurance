@@ -28,7 +28,7 @@
               <h2 style="color: red; font-size: 100px">
                 <img
                   style="margin-left: 30px"
-                  src="https://acorn.accrualdev.com/public/assets/images/rental_insurance_logo.png"
+                  src="http://localhost/rental-insurance/public/assets/images/rental_insurance_logo.png"
                   alt=""
                   width="300px"
                 />
@@ -461,7 +461,7 @@
             <div style="display: flex; gap: 100px">
               <img
                 style="margin-left: 10px"
-                src="https://acorn.accrualdev.com/public/assets/images/Screenshot_16-8-2024_122554_.jpeg"
+                src="http://localhost/public/assets/images/Screenshot_16-8-2024_122554_.jpeg"
                 alt=""
                 height="35px"
                 width="50px"
