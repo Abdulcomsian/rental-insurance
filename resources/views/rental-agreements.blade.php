@@ -348,7 +348,7 @@
         if(signaturePad){
             $("#signature").val(signaturePad.toDataURL('image/png'));
         }
-         this.submit();
+        $(this).off('submit').submit();
   })
     
     $('#clear').click(function(e) {
