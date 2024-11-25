@@ -154,9 +154,9 @@ class RentalAgreementController extends Controller
                 $rentalagreement->pdf_file  = $filename;
                 $rentalagreement->in_km  =  $request->in_km;
                 $rentalagreement->out_km  =  $request->out_km;
-                //if($request->hasFile("file")){
+                if($request->hasFile("file")){
                     $rentalagreement->licence_image  = $licencefileName;
-                //}
+                }
                
               ////for signature
               if($request->signed != null){
