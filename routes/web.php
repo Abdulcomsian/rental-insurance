@@ -100,7 +100,7 @@ Route::group(['middleware' => ['web']], function () {
 
         //Rental agreements and invoices
         Route::get('rental-agreements', [RentalAgreementController::class,'rentalAgreements']);
-        Route::post('/submit_add_agreement', [RentalAgreementController::class,'addAgreement'])->name('addAgreement');
+        Route::post('submit_add_agreement', [RentalAgreementController::class,'addAgreement'])->name('addAgreement');
         Route::get('viewPdf', [RentalAgreementController::class,'viewPdf']);
         Route::get('terms-conditions', [RentalAgreementController::class,'rentalTermsConditions']);
         Route::POST('submit_terms_conditions', [RentalAgreementController::class,'updateTermsConditions']);

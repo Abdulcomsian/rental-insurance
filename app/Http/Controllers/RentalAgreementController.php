@@ -64,7 +64,7 @@ class RentalAgreementController extends Controller
 
     public function addAgreement(Request $request){
 
-        //dd($request->all());
+        // dd($request->all());
         // // validation
         //     $request->validate([
         //     'customer_name'=>'required',
@@ -182,12 +182,12 @@ class RentalAgreementController extends Controller
                 $path = public_path('pdf');
                 $pdf->save($path . '/' . $filename);
                
-                return redirect()->back()->with('success', 'Rental Agreement is added to the menu');
+                    return response()->json(['success' => true, "msg" => "Rental Agreement Store Successfully"], 200);
                 }else{
-                    return redirect()->back()->with('error', 'Rental Agreement not inserted');
+                    return response()->json(['success' => false, "msg" => "Rental Agreement not store succesfully"], 400);
                 }
             } catch (\Exception $e) {
-                return redirect()->back()->with('error', $e->getMessage());
+                return response()->json(['success' => false, "msg" => "Something went wrong", "error" => $e->getMessage(), "line" => $e->getLine()], 400);
             }       
     }
     else{

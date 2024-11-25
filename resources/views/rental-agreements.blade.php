@@ -19,7 +19,7 @@
     </div>
     <div class="modal fade" id="assignvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit_add_agreement')}}" name="frm" method="POST" id="agreement_form" enctype="multipart/form-data">
+            <form  action="{{url('submit_add_agreement')}}" method="POST" id="agreement_form" enctype="multipart/form-data">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -176,7 +176,7 @@
                                         <canvas id="sig" onblure="draw()"
                                             style="background: gray; border-radius:10px"></canvas>
                                         <br />
-                                        <textarea id="signature" name="signed" style="display: none"></textarea>
+                                        <textarea name="signed" id="signature" style="display: none"></textarea>
                                         <span id="clear" class="fa fa-undo cursor-pointer"
                                             style="line-height: 6; position:relative; top:51px; right:26px"></span>
                                     </div>    
@@ -196,7 +196,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="submitButton" class="btn btn-primary">Submit </button>
+                    <button type="submit" id="submitForm" class="btn btn-primary">Submit </button>
                 </div>
             </div>
             </form>
@@ -340,16 +340,30 @@
     const canvas = document.getElementById("sig");
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
-    }
-    $(document).on("submit", "#agreement_form", function(e){
-     e.preventDefault();
-        //console.log(signaturePad);
-        // return;
-        if(signaturePad){
+        signaturePad.addEventListener("endStroke", function(){
             $("#signature").val(signaturePad.toDataURL('image/png'));
-        }
-        $(this).off('submit').submit();
-  })
+        }, {once: true})
+    }
+
+
+    $(document).on("submit", "#agreement_form", function(e){
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'), // Get the form's action URL
+            type: 'POST', // Set the HTTP method to POST
+            data: $(this).serialize(), // Serialize form data
+            success: function(response) {
+                if(response.success == true){
+                    if(confirm('Successful Message')){
+                        window.location.reload();  
+                    }
+                }
+            },
+            error: function(xhr) {
+                console.error("Error submitting form", xhr);
+            }
+        });
+    })
     
     $('#clear').click(function(e) {
         e.preventDefault();
