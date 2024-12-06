@@ -181,7 +181,7 @@
             <p style="text-align: left; padding-left: 8px !important">
               {{$data->customer_name}}
             </p>
-          </th>
+          </th> 
           <th colspan="2"></th>
           <th style="border: 1px solid red">
             <p

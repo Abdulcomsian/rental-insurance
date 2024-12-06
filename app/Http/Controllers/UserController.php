@@ -108,4 +108,4 @@ class UserController extends Controller
         return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels','rentalcompanies'));
 
     }
-}
+} 

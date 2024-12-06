@@ -10,7 +10,7 @@
                 </h1>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="modal fade" id="addvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <form  action="{{url('submit_vehicle')}}" name="frm" method="POST">

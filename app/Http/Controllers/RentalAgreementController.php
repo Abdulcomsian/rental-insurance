@@ -277,7 +277,7 @@ public function generateRentaInvoice($id){
     }       
 
 
-  }
+  } 
     
   public function deleteRentalAgreement(Request $request)
   {

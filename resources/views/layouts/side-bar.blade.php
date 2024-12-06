@@ -19,7 +19,7 @@
                 </svg>
 
 
-            </span>
+            </span> 
             <!--end::Svg Icon-->
         </div>
         <!--end::Aside toggler-->

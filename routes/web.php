@@ -115,7 +115,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => ['web','auth','approved_user']], function () {
         Route::get('/vendor-user', [VendorController::class,'index'])->name('vendor_user');
         Route::resource('services',ServiceController::class);
-    });
+    }); 
 
 
     Route::get('test', function(){

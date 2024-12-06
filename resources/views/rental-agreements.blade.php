@@ -369,8 +369,8 @@
         e.preventDefault();
         signaturePad.clear();
         $("#signature").val('');
-    });
-
+    }); 
+ 
         // to vehicle modal
         let addButton = document.querySelectorAll('.vehicle-button');
         addButton.forEach(el => {
