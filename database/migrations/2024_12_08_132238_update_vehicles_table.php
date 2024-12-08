@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->integer('insurance_company_id')->nullable;  
 
                 
-                       });
+                       }); 
         });
     }
 
