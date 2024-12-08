@@ -16,7 +16,7 @@ return new class extends Migration
                 $table->string('insurance_type')->nullable;
                 $table->date('start_date')->nullable;
                 $table->date('end_date')->nullable;
-                $table->integer('insurance_company_id')->nullable;
+                $table->integer('insurance_company_id')->nullable;  
 
                 
                        });

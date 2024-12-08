@@ -93,9 +93,9 @@
 
   <div class="page">
     <div style="padding:0 40px;">
-      <div style="float:left; width:30%; margin-right: 4%">
+      {{-- <div style="float:left; width:30%; margin-right: 4%">
         <img class="logo" src="http://localhost/rental-insurance/public/assets/images/rental_insurance_logo.png" alt="logo"/>
-      </div>
+      </div> --}}
       <div style="float: left; width: 65%;">
         <table style="font-size:8px;">
           <thead>
