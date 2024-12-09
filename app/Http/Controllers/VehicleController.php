@@ -56,7 +56,40 @@ class VehicleController extends Controller
 
         
     }
+    public function vehicleInsuranceType(Request $request){
+    //dd($request->all());
+        // validation
+        $request->validate([
+          'startdate'=>'required',
+          'enddate'=>'required',
+          'insurance_type'=>'required'
+      ],[
+          'startdate.required' => 'Start date is required',
+          'enddate.required' => 'Ende date is required',
+          'insurance_type.required' => 'Insurance type is required',
+          
+      ]);
+  // error handling using try and catch
+  try {
+      
+          $vehicle=Vehicle::find($request->vehicleId);
+          $vehicle->start_date =  $request->startdate;
+          $vehicle->end_date =  $request->enddate;
+          $vehicle->insurance_type = $request->insurance_type;
+          $vehicle->insurance_company_id  = $request->insurance_main_company;
+          
+          if($vehicle->update()){
+            return redirect('vehicles')->with('success', 'Rental Company vehicle is updated');
+        }else{
+            return redirect()->back()->with('error', 'Rental Company vehicle not updated');
+        }
+      } catch (\Exception $e) {
+          return redirect()->back()->with('error', $e->getMessage());
+      }       
 
+      
+  }
+    
     public function deleteVehicle(Request $request){
 
         $id=$request->vehicleId;

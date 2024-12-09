@@ -105,7 +105,8 @@ class UserController extends Controller
         $vehiclemakes = vehiclemake::get();
         $vehiclemodels = vehiclemodel::get();
         $vehicles=Vehicle::get();
-        return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels','rentalcompanies'));
+        $insmaincompanies = InsuranceCompany::get();
+        return view('vehicles', compact('vehicles', 'vehiclemakes', 'vehiclemodels','rentalcompanies','insmaincompanies'));
 
     }
 } 

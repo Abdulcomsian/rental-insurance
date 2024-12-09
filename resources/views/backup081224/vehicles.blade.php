@@ -10,7 +10,7 @@
                 </h1>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="modal fade" id="addvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <form  action="{{url('submit_vehicle')}}" name="frm" method="POST">
@@ -82,61 +82,6 @@
             </form>
         </div>
     </div>
-    <div class="modal fade" id="insuranceTyprModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit-insurance-type')}}" name="frm" method="POST">
-                @csrf
-                <input type="hidden" name="vehicleId" id="vehicleId" value="">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Vehicle Insurance Type</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Start Date</label>
-                            <input type="datetime-local" name="startdate" class="form-control" id="startdate" required="required">
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">End Date</label>
-                            <input type="datetime-local" name="enddate" class="form-control" id="enddate" required="required">
-                        </div>
-                    </div>
-                    <div class="row">
-                       <!-- Type of Insurance Dropdown -->
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Type of Insurance</label>
-                                <select name="insurance_type" id="insurancetype" style="width: 160px;">
-                                    <option value="{{\Config::get('constants.UNKNOWN')}}">Unknown</option>
-                                    <option value="{{\Config::get('constants.NON_INSURED')}}">Non Insured</option>
-                                    <option value="{{\Config::get('constants.INSURED')}}">Insured</option>
-                                </select>
-                            </div>
-                           <!-- Insurance Company Dropdown (Initially Hidden) -->
-                            <div class="mb-3 col-lg-6" id="insurance-section" style="display: none;">
-                                <label for="exampleFormControlInput1" class="form-label" required="required">Insurance Company</label>
-                                <select name="insurance_main_company" id="insurance_main_company" style="width: 160px;">
-                                    <option value="" selected>Insurance Company</option>
-                                    @foreach ($insmaincompanies as $insmaincompany)
-                                        <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                    </div>
-
-             
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit </button>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
  {{-- for deletion --}}
  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -177,7 +122,7 @@
                         <th>Model</th>
                         <th>Reg No</th>
                         <th>Color</th>
-                        <th colspan="2">Type Of Insurance</th>
+                        
                         <th colspan="2">Action</th>
 
                     </tr>
@@ -198,10 +143,7 @@
                         <td>{{$makeName}}</td>
                         <td>{{$modelName}}</td>
                         <td>{{$vehicle->reg_number}}</td>
-                        <td>{{$vehicle->color}}</td>
-                        <td colspan="2">
-                                <i class="fa fa-eye insurance_type" style="cursor: pointer" aria-hidden="true" data-id="{{$vehicle->id}}"></i>
-                        </td>
+                        <td>{{$vehicle->color}}</td> 
                         <td>
                             <a href="{{url('edit_vehicle/'.$vehicle->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>
@@ -229,16 +171,6 @@
                 // document.getElementById('ItemId').value = itemId;
                 // showing the Modal
                 var modal = new bootstrap.Modal(document.getElementById('addvehicleModal'));
-                modal.show();
-            })
-        })
-        let instypeButton = document.querySelectorAll('.insurance_type');
-        instypeButton.forEach(el => {
-            el.addEventListener('click', function(){
-                let itemId = this.getAttribute('data-id');
-                document.getElementById('vehicleId').value = itemId;
-                // showing the Modal
-                var modal = new bootstrap.Modal(document.getElementById('insuranceTyprModal'));
                 modal.show();
             })
         })
@@ -277,15 +209,6 @@
                 modelSelect.innerHTML = '<option value="" selected>Select Model</option>';
             }
         });
-    });
-
-    document.getElementById('insurancetype').addEventListener('change', function () {
-        const insuranceSection = document.getElementById('insurance-section');
-        if (this.value == "{{\Config::get('constants.INSURED')}}") {
-            insuranceSection.style.display = 'block'; // Show the section
-        } else {
-            insuranceSection.style.display = 'none'; // Hide the section
-        }
     });
     </script>
 @endsection

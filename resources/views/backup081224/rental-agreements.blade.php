@@ -19,7 +19,7 @@
     </div>
     <div class="modal fade" id="assignvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit_add_agreement')}}" method="POST" id="agreement_form" enctype="multipart/form-data">
+            <form  action="{{url('submit_add_agreement')}}" name="frm" method="POST" id="agreement_form" enctype="multipart/form-data">
                 @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -49,43 +49,12 @@
                             </div>
                             
                         </div>
-                        <div class="row">
                             
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Pick of Date</label>
-                                <input type="datetime-local" name="startdate" class="form-control select_vehicle" id="startdate" required="required">
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Drop of Date</label>
-                                <input type="datetime-local" name="enddate" class="form-control select_vehicle" id="enddate" required="required">
-                            </div>
-                        </div>     
-                        <div class="row">
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label" required="required">Inusurance Company</label>
-                                <select name="insurance_main_company" id="insurance_main_company" class="select_vehicle" style="width: 160px;">
-                                    <option value="" selected>Inusurance Company</option>
-                                    @foreach ($insmaincompanies   as $insmaincompany)
-                                        <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
-                                <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
-                                    <option value="" selected>Sub Inusurance Company</option>
-                                    @foreach ($inssubcompanies   as $inssubcompany)
-                                        <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
-                                    @endforeach
-                                </select>                        </div>
-                        </div>
-    
-                          
 
                     <div class="row">
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Rental Company</label>
-                        <select name="rental_company" id="rental_company" class="select_vehicle" style="width: 160px;" required="required">
+                        <select name="rental_company" id="rental_company" style="width: 160px;" required="required">
                             <option value="" selected>Select Rental Company</option>
                             @foreach ($rentalcompanies   as $rentalcompany )
                                 <option value="{{$rentalcompany->id}}">{{$rentalcompany->name}}</option>
@@ -94,16 +63,46 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label" required="required">Vehicles</label>
-                        <select name="vehicles" id="vehicles" class="select_vehicle" style="width: 160px;">
+                        <select name="vehicles" id="vehicles" style="width: 160px;">
                             <option value="" selected>Select Vehicle</option>
-                            {{-- @foreach ($vehicles   as $vehicle)
+                            @foreach ($vehicles   as $vehicle)
                                 <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
                     </div>
                     </div>
 
-                    
+                    <div class="row">
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label" required="required">Inusurance Company</label>
+                            <select name="insurance_main_company" id="insurance_main_company" style="width: 160px;">
+                                <option value="" selected>Inusurance Company</option>
+                                @foreach ($insmaincompanies   as $insmaincompany)
+                                    <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
+                            <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
+                                <option value="" selected>Sub Inusurance Company</option>
+                                @foreach ($inssubcompanies   as $inssubcompany)
+                                    <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
+                                @endforeach
+                            </select>                        </div>
+                    </div>
+
+                    <div class="row">
+                        
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Pick of Date</label>
+                            <input type="datetime-local" name="startdate" class="form-control" id="startdate" required="required">
+                        </div>
+                        <div class="mb-3 col-lg-6">
+                            <label for="exampleFormControlInput1" class="form-label">Drop of Date</label>
+                            <input type="datetime-local" name="enddate" class="form-control" id="enddate" required="required">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="mb-3 col-lg-6">
                             <label for="exampleFormControlInput1" class="form-label">Rental Fee</label>
@@ -177,7 +176,7 @@
                                         <canvas id="sig" onblure="draw()"
                                             style="background: gray; border-radius:10px"></canvas>
                                         <br />
-                                        <textarea name="signed" id="signature" style="display: none"></textarea>
+                                        <textarea id="signature" name="signed" style="display: none"></textarea>
                                         <span id="clear" class="fa fa-undo cursor-pointer"
                                             style="line-height: 6; position:relative; top:51px; right:26px"></span>
                                     </div>    
@@ -197,7 +196,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="submitForm" class="btn btn-primary">Submit </button>
+                    <button type="submit" id="submitButton" class="btn btn-primary">Submit </button>
                 </div>
             </div>
             </form>
@@ -341,37 +340,23 @@
     const canvas = document.getElementById("sig");
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
-        signaturePad.addEventListener("endStroke", function(){
-            $("#signature").val(signaturePad.toDataURL('image/png'));
-        }, {once: true})
     }
-
-
     $(document).on("submit", "#agreement_form", function(e){
-        e.preventDefault();
-        $.ajax({
-            url: $(this).attr('action'), // Get the form's action URL
-            type: 'POST', // Set the HTTP method to POST
-            data: $(this).serialize(), // Serialize form data
-            success: function(response) {
-                if(response.success == true){
-                    if(confirm('Successful Message')){
-                        window.location.reload();  
-                    }
-                }
-            },
-            error: function(xhr) {
-                console.error("Error submitting form", xhr);
-            }
-        });
-    })
+     e.preventDefault();
+        //console.log(signaturePad);
+        // return;
+        // if(signaturePad){
+        //     $("#signature").val(signaturePad.toDataURL('image/png'));
+        // }
+        $(this).off('submit').submit();
+  })
     
     $('#clear').click(function(e) {
         e.preventDefault();
         signaturePad.clear();
         $("#signature").val('');
-    }); 
- 
+    });
+
         // to vehicle modal
         let addButton = document.querySelectorAll('.vehicle-button');
         addButton.forEach(el => {
@@ -395,44 +380,28 @@
     })
 
         document.addEventListener("DOMContentLoaded", function() {
-        var insuranceVehicle = document.querySelectorAll(".select_vehicle");
+        var makeSelect = document.getElementById("rental_company");
         var modelSelect = document.getElementById("vehicles");
-        let url = "{{route('get.vehicle')}}";
 
-        insuranceVehicle.forEach((el) => {
-            el.addEventListener("change", function() {
-                var startDate = document.querySelector("#startdate").value;
-                var endDate = document.querySelector("#enddate").value;
-                var insuranceCompany = document.querySelector("#insurance_main_company").value;
-                var rentalCompany = document.querySelector("#rental_company").value;
-                    fetch(url, {
-                        method: "POST",
-                        body: JSON.stringify({
-                            _token: "{{csrf_token()}}",
-                            startDate: startDate,
-                            endDate: endDate,
-                            insuranceCompany: insuranceCompany,
-                            rentalCompany: rentalCompany,
-                        }),
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
+        makeSelect.addEventListener("change", function() {
+            var companyId = this.value;
+            if (companyId) {
+                fetch("/getVehicles/" + companyId)
+                    .then(response => response.json())
+                    .then(data => {
+                        modelSelect.innerHTML = '<option value="" selected>Select Vehicle</option>';
+                        data.data.forEach(function(key) {
+                            var option = document.createElement("option");
+                            option.value = key.id;
+                            option.text = key.name;
+                            modelSelect.appendChild(option);
+                        });
                     })
-                        .then(response => response.json())
-                        .then(data => {
-                            modelSelect.innerHTML = '<option value="" selected>Select Vehicle</option>';
-                            data.data.forEach(function(key) {
-                                var option = document.createElement("option");
-                                option.value = key.id;
-                                option.text = key.name;
-                                modelSelect.appendChild(option);
-                            });
-                        })
-                        .catch(error => console.error('Error:', error));
-            });
-        })
-        
-        
+                    .catch(error => console.error('Error:', error));
+            } else {
+                modelSelect.innerHTML = '<option value="" selected>Select Vehicle</option>';
+            }
+        });
 
 
         var inscompanySelect = document.getElementById("insurance_main_company");

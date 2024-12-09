@@ -24,14 +24,14 @@ class RentalAgreementController extends Controller
     {
         $insmaincompanies = InsuranceCompany::get();
         $inssubcompanies = SubInsuranceCompany::get();
-        $vehicles = Vehicle::get();
+        // $vehicles = Vehicle::get();
         $rentalcompanies = Company::get();
         //$rentalagreements = RentalAgreement::get();
         $rentalagreements = RentalAgreement::with('vehicle', 'vehicle.make', 'vehicle.model')->get();
         //to get data from assignVehicle table with relationship we made in the assignVehicle model
         //$assignVehicles = AssignVehicle::with('rentalCompany', 'vehicle', 'insuranceCompany', 'subInsuranceCompany')->get();
         //dd($assignVehicle);
-        return view('rental-agreements', compact('insmaincompanies','inssubcompanies','vehicles','rentalcompanies','rentalagreements'));
+        return view('rental-agreements', compact('insmaincompanies','inssubcompanies','rentalcompanies','rentalagreements'));
 
 
     }

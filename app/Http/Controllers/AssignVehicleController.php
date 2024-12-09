@@ -32,9 +32,46 @@ class AssignVehicleController extends Controller
 
     }
 
-    public function getVehicle($id){
-        $renalcompany = Vehicle::where('rental_company_id', $id)->get();
-        return response()->json(["data" => $renalcompany]);
+    public function getVehicle(Request $request){
+        // $renalcompany = Vehicle::where('rental_company_id', $id)->get();
+        try{
+
+            $unknown = \Config::get('constants.UNKNOWN');
+            $insured = \Config::get('constants.INSURED');
+            $non_insured = \Config::get('constants.NON_INSURED');
+            $startDate = date('Y-m-d', strtotime($request->startDate));
+            $endDate = date('Y-m-d', strtotime($request->endDate));
+            $rentalCompanyId = $request->rentalCompany;
+            $insuranceCompanyId = $request->insuranceCompany;
+
+            $vehicles = Vehicle::where(function ($query) use ($unknown, $startDate, $endDate, $rentalCompanyId) {
+                $query->where('insurance_type', $unknown)
+                      ->whereNotNull('end_date')
+                      ->where(function ($subQuery) use ($startDate, $endDate) {
+                          $subQuery->where('start_date', '>', $endDate)
+                                   ->orWhere('end_date', '<', $startDate);
+                      })
+                      ->where('rental_company_id', $rentalCompanyId);
+            })
+            ->orWhere(function ($query) use ($insured, $insuranceCompanyId, $startDate, $endDate, $rentalCompanyId) {
+                $query->where('insurance_type', $insured)
+                      ->where('insurance_company_id', '!=', $insuranceCompanyId)
+                      ->where(function ($subQuery) use ($startDate, $endDate) {
+                          $subQuery->where('start_date', '>', $endDate)
+                                   ->orWhere('end_date', '<', $startDate);
+                      })
+                      ->where('rental_company_id', $rentalCompanyId);
+            })
+            ->orWhere(function ($query) use ($non_insured, $rentalCompanyId) {
+                $query->where('insurance_type', $non_insured)
+                      ->where('rental_company_id', $rentalCompanyId);
+            })
+            ->get();
+            
+            return response()->json(['success' => true, "data" => $vehicles], 200);
+        }catch(\Exception $e){
+            return response()->json(['success'=> false, "msg" => "Something went wrong", "error" => $e->getMessage(), "line" => $e->getLine()]);
+        }
     }
     public function getSubCompany($id){
         $subInsCompany = SubInsuranceCompany::where('main_company_id', $id)->get();

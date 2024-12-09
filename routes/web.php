@@ -64,6 +64,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/vehicles', [UserController::class,'allVehicles'])->name('allVehicles');
         Route::get('/getModels/{makeId}', [VehicleModelsController::class,'getModel'])->name('getModel');
         Route::post('/submit_vehicle', [VehicleController::class,'addVehicle'])->name('addVehicle');
+        Route::post('/submit-insurance-type', [VehicleController::class,'vehicleInsuranceType'])->name('addTypeInsurance');
         Route::get('/edit_make/{id}', [VehicleMakesController::class,'editMake']);
         Route::post('/submit_editmake', [VehicleMakesController::class,'updateVehicleMake']);
         Route::post('/delete_make', [VehicleMakesController::class,'deleteVehicleMake']);
@@ -91,7 +92,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/submit_edit_subinsurance_company', [SubInsuranceCompanyController::class,'updateSubnsuranceCompany']);
         /////////// assign vehicle to insurance companies
         Route::get('assign-vehicle', [AssignVehicleController::class,'assignComapny']);
-        Route::get('/getVehicles/{companyId}', [AssignVehicleController::class,'getVehicle'])->name('getVehicle');
+        Route::post('/getVehicles', [AssignVehicleController::class,'getVehicle'])->name('get.vehicle');
         Route::get('/getsubcompany/{companyId}', [AssignVehicleController::class,'getSubCompany'])->name('getSubCompany');
         Route::post('/submit_assign_vehicle', [AssignVehicleController::class,'assignVehicle'])->name('assignVehicle');
         Route::get('/edit_assignvehicle/{id}', [AssignVehicleController::class,'editAssignVehicle']);
