@@ -95,6 +95,9 @@ class RentalAgreementController extends Controller
             
         // ]);
 
+         $startDate = date("Y-m-d", strtotime($request->startdate));
+         $endDate = date("Y-m-d", strtotime($request->enddate));
+
        $subInsuranceCompanyIds =  SubInsuranceCompany::where('main_company_id' , $request->insurance_main_company)->get()->pluck('id')->toArray();
     
         $rentalAgreemant = RentalAgreement::where('rental_companyid',$request->rental_company)
@@ -108,11 +111,32 @@ class RentalAgreementController extends Controller
                                                     $query1->whereIn('id' , $subInsuranceCompanyIds);
                                                  });
                                              })
-                                            ->where(DB::raw('DATE(pickup_date)') , '>=' , $request->startdate)
-                                            ->where(DB::raw('DATE(drop_date)') , '<=' , $request->enddate)
+                                             ->where(function($query) use ($startDate, $endDate){
+                                                $query->where(DB::raw('DATE(pickup_date)') , '>=' , $startDate)
+                                                ->where(DB::raw('DATE(drop_date)') , '<=' , $endDate);
+                                             })
+                                            
                                             ->count();
 
-        //dd($rentalAgreemant);
+    //     $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
+    // ->where('vehicle_id', $request->vehicles)
+    // ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
+    //     $query->whereHas('insuranceCompany', function ($query1) use ($request) {
+    //         $query1->where('id', $request->insurance_main_company);
+    //     })
+    //     ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
+    //         $query1->whereIn('id', $subInsuranceCompanyIds);
+    //     });
+    // })
+    // ->where(function ($query) use ($startDate, $endDate) {
+    //     $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
+    //           ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
+    //           ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
+    //           ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
+    // })
+    // ->count();
+
+
         //dd(count($alreadyassign)) ;
         if($rentalAgreemant<1){  
           
@@ -191,8 +215,7 @@ class RentalAgreementController extends Controller
             }       
     }
     else{
-
-        return redirect()->back()->with('error', 'Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate);
+        return response()->json(['success' => false, "msg" => "Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate"], 400);
     }           
       
   }

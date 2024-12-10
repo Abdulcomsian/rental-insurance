@@ -94,8 +94,8 @@
                     </div>
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label" required="required">Vehicles</label>
-                        <select name="vehicles" id="vehicles" class="select_vehicle" style="width: 160px;">
-                            <option value="" disabled selected>Select Vehicle</option>
+                        <select name="vehicles" id="vehicles" style="width: 160px;">
+                            <option value="">Select Vehicle</option>
                             {{-- @foreach ($vehicles   as $vehicle)
                                 <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
                             @endforeach --}}
@@ -354,6 +354,7 @@
             type: 'POST', // Set the HTTP method to POST
             data: $(this).serialize(), // Serialize form data
             success: function(response) {
+                console.log(response);
                 if(response.success == true){
                     if(confirm('Successful Message')){
                         window.location.reload();  
@@ -361,7 +362,12 @@
                 }
             },
             error: function(xhr) {
-                console.error("Error submitting form", xhr);
+                alert('Vehicle already assigned to insurance company');
+                // if(xhr.success == false){
+                //     if(confirm(response.msg)){
+                //         window.location.reload();  
+                //     }
+                // }
             }
         });
     })

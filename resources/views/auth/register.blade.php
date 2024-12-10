@@ -8,9 +8,9 @@
 <!--begin::Body-->
 <div class="d-flex flex-column col-sm-5 " style="position: relative;">
     <!--begin::Content-->
-    <div style="text-align: center;padding: 42px 24px;margin-top: 58px;">
+    {{-- <div style="text-align: center;padding: 42px 24px;margin-top: 58px;">
         <img src="{{asset('assets/images/rental_insurance_logo.png')}}" height="150" />
-    </div>
+    </div> --}}
     <div class="" style="width: 100%;">
         <!--begin::Wrapper-->
         <!--begin::Form-->
