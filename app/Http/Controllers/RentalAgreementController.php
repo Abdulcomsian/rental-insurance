@@ -100,41 +100,41 @@ class RentalAgreementController extends Controller
 
        $subInsuranceCompanyIds =  SubInsuranceCompany::where('main_company_id' , $request->insurance_main_company)->get()->pluck('id')->toArray();
     
-        $rentalAgreemant = RentalAgreement::where('rental_companyid',$request->rental_company)
-                                            ->where('vehicle_id' , $request->vehicles)
-                                            ->where(function($query) use ($request ,$subInsuranceCompanyIds){
-                                                $query->whereHas('insuranceCompany' , function($query1) use($request ){
-                                                    $query1->where('id' , $request->insurance_main_company);
-                                                 })
+        // $rentalAgreemant = RentalAgreement::where('rental_companyid',$request->rental_company)
+        //                                     ->where('vehicle_id' , $request->vehicles)
+        //                                     ->where(function($query) use ($request ,$subInsuranceCompanyIds){
+        //                                         $query->whereHas('insuranceCompany' , function($query1) use($request ){
+        //                                             $query1->where('id' , $request->insurance_main_company);
+        //                                          })
 
-                                                 ->orWhereHas('subInsuranceCompany' , function($query1) use ($subInsuranceCompanyIds){
-                                                    $query1->whereIn('id' , $subInsuranceCompanyIds);
-                                                 });
-                                             })
-                                             ->where(function($query) use ($startDate, $endDate){
-                                                $query->where(DB::raw('DATE(pickup_date)') , '>=' , $startDate)
-                                                ->where(DB::raw('DATE(drop_date)') , '<=' , $endDate);
-                                             })
+        //                                          ->orWhereHas('subInsuranceCompany' , function($query1) use ($subInsuranceCompanyIds){
+        //                                             $query1->whereIn('id' , $subInsuranceCompanyIds);
+        //                                          });
+        //                                      })
+        //                                      ->where(function($query) use ($startDate, $endDate){
+        //                                         $query->where(DB::raw('DATE(pickup_date)') , '>=' , $startDate)
+        //                                         ->where(DB::raw('DATE(drop_date)') , '<=' , $endDate);
+        //                                      })
                                             
-                                            ->count();
+        //                                     ->count();
 
-    //     $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
-    // ->where('vehicle_id', $request->vehicles)
-    // ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
-    //     $query->whereHas('insuranceCompany', function ($query1) use ($request) {
-    //         $query1->where('id', $request->insurance_main_company);
-    //     })
-    //     ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
-    //         $query1->whereIn('id', $subInsuranceCompanyIds);
-    //     });
-    // })
-    // ->where(function ($query) use ($startDate, $endDate) {
-    //     $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
-    //           ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
-    //           ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
-    //           ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
-    // })
-    // ->count();
+        $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
+    ->where('vehicle_id', $request->vehicles)
+    ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
+        $query->whereHas('insuranceCompany', function ($query1) use ($request) {
+            $query1->where('id', $request->insurance_main_company);
+        })
+        ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
+            $query1->whereIn('id', $subInsuranceCompanyIds);
+        });
+    })
+    ->where(function ($query) use ($startDate, $endDate) {
+        $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
+              ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
+              ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
+              ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
+    })
+    ->count();
 
 
         //dd(count($alreadyassign)) ;
