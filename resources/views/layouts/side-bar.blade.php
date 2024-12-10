@@ -2,9 +2,9 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto d-flex align-items-center  flex-lg-grow-0" id="kt_aside_logo" style="align:left">
         <!--begin::Logo-->
-        <a href="/">
+        {{-- <a href="/">
             <img alt="Logo" src="{{asset('assets/images/rental_insurance_logo.png')}}" class="logo" width="auto" height="90" />
-        </a>
+        </a> --}}
         <!--end::Logo-->
         <!--begin::Aside toggler-->
         <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle d-none d-lg-block" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
