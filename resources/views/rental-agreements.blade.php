@@ -64,7 +64,7 @@
                             <div class="mb-3 col-lg-6">
                                 <label for="exampleFormControlInput1" class="form-label" required="required">Inusurance Company</label>
                                 <select name="insurance_main_company" id="insurance_main_company" class="select_vehicle" style="width: 160px;">
-                                    <option value="" selected>Inusurance Company</option>
+                                    <option value="" disabled selected>Inusurance Company</option>
                                     @foreach ($insmaincompanies   as $insmaincompany)
                                         <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
                                     @endforeach
@@ -73,7 +73,7 @@
                             <div class="mb-3 col-lg-6">
                                 <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
                                 <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
-                                    <option value="" selected>Sub Inusurance Company</option>
+                                    <option value="" disabled selected>Sub Inusurance Company</option>
                                     @foreach ($inssubcompanies   as $inssubcompany)
                                         <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
                                     @endforeach
@@ -86,7 +86,7 @@
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label">Rental Company</label>
                         <select name="rental_company" id="rental_company" class="select_vehicle" style="width: 160px;" required="required">
-                            <option value="" selected>Select Rental Company</option>
+                            <option value="" disabled selected>Select Rental Company</option>
                             @foreach ($rentalcompanies   as $rentalcompany )
                                 <option value="{{$rentalcompany->id}}">{{$rentalcompany->name}}</option>
                             @endforeach
@@ -95,7 +95,7 @@
                     <div class="mb-3 col-lg-6">
                         <label for="exampleFormControlInput1" class="form-label" required="required">Vehicles</label>
                         <select name="vehicles" id="vehicles" class="select_vehicle" style="width: 160px;">
-                            <option value="" selected>Select Vehicle</option>
+                            <option value="" disabled selected>Select Vehicle</option>
                             {{-- @foreach ($vehicles   as $vehicle)
                                 <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
                             @endforeach --}}

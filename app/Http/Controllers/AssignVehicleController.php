@@ -44,6 +44,7 @@ class AssignVehicleController extends Controller
             $rentalCompanyId = $request->rentalCompany;
             $insuranceCompanyId = $request->insuranceCompany;
 
+            
             $vehicles = Vehicle::where(function ($query) use ($unknown, $startDate, $endDate, $rentalCompanyId) {
                 $query->where('insurance_type', $unknown)
                       ->whereNotNull('end_date')
@@ -55,10 +56,16 @@ class AssignVehicleController extends Controller
             })
             ->orWhere(function ($query) use ($insured, $insuranceCompanyId, $startDate, $endDate, $rentalCompanyId) {
                 $query->where('insurance_type', $insured)
-                      ->where('insurance_company_id', '!=', $insuranceCompanyId)
-                      ->where(function ($subQuery) use ($startDate, $endDate) {
-                          $subQuery->where('start_date', '>', $endDate)
-                                   ->orWhere('end_date', '<', $startDate);
+                      ->where(function ($subQuery) use ($startDate, $endDate, $insuranceCompanyId) {
+                          $subQuery->where(function ($dateQuery) use ($startDate, $endDate) {
+                                  $dateQuery->where('start_date', '<=', $endDate)
+                                            ->where('end_date', '>=', $startDate);
+                              })
+                              ->where('insurance_company_id', '!=', $insuranceCompanyId)
+                              ->orWhere(function ($dateQuery) use ($startDate, $endDate) {
+                                  $dateQuery->where('start_date', '>', $endDate)
+                                            ->orWhere('end_date', '<', $startDate);
+                              });
                       })
                       ->where('rental_company_id', $rentalCompanyId);
             })
