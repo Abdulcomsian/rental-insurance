@@ -117,27 +117,41 @@ class RentalAgreementController extends Controller
         //                                      })
                                             
         //                                     ->count();
-
+    $rentalAgreemant=null;    
+    $rentalagreementnew = RentalAgreement::where('rental_companyid', $request->rental_company)->where('vehicle_id', $request->vehicles)->where('rental_companyid', $request->rental_company)->get()->last();
+  // dd( $rentalagreementnew);
+    if($rentalagreementnew !=null)
+    {
+        if($rentalagreementnew !=null && $startDate > $rentalagreementnew->drop_date && $endDate>$rentalagreementnew->drop_date){
+            //dd("need to insert driect");
+            $rentalAgreemant=0;
+        }
+    
+    }
+  
+  //dd($rentalAgreemant) ;
+  if($rentalAgreemant==null)
+  {
         $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
-    ->where('vehicle_id', $request->vehicles)
-    ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
-        $query->whereHas('insuranceCompany', function ($query1) use ($request) {
-            $query1->where('id', $request->insurance_main_company);
+        ->where('vehicle_id', $request->vehicles)
+        ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
+            $query->whereHas('insuranceCompany', function ($query1) use ($request) {
+                $query1->where('id', $request->insurance_main_company);
+            })
+            ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
+                $query1->whereIn('id', $subInsuranceCompanyIds);
+            });
         })
-        ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
-            $query1->whereIn('id', $subInsuranceCompanyIds);
-        });
-    })
-    ->where(function ($query) use ($startDate, $endDate) {
-        $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
-              ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
-              ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
-              ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
-    })
-    ->count();
+        ->where(function ($query) use ($startDate, $endDate) {
+            $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
+                ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
+                ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
+                ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
+        })
+        ->count();
+    }
 
-
-        //dd(count($alreadyassign)) ;
+   // dd($rentalAgreemant) ;
         if($rentalAgreemant<1){  
           
         // error handling using try and catch
