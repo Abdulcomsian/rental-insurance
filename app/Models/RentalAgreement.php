@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class RentalAgreement extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'invoice_pdf_file',
+        'pdf_file', // Add this line
+    ];
     public function rentalCompany(){
         return $this->belongsTo(Company::class, 'rental_companyid');
     }

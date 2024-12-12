@@ -65,93 +65,45 @@ class RentalAgreementController extends Controller
     public function addAgreement(Request $request){
 
         // dd($request->all());
-        // // validation
-        //     $request->validate([
-        //     'customer_name'=>'required',
-        //     'address'=>'required',    
-        //     'rental_company'=>'required',
-        //     'vehicles'=>'required',
-        //     'insurance_main_company'=>'required',
-        //     'startdate' => 'required',
-        //     'enddate' => 'required',
-        //     'rental_fee' => 'required',
-        //     'insurance_cover' => 'required',
-        //     'rego_recovery' => 'required',
-        //     'administration_charges' => 'required',
-        //     'delivery_fee' => 'required'
-        // ],[
-        //     'customer_name.required' => 'Customer name is required',
-        //     'address.required' => 'Customer address is required',
-        //     'rental_company.required' => 'Rental Company is required',
-        //     'vehicles.required' => 'Vehicle is required',
-        //     'insurance_main_company.required' => 'Insurance Main Company is required',
-        //     'startdate.required' => 'State Date is required',
-        //     'enddate.required' => 'End Date is required',
-        //     'rental_fee.required' => 'Rental Fee is required',
-        //     'insurance_cover.required' => 'Insturance Cover is required',
-        //     'rego_recovery.required' => 'Rego Recovery is required',
-        //     'administration_charges.required' => 'Administration Charges are required',
-        //     'delivery_fee.required' => 'Delivery Fee is required',
-            
-        // ]);
-
          $startDate = date("Y-m-d", strtotime($request->startdate));
          $endDate = date("Y-m-d", strtotime($request->enddate));
 
        $subInsuranceCompanyIds =  SubInsuranceCompany::where('main_company_id' , $request->insurance_main_company)->get()->pluck('id')->toArray();
-    
-        // $rentalAgreemant = RentalAgreement::where('rental_companyid',$request->rental_company)
-        //                                     ->where('vehicle_id' , $request->vehicles)
-        //                                     ->where(function($query) use ($request ,$subInsuranceCompanyIds){
-        //                                         $query->whereHas('insuranceCompany' , function($query1) use($request ){
-        //                                             $query1->where('id' , $request->insurance_main_company);
-        //                                          })
 
-        //                                          ->orWhereHas('subInsuranceCompany' , function($query1) use ($subInsuranceCompanyIds){
-        //                                             $query1->whereIn('id' , $subInsuranceCompanyIds);
-        //                                          });
-        //                                      })
-        //                                      ->where(function($query) use ($startDate, $endDate){
-        //                                         $query->where(DB::raw('DATE(pickup_date)') , '>=' , $startDate)
-        //                                         ->where(DB::raw('DATE(drop_date)') , '<=' , $endDate);
-        //                                      })
-                                            
-        //                                     ->count();
-    $rentalAgreemant=null;    
-    $rentalagreementnew = RentalAgreement::where('rental_companyid', $request->rental_company)->where('vehicle_id', $request->vehicles)->where('rental_companyid', $request->rental_company)->get()->last();
-  // dd( $rentalagreementnew);
-    if($rentalagreementnew !=null)
-    {
-        if($rentalagreementnew !=null && $startDate > $rentalagreementnew->drop_date && $endDate>$rentalagreementnew->drop_date){
-            //dd("need to insert driect");
-            $rentalAgreemant=0;
+            $rentalAgreemant=null;    
+        $rentalagreementnew = RentalAgreement::where('rental_companyid', $request->rental_company)->where('vehicle_id', $request->vehicles)->where('rental_companyid', $request->rental_company)->get()->last();
+         // dd( $rentalagreementnew);
+        if($rentalagreementnew !=null)
+        {
+            if($rentalagreementnew !=null && $startDate > $rentalagreementnew->drop_date && $endDate>$rentalagreementnew->drop_date){
+                //dd("need to insert driect");
+                $rentalAgreemant=0;
+            }
+        
         }
-    
-    }
-  
-  //dd($rentalAgreemant) ;
-  if($rentalAgreemant==null)
-  {
-        $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
-        ->where('vehicle_id', $request->vehicles)
-        ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
-            $query->whereHas('insuranceCompany', function ($query1) use ($request) {
-                $query1->where('id', $request->insurance_main_company);
+    //dd($rentalAgreemant) ;
+    if($rentalAgreemant==null)
+    {
+            $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
+            ->where('vehicle_id', $request->vehicles)
+            ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
+                $query->whereHas('insuranceCompany', function ($query1) use ($request) {
+                    $query1->where('id', $request->insurance_main_company);
+                })
+                ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
+                    $query1->whereIn('id', $subInsuranceCompanyIds);
+                });
             })
-            ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
-                $query1->whereIn('id', $subInsuranceCompanyIds);
-            });
-        })
-        ->where(function ($query) use ($startDate, $endDate) {
-            $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
-                ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
-                ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
-                ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
-        })
-        ->count();
-    }
+            ->where(function ($query) use ($startDate, $endDate) {
+                $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
+                    ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
+                    ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
+                    ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
+            })
+            ->count();
+        }
 
-   // dd($rentalAgreemant) ;
+         // dd($rentalAgreemant) ;
         if($rentalAgreemant<1){  
           
         // error handling using try and catch
@@ -195,21 +147,23 @@ class RentalAgreementController extends Controller
                 if($request->hasFile("file")){
                     $rentalagreement->licence_image  = $licencefileName;
                 }
+
+                $rentalagreement->signature = null;
                
               ////for signature
-              if($request->signed != null){
-                $folderPath = public_path('assets/signature/');
-                $image = explode(",", $request->signed)[1];
-                // $image_type = explode("image/", $image[0]);
-                $image_base64 = base64_decode($image);
-                $image_name = uniqid() . '-signature-image.png';
-                $file = $folderPath . $image_name;
-                file_put_contents($file, $image_base64);
-                //dd($file);
-                //if(is_string($image_name)){
-                    $rentalagreement->signature = $image_name;
-                //}
-              }
+            //   if($request->signed != null){
+            //     $folderPath = public_path('assets/signature/');
+            //     $image = explode(",", $request->signed)[1];
+            //     // $image_type = explode("image/", $image[0]);
+            //     $image_base64 = base64_decode($image);
+            //     $image_name = uniqid() . '-signature-image.png';
+            //     $file = $folderPath . $image_name;
+            //     file_put_contents($file, $image_base64);
+            //     //dd($file);
+            //     //if(is_string($image_name)){
+            //         $rentalagreement->signature = $image_name;
+            //     //}
+            //   }
                
              
                 if($rentalagreement->save()){
@@ -219,17 +173,22 @@ class RentalAgreementController extends Controller
                
                 $path = public_path('pdf');
                 $pdf->save($path . '/' . $filename);
-               
-                    return response()->json(['success' => true, "msg" => "Rental Agreement Store Successfully"], 200);
+                
+            
+                    return redirect()->back()->with('success', "Rental Agreement Store Successfully");
+                    // return response()->json(['success' => true, "msg" => "Rental Agreement Store Successfully"], 200);
                 }else{
-                    return response()->json(['success' => false, "msg" => "Rental Agreement not store succesfully"], 400);
+                    return redirect()->back()->with('error', "Rental Agreement not store succesfully");
+                    // return response()->json(['success' => false, "msg" => "Rental Agreement not store succesfully"], 400);
                 }
             } catch (\Exception $e) {
-                return response()->json(['success' => false, "msg" => "Something went wrong", "error" => $e->getMessage(), "line" => $e->getLine()], 400);
+                dd($e->getMessage(), $e->getLine());
+                // return response()->json(['success' => false, "msg" => "Something went wrong", "error" => $e->getMessage(), "line" => $e->getLine()], 400);
             }       
     }
     else{
-        return response()->json(['success' => false, "msg" => "Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate"], 400);
+        return redirect()->back()->with('error', "Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate");
+        // return response()->json(['success' => false, "msg" => "Vehicle already assigned to insurance company between '.$request->startdate.' and '.$request->enddate"], 400);
     }           
       
   }
@@ -271,61 +230,152 @@ public function generateRentaInvoice($id){
     $vehicles = Vehicle::get();
     $rentalcompanies = Company::get();
     $rentalagreements = RentalAgreement::with('rentalCompany', 'vehicle', 'insuranceCompany', 'subInsuranceCompany')->where('id', $id)->first();
-        return view('editRentalAgreement', compact('insmaincompanies','inssubcompanies','vehicles','rentalcompanies', 'RentalAgreements'));
+        return view('editRentalAgreement', compact('insmaincompanies','inssubcompanies','vehicles','rentalcompanies', 'rentalagreements'));
 
   }
 
   public function updateRentalAgreement(Request $request){
-     $request->validate([
-        'rental_company'=>'required',
-        'vehicles'=>'required',
-        'insurance_main_company'=>'required',
-        'amonut' => 'required',
-        'startdate' => 'required',
-        'enddate' => 'required'
-    ],[
-        'rental_company.required' => 'Rental Company is required',
-        'vehicles.required' => 'Vehicle is required',
-        'insurance_main_company.required' => 'Insurance Main Company is required',
-        'amonut.required' => 'Amount is required',
-        'startdate.required' => 'State Date is required',
-        'enddate.required' => 'End Date is required',
-    ]);
 
-    try {
-      // $user_id = Auth::user()->id;
-        $id = $request->assignVehicleId;
-        $vehicle=RentalAgreement::find($id);
-        $vehicle->user_id = $user_id;
-        $vehicle->vehicle_id  =   $request->vehicles;
-        $vehicle->rental_company_id =  $request->rental_company;
-        $vehicle->insurance_company_id  =  $request->insurance_main_company;
-        $vehicle->insurance_sub_company_id  = $request->insurance_sub_company;
-        $vehicle->amount  = $request->amonut;
-        $vehicle->start_date =  $request->startdate;
-        $vehicle->end_data = $request->enddate; 
-        if($vehicle->update()){
-            return redirect('assign-vehicle')->with('success', 'Assign Vehicle is updated successfully');
-        }else{
-            return redirect()->back()->with('error', 'VehAssign Vehicleicle not updated successfully');
+
+   // dd($request->all());
+    $startDate = date("Y-m-d", strtotime($request->startdate));
+    $endDate = date("Y-m-d", strtotime($request->enddate));
+
+    $subInsuranceCompanyIds =  SubInsuranceCompany::where('main_company_id' , $request->insurance_main_company)->get()->pluck('id')->toArray();
+
+    $rentalAgreemant=null;    
+    $rentalagreementnew = RentalAgreement::where('rental_companyid', $request->rental_company)->where('vehicle_id', $request->vehicles)->where('rental_companyid', $request->rental_company)->get()->last();
+    // dd( $rentalagreementnew);
+    if($rentalagreementnew !=null)
+    {
+        if($rentalagreementnew !=null && $startDate > $rentalagreementnew->drop_date && $endDate>$rentalagreementnew->drop_date){
+            //dd("need to insert driect");
+            $rentalAgreemant=0;
         }
-    } catch (\Exception $e) {
-        return redirect('assign-vehicle')->with('error', $e->getMessage());
-    }       
+    
+    }
 
+    //dd($rentalAgreemant) ;
+    // if($rentalAgreemant==null)
+    // {
+    //     $rentalAgreemant = RentalAgreement::where('rental_companyid', $request->rental_company)
+    //     ->where('vehicle_id', $request->vehicles)
+    //     ->where(function ($query) use ($request, $subInsuranceCompanyIds) {
+    //         $query->whereHas('insuranceCompany', function ($query1) use ($request) {
+    //             $query1->where('id', $request->insurance_main_company);
+    //         })
+    //         ->orWhereHas('subInsuranceCompany', function ($query1) use ($subInsuranceCompanyIds) {
+    //             $query1->whereIn('id', $subInsuranceCompanyIds);
+    //         });
+    //     })
+    //     ->where(function ($query) use ($startDate, $endDate) {
+    //         $query->where(DB::raw('DATE(pickup_date)'), '<=', $startDate)
+    //             ->where(DB::raw('DATE(drop_date)'), '>=', $startDate)
+    //             ->where(DB::raw('DATE(pickup_date)'), '<=', $endDate)
+    //             ->where(DB::raw('DATE(drop_date)'), '>=', $endDate);
+    //     })
+    //     ->count();
+    // }
 
+    //     // dd($rentalAgreemant) ;
+    // if($rentalAgreemant<1){  
+        
+    // error handling using try and catch
+    try {
+           $user_id = Auth::user()->id;  /// to get current logged in user id
+
+            $path = '';
+            if( $request->hasFile('file') ) {
+                $file = $request->file('file');
+                // Get the Image Name
+                $licencefileName = time().'.'.$file->getClientOriginalExtension();
+                // Set the Filepath 
+                $path = public_path('uploads/licence_images') ;
+                // Move the file to the upload Folder
+                $file = $file->move($path, $licencefileName);
+            }
+            
+            $filename =rand().'rental-agreement.pdf';
+            $rentalagreement=RentalAgreement::get()->where('id',  $request->agreement_id)->first();
+            $rentalagreement->customer_name  = $request->customer_name;
+            $rentalagreement->address  = $request->address;
+            //$rentalagreement->vehicle_id  =   $request->vehicles;
+            //$rentalagreement->rental_companyid  =  $request->rental_company;
+            //$rentalagreement->insurance_company_id  =  $request->insurance_main_company;
+            // $rentalagreement->insurance_sub_company_id  = $request->insurance_sub_company;
+            //$rentalagreement->pickup_date =  $request->startdate;
+            //$rentalagreement->drop_date = $request->enddate; 
+            $rentalagreement->rental_fee  = $request->rental_fee;
+            $rentalagreement->insurance_cover  = $request->insurance_cover;
+            $rentalagreement->rego_recovery  = $request->rego_recovery;
+            $rentalagreement->administration_charges  = $request->administration_charges;
+            $rentalagreement->delivery_fee  = $request->delivery_fee;
+            $rentalagreement->basic_insurance  = $request->basic_insurance;
+            $rentalagreement->reduction  = $request->reduction;
+            $rentalagreement->traffic_infringement  = $request->traffic_infringement;
+            $rentalagreement->fuel_topup  = $request->fuel_topup_fee;
+            $rentalagreement->cleaning_fee  = $request->cleaning_fee;
+            $rentalagreement->pdf_file  = $filename;
+            $rentalagreement->in_km  =  $request->in_km;
+            $rentalagreement->out_km  =  $request->out_km;
+            if($request->hasFile("file")){
+                $rentalagreement->licence_image  = $licencefileName;
+            }
+            
+            ////for signature
+            if($request->signed != null){
+            $folderPath = public_path('assets/signature/');
+            $image = explode(",", $request->signed)[1];
+            // $image_type = explode("image/", $image[0]);
+            $image_base64 = base64_decode($image);
+            $image_name = uniqid() . '-signature-image.png';
+            $file = $folderPath . $image_name;
+            file_put_contents($file, $image_base64);
+            //dd($file);
+            //if(is_string($image_name)){
+                $rentalagreement->signature = $image_name;
+            //}
+            }
+            
+            
+            if($rentalagreement->update()){
+                
+            $termsconditions=TermsCondition::get();    
+            $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement],['termsdata' => $termsconditions]);
+            
+            $path = public_path('pdf');
+            $pdf->save($path . '/' . $filename);
+            $rentalagreement->update(['pdf_file' =>  $filename]);
+            
+            //for invoice pdf
+            $invoicefilename =rand().'rental-invoice.pdf';
+            $pdf = PDF::loadView('pdf.rental_invoice', ['data' => $rentalagreement]);
+            $path = public_path('pdf/inovices');
+            $pdf->save($path . '/' . $invoicefilename);
+            $rentalagreement->update(['invoice_pdf_file' =>  $invoicefilename]);
+
+                return redirect('rental-agreements')->with('success', 'Rental Agreement Updated Successfully');
+            }else{
+                return redirect('rental-agreements')->with('error', 'Rental Agreement Not Updated Successfully');   
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+            //return redirect()->back()->with('error', 'Rental Agreement Not Updated Successfully');   
+            //return response()->json(['success' => false, "msg" => "Something went wrong", "error" => $e->getMessage(), "line" => $e->getLine()], 400);
+        }       
+    // }       
   } 
     
   public function deleteRentalAgreement(Request $request)
   {
-    $id=$request->assignVehicleId;
+    $id=$request->agreementeId;
     try{
        $result=RentalAgreement::where('id',$id)->delete();
        if($result){
-           return redirect()->back()->with('success', 'Assigned Vehicle deleted successfully');
+           return redirect()->back()->with('success', 'Rental Agreementdeleted successfully');
        }
        else{
-           return redirect()->back()->with('error', 'Assigned Vehicle not deleted');           
+           return redirect()->back()->with('error', 'Rental Agreement not deleted');           
         }
 
        

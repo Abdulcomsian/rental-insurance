@@ -108,6 +108,9 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('rental-invoice/{id}', [RentalAgreementController::class,'generateRentaInvoice']);
         // Route::get('manage-invoices', [ManageInoviceController::class,'manageInvoices']);
         Route::get('/generate-pdf', [RentalAgreementController::class, 'generatePDF']);
+        Route::get('/edit_rentalagreement/{id}', [RentalAgreementController::class, 'editRentalAgreement']);
+        Route::post('/submit_edit_agreement', [RentalAgreementController::class, 'updateRentalAgreement']);
+        Route::post('/delete_rentalagreement',[RentalAgreementController::class,'deleteRentalAgreement']);
         
         
         

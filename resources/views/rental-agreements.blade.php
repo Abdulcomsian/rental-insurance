@@ -209,12 +209,12 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="modal-data">
-            <form action="{{url('/delete_assignVehicle')}}" name="frm2" method="POST" enctype="multipart/form-data">
+            <form action="{{url('/delete_rentalagreement')}}" name="frm2" method="POST" enctype="multipart/form-data">
                 @csrf
                 <img src="assets/images/warning.svg" alt="">
-                <input type="hidden" name="assignVehicleId" id="assignVehicleId" class="assignVehicleId">
-                <h3>Delete <b>Assigned Vehicle</b></h3> 
-                <p>You're going to delete the <b>"Assigned Vehicle"</b></p>
+                <input type="hidden" name="agreementeId" id="agreementeId" class="agreementeId">
+                <h3>Delete <b>Rental Agreement</b></h3> 
+                <p>You're going to delete the <b>"Rental Agreement"</b></p>
                 <div class="modal-action">
                     <button type="button" class="btn btn-action-cancel" data-bs-dismiss="modal">No</button>
                     <button type="submit" class="btn btn-action-approve">Yes</button>
@@ -255,7 +255,7 @@
                         <th>Delivery Fee</th>
                         <th>Rental Inovice</th>
                         <th>Rental Agreement</th>
-                        {{-- <th colspan="2">Action</th> --}}
+                        <th colspan="2">Action</th>
 
                     </tr>
                 </thead>
@@ -313,8 +313,8 @@
                                 {{-- Download Rental Agreement PDF --}}
                               </a>    
                         </td> 
-                        {{-- <td>
-                            <a href="{{url('edit_assignvehicle/'.$rentalagreement->id)}}" class="text-primary action-button">
+                        <td>
+                            <a href="{{url('edit_rentalagreement/'.$rentalagreement->id)}}" class="text-primary action-button">
                                 <i class="las la-edit"></i>
                             </a>
                             <a href="#"  class="text-danger action-button delete-button" data-id="{{$rentalagreement->id}}">
@@ -322,7 +322,7 @@
                             </a>
 
                            
-                        </td> --}}
+                        </td>
                     </tr> 
                     @php
                         $i++;
@@ -347,30 +347,30 @@
     }
 
 
-    $(document).on("submit", "#agreement_form", function(e){
-        e.preventDefault();
-        $.ajax({
-            url: $(this).attr('action'), // Get the form's action URL
-            type: 'POST', // Set the HTTP method to POST
-            data: $(this).serialize(), // Serialize form data
-            success: function(response) {
-                console.log(response);
-                if(response.success == true){
-                    if(confirm('Successful Message')){
-                        window.location.reload();  
-                    }
-                }
-            },
-            error: function(xhr) {
-                alert('Vehicle already assigned to insurance company');
-                // if(xhr.success == false){
-                //     if(confirm(response.msg)){
-                //         window.location.reload();  
-                //     }
-                // }
-            }
-        });
-    })
+    // $(document).on("submit", "#agreement_form", function(e){
+    //     e.preventDefault();
+    //     $.ajax({
+    //         url: $(this).attr('action'), // Get the form's action URL
+    //         type: 'POST', // Set the HTTP method to POST
+    //         data: $(this).serialize(), // Serialize form data
+    //         success: function(response) {
+    //             console.log(response);
+    //             if(response.success == true){
+    //                 if(confirm('Successful Message')){
+    //                     window.location.reload();  
+    //                 }
+    //             }
+    //         },
+    //         error: function(xhr) {
+    //             alert('Vehicle already assigned to insurance company');
+    //             // if(xhr.success == false){
+    //             //     if(confirm(response.msg)){
+    //             //         window.location.reload();  
+    //             //     }
+    //             // }
+    //         }
+    //     });
+    // })
     
     $('#clear').click(function(e) {
         e.preventDefault();
@@ -392,8 +392,8 @@
         let deleteButton = document.querySelectorAll('.delete-button');
          deleteButton.forEach(el => {
         el.addEventListener('click', function(){
-            let assignVehicleId = this.getAttribute('data-id');
-            document.getElementById('assignVehicleId').value = assignVehicleId;
+            let agreementeId = this.getAttribute('data-id');
+            document.getElementById('agreementeId').value = agreementeId;
             // showing the Modal
             var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
             modal.show();
