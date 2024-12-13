@@ -168,7 +168,7 @@
                             <label for="exampleFormControlInput1" class="form-label">Vehicle Cleaning Fee</label>
                             <input type="text" value="180.00" name="cleaning_fee" class="form-control" id="cleaning_fee" required="required">
                         </div>
-                        <div class="d-flex inputDiv my-0" id="sign"
+                        {{-- <div class="d-flex inputDiv my-0" id="sign"
                                         style="align-items: center;border:none">
                                         <!-- <label class="d-flex align-items-center fs-6 fw-bold mb-2">
                                                     <span class="required">Signature:</span>
@@ -180,7 +180,7 @@
                                         <textarea name="signed" id="signature" style="display: none"></textarea>
                                         <span id="clear" class="fa fa-undo cursor-pointer"
                                             style="line-height: 6; position:relative; top:51px; right:26px"></span>
-                                    </div>    
+                                    </div>     --}}
                     
                     </div>
                     
