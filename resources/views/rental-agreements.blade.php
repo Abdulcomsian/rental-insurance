@@ -186,14 +186,14 @@
                         
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-lg-6">
                                 <input type="hidden" id="signature" name="signed" value="">
                                 <canvas id="sig" class="canvas_css"></canvas>
                                 <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
                                 style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="col-lg-4 d-flex" style="width: 100%; justify-content:flex-end;">
                                 <button type="button" class="btn btn-secondary" style="margin-right: 5px;" data-bs-dismiss="modal">Close</button>
