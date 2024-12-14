@@ -189,9 +189,9 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <input type="hidden" id="signature" name="signed" value="">
-                                {{-- <canvas id="sig" class="canvas_css"></canvas>
+                                <canvas id="sig" class="canvas_css"></canvas>
                                 <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
-                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span> --}}
+                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
                             </div>
                         </div>
                         <div class="row">
@@ -201,9 +201,9 @@
                             </div>
                         </div>
                     </form>
-                    <canvas id="sig" class="canvas_css"></canvas>
+                    {{-- <canvas id="sig" class="canvas_css"></canvas>
                                 <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
-                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
+                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span> --}}
                     </div>
                 </div>
             
@@ -349,7 +349,8 @@
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
         signaturePad.addEventListener("endStroke", function(){
-            $("#signature").val(signaturePad.toDataURL('image/png'));
+            $("#signature").val(encodeURIComponent(signaturePad.toDataURL('image/png')));
+            // $("#signature").val(signaturePad.toDataURL('image/png'));
             $("#submitForm").prop('disabled', false);
         })
     }
