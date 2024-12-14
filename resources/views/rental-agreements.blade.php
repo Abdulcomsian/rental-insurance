@@ -25,197 +25,189 @@
     </div>
     <div class="modal fade" id="assignvehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <form  action="{{url('submit_add_agreement')}}" method="POST" id="agreement_form" enctype="multipart/form-data">
-                @csrf
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Rental Agreement</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+            
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Rental Agreement</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form  action="{{url('submit_add_agreement')}}" method="POST" id="agreement_form" enctype="multipart/form-data">
+                            @csrf
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Customer Name</label>
+                                <input type="text" name="customer_name" class="form-control" id="customer_name" required="required">
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Address</label>
+                                <input type="text" name="address" class="form-control" id="address" required="required">
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Out KM</label>
+                                    <input type="text" name="out_km" class="form-control" id="out_km" required="required">
+                                </div>
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">In KM</label>
+                                    <input type="text" name="in_km" class="form-control" id="in_km" required="required">
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Pick of Date</label>
+                                    <input type="datetime-local" name="startdate" class="form-control select_vehicle" id="startdate" required="required">
+                                </div>
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Drop of Date</label>
+                                    <input type="datetime-local" name="enddate" class="form-control select_vehicle" id="enddate" required="required">
+                                </div>
+                            </div>     
+                            <div class="row">
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label" required="required">Inusurance Company</label>
+                                    <select name="insurance_main_company" id="insurance_main_company" class="select_vehicle" style="width: 160px;">
+                                        <option value="" disabled selected>Inusurance Company</option>
+                                        @foreach ($insmaincompanies   as $insmaincompany)
+                                            <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 col-lg-6">
+                                    <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
+                                    <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
+                                        <option value="" disabled selected>Sub Inusurance Company</option>
+                                        @foreach ($inssubcompanies   as $inssubcompany)
+                                            <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
+                                        @endforeach
+                                    </select>                        </div>
+                            </div>
+        
+                            
 
-                    <div class="row">
+                        <div class="row">
                         <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Customer Name</label>
-                            <input type="text" name="customer_name" class="form-control" id="customer_name" required="required">
+                            <label for="exampleFormControlInput1" class="form-label">Rental Company</label>
+                            <select name="rental_company" id="rental_company" class="select_vehicle" style="width: 160px;" required="required">
+                                <option value="" disabled selected>Select Rental Company</option>
+                                @foreach ($rentalcompanies   as $rentalcompany )
+                                    <option value="{{$rentalcompany->id}}">{{$rentalcompany->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Address</label>
-                            <input type="text" name="address" class="form-control" id="address" required="required">
+                            <label for="exampleFormControlInput1" class="form-label" required="required">Vehicles</label>
+                            <select name="vehicles" id="vehicles" style="width: 160px;">
+                                <option value="">Select Vehicle</option>
+                                {{-- @foreach ($vehicles   as $vehicle)
+                                    <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
+                                @endforeach --}}
+                            </select>
                         </div>
+                        </div>
+
+                        
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Rental Fee</label>
+                                <input type="text" name="rental_fee" class="form-control" id="rental_fee" required="required">
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Insurance Cover</label>
+                                <input type="text" name="insurance_cover" class="form-control" id="insurance_cover" required="required">
+                            </div>
+                        
                         </div>
                         <div class="row">
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Out KM</label>
-                                <input type="text" name="out_km" class="form-control" id="out_km" required="required">
+                                <label for="exampleFormControlInput1" class="form-label">Rego Recovery</label>
+                                <input type="text" name="rego_recovery" class="form-control" id="rego_recovery" required="required">
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">In KM</label>
-                                <input type="text" name="in_km" class="form-control" id="in_km" required="required">
+                                <label for="exampleFormControlInput1" class="form-label">Administration Charges</label>
+                                <input type="text" name="administration_charges" class="form-control" id="administration_charges" required="required">
+                            </div>
+                        
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Delivery Fee</label>
+                                <input type="text" name="delivery_fee" class="form-control" id="rego_recovery" required="required">
                             </div>
                             
                         </div>
                         <div class="row">
-                            
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Pick of Date</label>
-                                <input type="datetime-local" name="startdate" class="form-control select_vehicle" id="startdate" required="required">
+                            <div class="mb-3 col-lg-12">
+                                <hr style="color:black">
+                                <h2>Terms and Conditions Data</h2>
                             </div>
-                            <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Drop of Date</label>
-                                <input type="datetime-local" name="enddate" class="form-control select_vehicle" id="enddate" required="required">
-                            </div>
-                        </div>     
+                        </div>
                         <div class="row">
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label" required="required">Inusurance Company</label>
-                                <select name="insurance_main_company" id="insurance_main_company" class="select_vehicle" style="width: 160px;">
-                                    <option value="" disabled selected>Inusurance Company</option>
-                                    @foreach ($insmaincompanies   as $insmaincompany)
-                                        <option value="{{$insmaincompany->id}}">{{$insmaincompany->name}}</option>
-                                    @endforeach
-                                </select>
+                                <label for="exampleFormControlInput1" class="form-label">Basic Insurance</label>
+                                <input type="text" name="basic_insurance"  value="2,500.00"  class="form-control" id="basic_insurance" required="required">
                             </div>
                             <div class="mb-3 col-lg-6">
-                                <label for="exampleFormControlInput1" class="form-label">Sub Inusurance Company</label>
-                                <select name="insurance_sub_company" id="insurance_sub_company" style="width: 160px;">
-                                    <option value="" disabled selected>Sub Inusurance Company</option>
-                                    @foreach ($inssubcompanies   as $inssubcompany)
-                                        <option value="{{$inssubcompany->id}}">{{$inssubcompany->name}}</option>
-                                    @endforeach
-                                </select>                        </div>
+                                <label for="exampleFormControlInput1" class="form-label">Reduction</label>
+                                <input type="text" name="reduction" value="1,500.00" class="form-control" id="reduction" required="required">
+                            </div>
+                        
                         </div>
-    
-                          
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Traffic Infringement</label>
+                                <input type="text" value="50.00" name="traffic_infringement" class="form-control" id="traffic_infringement" required="required">
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Fuel Top Up Fee</label>
+                                <input type="text" value="2.00" name="fuel_topup_fee" class="form-control" id="fuel_topup_fee" required="required">
+                            </div>
+                        
+                        </div>
 
-                    <div class="row">
-                    <div class="mb-3 col-lg-6">
-                        <label for="exampleFormControlInput1" class="form-label">Rental Company</label>
-                        <select name="rental_company" id="rental_company" class="select_vehicle" style="width: 160px;" required="required">
-                            <option value="" disabled selected>Select Rental Company</option>
-                            @foreach ($rentalcompanies   as $rentalcompany )
-                                <option value="{{$rentalcompany->id}}">{{$rentalcompany->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-3 col-lg-6">
-                        <label for="exampleFormControlInput1" class="form-label" required="required">Vehicles</label>
-                        <select name="vehicles" id="vehicles" style="width: 160px;">
-                            <option value="">Select Vehicle</option>
-                            {{-- @foreach ($vehicles   as $vehicle)
-                                <option value="{{$vehicle->id}}">{{$vehicle->name}}</option>
-                            @endforeach --}}
-                        </select>
-                    </div>
-                    </div>
-
-                    
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Rental Fee</label>
-                            <input type="text" name="rental_fee" class="form-control" id="rental_fee" required="required">
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Insurance Cover</label>
-                            <input type="text" name="insurance_cover" class="form-control" id="insurance_cover" required="required">
-                        </div>
-                     
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Rego Recovery</label>
-                            <input type="text" name="rego_recovery" class="form-control" id="rego_recovery" required="required">
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Administration Charges</label>
-                            <input type="text" name="administration_charges" class="form-control" id="administration_charges" required="required">
-                        </div>
-                     
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Delivery Fee</label>
-                            <input type="text" name="delivery_fee" class="form-control" id="rego_recovery" required="required">
+                        <div class="row">
+                            <div class="mb-3 col-lg-6">
+                                <label for="exampleFormControlInput1" class="form-label">Vehicle Cleaning Fee</label>
+                                <input type="text" value="180.00" name="cleaning_fee" class="form-control" id="cleaning_fee" required="required">
+                            </div>
                         </div>
                         
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-lg-12">
-                            <hr style="color:black">
-                            <h2>Terms and Conditions Data</h2>
+                        <div class="row">
+                            <div class="mb-3 col-lg-6"><br>
+                                <label for="exampleFormControlInput1" class="form-label">Licence Image</label>
+                                <input type="file" name="file" />
+                            </div>
+                            <div class="mb-3 col-lg-6">
+                            </div>
+                        
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Basic Insurance</label>
-                            <input type="text" name="basic_insurance"  value="2,500.00"  class="form-control" id="basic_insurance" required="required">
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Reduction</label>
-                            <input type="text" name="reduction" value="1,500.00" class="form-control" id="reduction" required="required">
-                        </div>
-                     
-                    </div>
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Traffic Infringement</label>
-                            <input type="text" value="50.00" name="traffic_infringement" class="form-control" id="traffic_infringement" required="required">
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Fuel Top Up Fee</label>
-                            <input type="text" value="2.00" name="fuel_topup_fee" class="form-control" id="fuel_topup_fee" required="required">
-                        </div>
-                     
-                    </div>
 
-                    <div class="row">
-                        <div class="mb-3 col-lg-6">
-                            <label for="exampleFormControlInput1" class="form-label">Vehicle Cleaning Fee</label>
-                            <input type="text" value="180.00" name="cleaning_fee" class="form-control" id="cleaning_fee" required="required">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input type="hidden" id="signature" name="signed" value="">
+                                {{-- <canvas id="sig" class="canvas_css"></canvas>
+                                <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
+                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span> --}}
+                            </div>
                         </div>
-                        {{-- <div class="d-flex inputDiv my-0" id="sign"
-                                        style="align-items: center;border:none">
-                                        <!-- <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                    <span class="required">Signature:</span>
-                                                </label>
-                                                <br/> -->
-                                        <canvas id="sig" onblure="draw()"
-                                            style="background: gray; border-radius:10px"></canvas>
-                                        <br />
-                                        <textarea name="signed" id="signature" style="display: none"></textarea>
-                                        <span id="clear" class="fa fa-undo cursor-pointer"
-                                            style="line-height: 6; position:relative; top:51px; right:26px"></span>
-                                    </div>     --}}
-                    
+                        <div class="row">
+                            <div class="col-lg-4 d-flex" style="width: 100%; justify-content:flex-end;">
+                                <button type="button" class="btn btn-secondary" style="margin-right: 5px;" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" id="submitForm" class="btn btn-primary" disabled>Submit </button>
+                            </div>
+                        </div>
+                    </form>
+                    <canvas id="sig" class="canvas_css"></canvas>
+                                <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
+                                style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
                     </div>
-                    
-                    <div class="row">
-                        <div class="mb-3 col-lg-6"><br>
-                            <label for="exampleFormControlInput1" class="form-label">Licence Image</label>
-                            <input type="file" name="file" />
-                        </div>
-                        <div class="mb-3 col-lg-6">
-                        </div>
-                     
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <canvas id="sig" class="canvas_css"></canvas>
-                            <input type="hidden" id="signature" name="signed" value="">
-                            <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
-                            style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
-                        </div>
-                    </div>
-                   
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="submitForm" class="btn btn-primary" disabled>Submit </button>
-                </div>
-            </div>
-            </form>
+            
+            
         </div>
     </div>
  {{-- for deletion --}}
@@ -362,6 +354,13 @@
         })
     }
 
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        signaturePad.clear();
+        $("#signature").val('');
+        $("#submitForm").prop('disabled', true);
+    });
+
 
     // $(document).on("submit", "#agreement_form", function(e){
     //     e.preventDefault();
@@ -388,12 +387,7 @@
     //     });
     // })
     
-    $('#clear').click(function(e) {
-        e.preventDefault();
-        signaturePad.clear();
-        $("#signature").val('');
-        $("#submitForm").prop('disabled', true);
-    }); 
+    
  
         // to vehicle modal
         let addButton = document.querySelectorAll('.vehicle-button');
