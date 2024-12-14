@@ -64,7 +64,6 @@ class RentalAgreementController extends Controller
     }
 
     public function addAgreement(Request $request){
-        dd($request->all());
          $startDate = date("Y-m-d", strtotime($request->startdate));
          $endDate = date("Y-m-d", strtotime($request->enddate));
 
@@ -154,7 +153,7 @@ class RentalAgreementController extends Controller
               if($request->signed != null){
                 $signature = LZString::decompressFromBase64($request->signed);
                 $folderPath = public_path('assets/signature/');
-                $image = explode(",", $signature[1]);
+                $image = explode(",", $signature)[1];
                 // $image_type = explode("image/", $image[0]);
                 $image_base64 = base64_decode($image);
                 $image_name = uniqid() . '-signature-image.png';
