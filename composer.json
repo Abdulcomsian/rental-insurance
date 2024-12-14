@@ -19,6 +19,7 @@
         "laravel/ui": "^4.3",
         "laravelcollective/html": "^6.4",
         "maatwebsite/excel": "*",
+        "nullpunkt/lz-string-php": "^1.3",
         "spatie/laravel-permission": "^6.3",
         "tonysm/rich-text-laravel": "^3.1",
         "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3",
