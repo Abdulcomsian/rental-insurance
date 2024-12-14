@@ -351,7 +351,7 @@
         var signaturePad = new SignaturePad(canvas);
         signaturePad.addEventListener("endStroke", function(){
             const signature = signaturePad.toDataURL('image/png');
-            const compressedSignature = LZString.compressToUTF16(signature);
+            const compressedSignature = LZString.compressToBase64(signature);
             $("#signature").val(compressedSignature);
             // $("#signature").val(encodeURIComponent(signaturePad.toDataURL('image/png')));
             // $("#signature").val(signaturePad.toDataURL('image/png'));
