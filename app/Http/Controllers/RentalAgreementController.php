@@ -64,7 +64,7 @@ class RentalAgreementController extends Controller
 
     public function addAgreement(Request $request){
 
-        // dd($request->all());
+        dd($request->all());
          $startDate = date("Y-m-d", strtotime($request->startdate));
          $endDate = date("Y-m-d", strtotime($request->enddate));
 
