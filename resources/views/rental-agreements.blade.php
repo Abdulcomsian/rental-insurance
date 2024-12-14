@@ -186,14 +186,14 @@
                         
                         </div>
 
-                        {{-- <div class="row">
+                        <div class="row">
                             <div class="col-lg-6">
                                 <input type="hidden" id="signature" name="signed" value="">
                                 <canvas id="sig" class="canvas_css"></canvas>
                                 <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
                                 style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
                             </div>
-                        </div> --}}
+                        </div>
                         <div class="row">
                             <div class="col-lg-4 d-flex" style="width: 100%; justify-content:flex-end;">
                                 <button type="button" class="btn btn-secondary" style="margin-right: 5px;" data-bs-dismiss="modal">Close</button>
@@ -344,12 +344,16 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     {{-- <script src="{{asset('assets/js/signature_pad.umd.min.js')}}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
 <script>
     const canvas = document.getElementById("sig");
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
         signaturePad.addEventListener("endStroke", function(){
-            $("#signature").val(encodeURIComponent(signaturePad.toDataURL('image/png')));
+            const signature = signaturePad.toDataURL('image/png');
+            const compressedSignature = LZString.compressToUTF16(signature);
+            $("#signature").val(compressedSignature);
+            // $("#signature").val(encodeURIComponent(signaturePad.toDataURL('image/png')));
             // $("#signature").val(signaturePad.toDataURL('image/png'));
             $("#submitForm").prop('disabled', false);
         })
@@ -361,7 +365,6 @@
         $("#signature").val('');
         $("#submitForm").prop('disabled', true);
     });
-
 
     // $(document).on("submit", "#agreement_form", function(e){
     //     e.preventDefault();
