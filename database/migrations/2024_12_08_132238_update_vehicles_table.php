@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::table('vehicles', function (Blueprint $table) {
             $table->after('status',function (Blueprint $table) {
-                $table->string('insurance_type')->nullable;
-                $table->date('start_date')->nullable;
-                $table->date('end_date')->nullable;
-                $table->integer('insurance_company_id')->nullable;  
+                $table->string('insurance_type')->nullable();
+                $table->date('start_date')->nullable();
+                $table->date('end_date')->nullable();
+                $table->integer('insurance_company_id')->nullable();  
 
                 
                        }); 

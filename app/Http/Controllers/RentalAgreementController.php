@@ -151,19 +151,16 @@ class RentalAgreementController extends Controller
                 $rentalagreement->signature = null;
                
               ////for signature
-            //   if($request->signed != null){
-            //     $folderPath = public_path('assets/signature/');
-            //     $image = explode(",", $request->signed)[1];
-            //     // $image_type = explode("image/", $image[0]);
-            //     $image_base64 = base64_decode($image);
-            //     $image_name = uniqid() . '-signature-image.png';
-            //     $file = $folderPath . $image_name;
-            //     file_put_contents($file, $image_base64);
-            //     //dd($file);
-            //     //if(is_string($image_name)){
-            //         $rentalagreement->signature = $image_name;
-            //     //}
-            //   }
+              if($request->signed != null){
+                $folderPath = public_path('assets/signature/');
+                $image = explode(",", $request->signed)[1];
+                // $image_type = explode("image/", $image[0]);
+                $image_base64 = base64_decode($image);
+                $image_name = uniqid() . '-signature-image.png';
+                $file = $folderPath . $image_name;
+                file_put_contents($file, $image_base64);
+                $rentalagreement->signature = $image_name;
+              }
                
              
                 if($rentalagreement->save()){

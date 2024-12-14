@@ -5,6 +5,12 @@
     width: 215px !important;
     height: 35px;
     }
+
+    .canvas_css{
+        border: 1px solid rgb(188, 184, 184);
+        border-radius: 5px;
+        background: #bebebe;
+    }
 </style>
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
@@ -193,11 +199,20 @@
                         </div>
                      
                     </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <canvas id="sig" class="canvas_css"></canvas>
+                            <input type="hidden" id="signature" name="signed" value="">
+                            <span id="clear" class="fa fa-undo cursor-pointer btn--clear"
+                            style="position: absolute;right: -57px;bottom: 21px;background-color:white;padding: 6px;border-radius: 20px;"></span>
+                        </div>
+                    </div>
                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" id="submitForm" class="btn btn-primary">Submit </button>
+                    <button type="submit" id="submitForm" class="btn btn-primary" disabled>Submit </button>
                 </div>
             </div>
             </form>
@@ -335,15 +350,16 @@
 </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="{{asset('assets/js/signature_pad.umd.min.js')}}"></script>
-
+    {{-- <script src="{{asset('assets/js/signature_pad.umd.min.js')}}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.7/dist/signature_pad.umd.min.js"></script>
 <script>
     const canvas = document.getElementById("sig");
     if(canvas){
         var signaturePad = new SignaturePad(canvas);
         signaturePad.addEventListener("endStroke", function(){
             $("#signature").val(signaturePad.toDataURL('image/png'));
-        }, {once: true})
+            $("#submitForm").prop('disabled', false);
+        })
     }
 
 
@@ -376,6 +392,7 @@
         e.preventDefault();
         signaturePad.clear();
         $("#signature").val('');
+        $("#submitForm").prop('disabled', true);
     }); 
  
         // to vehicle modal

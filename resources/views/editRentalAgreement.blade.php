@@ -162,15 +162,16 @@
                             <label for="exampleFormControlInput1" class="form-label">Vehicle Cleaning Fee</label>
                             <input type="text" value="{{$rentalagreements->cleaning_fee}}" name="cleaning_fee" class="form-control" id="cleaning_fee" required="required">
                         </div>
-                        <div class="d-flex inputDiv my-0" id="sign"
-                                        style="align-items: center;border:none">
-                                        <label class="d-flex align-items-center fs-6 fw-bold mb-2">
-                                                    <span>Signature</span>
-                                                </label>
-                                                
-                                            <img src="{{asset('assets/signature/' .$rentalagreements->signature )}}" width="200" alt="signature">
-
-                                    </div>    
+                        <div class="d-flex inputDiv my-0" id="sign" style="align-items: center;border:none">
+                            <label class="fs-6 fw-bold mb-2">
+                                <span>Signature</span>
+                            </label>
+                            <div>
+                                @if($rentalagreements->signature!==null)
+                                    <img src="{{asset('assets/signature/' .$rentalagreements->signature )}}" width="200" alt="signature">
+                                @endif
+                            </div>
+                        </div>    
                     
                     </div>
                     
@@ -179,8 +180,9 @@
                             <label for="exampleFormControlInput1" class="form-label">Licence Image</label>
                             <input type="file" name="file" />
                             <br>
-                            <img src="{{asset('assets/signature/' .$rentalagreements->licence_image )}}" width="200" alt="signature">        </p>
-
+                            @if($rentalagreements->licence_image !== null)
+                            <img src="{{asset('uploads/licence_images/' .$rentalagreements->licence_image )}}" width="200" alt="signature" style="margin-top: 10px;">
+                            @endif
                         </div>
                         <div class="mb-3 col-lg-6">
                         </div>

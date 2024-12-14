@@ -106,14 +106,16 @@
               <td style="border: 1px solid black; padding: 12px 0px; width: 25%; white-space: nowrap; box-sizing: border-box;">{{$data->rego_recovery}}</td>
               <td style="border: 1px solid black; padding: 12px 0px; width: 25%; white-space: nowrap; box-sizing: border-box;">{{$data->pickup_date}} / {{$data->in_km}}</td>
               <td style="border: 1px solid black; padding: 12px 0px; width: 25%; white-space: nowrap; box-sizing: border-box;">{{$data->drop_date}} / {{$data->out_km}}</td>
-              <td style="border: 1px solid black; padding: 12px 0px; width: 25%; white-space: nowrap; box-sizing: border-box;">@php
-                $diff = strtotime($data->drop_date) - strtotime($data->pickup_date); 
-                $days= round($diff / (60 * 60 * 24));
-                echo $days;
-            @endphp / @php
-                $kmdiff = $data->in_km - $data->out_km; 
-                echo $kmdiff;
-            @endphp</td>
+              <td style="border: 1px solid black; padding: 12px 0px; width: 25%; white-space: nowrap; box-sizing: border-box;">
+              @php
+                  $diff = strtotime($data->drop_date) - strtotime($data->pickup_date); 
+                  $days= round($diff / (60 * 60 * 24));
+                  echo $days;
+              @endphp / @php
+                  $kmdiff = $data->in_km - $data->out_km; 
+                  echo $kmdiff;
+              @endphp
+            </td>
             </tr>
             
           </tbody>
