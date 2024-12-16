@@ -913,6 +913,7 @@
             "
           ></p>
         </div>
+        @if ($data->licence_image)
         <div
           style="
             width: 100%;
@@ -921,10 +922,14 @@
             margin-top: 18px;
           "
         >
+       
+          
+       
         <p style="float: left; margin-right: 12px; font-weight: bold" >Licence Image:</p>
         <p>
           <img src="https://acorn.accrualdev.com/public/uploads/licence_images/{{$data->licence_image}}" width="300" alt="signature">        </p>
         </div>
+        @endif
       </div>
       <!-- Definition paragraph ends -->
     </div>
