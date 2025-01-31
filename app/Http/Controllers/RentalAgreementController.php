@@ -165,10 +165,13 @@ class RentalAgreementController extends Controller
              
                 if($rentalagreement->save()){
                    
-                $termsconditions=TermsCondition::get();
-                $signatureURL = env('APP_URL') . "public/assets/signature/" . $rentalagreement->signature;
-                $logoURL = env('APP_URL') . "public/uploads/companylogo/" . $rentalagreement->rentalCompany->logoimage;
-                $licenseURL = env('APP_URL') . "public/uploads/licence_images/" . $rentalagreement->licence_image;
+                    $termsconditions=TermsCondition::get();
+                    // $signatureURL = env('APP_URL') . "public/assets/signature/" . $rentalagreement->signature;
+                    // $logoURL = env('APP_URL') . "public/uploads/companylogo/" . $rentalagreement->rentalCompany->logoimage;
+                $signatureURL = asset("assets/signature/" . $rentalagreement->signature);
+                $logoURL = asset("uploads/companylogo/" . $rentalagreement->rentalCompany->logoimage);
+                $licenseURL = asset("uploads/licence_images/" . $rentalagreement->licence_image);
+                // $licenseURL = env('APP_URL') . "public/uploads/licence_images/" . $rentalagreement->licence_image;
                 $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement, 'termsdata' => $termsconditions, "signatureURL" => $signatureURL, "logoURL" => $logoURL, "licenseURL" => $licenseURL]);
                
                 $path = public_path('pdf');
