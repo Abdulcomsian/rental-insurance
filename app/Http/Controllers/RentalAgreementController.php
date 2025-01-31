@@ -344,7 +344,12 @@ public function generateRentaInvoice($id){
             if($rentalagreement->update()){
                 
             $termsconditions=TermsCondition::get();    
-            $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement],['termsdata' => $termsconditions]);
+            $signatureURL = asset("assets/signature/" . $rentalagreement->signature);
+            $logoURL = asset("uploads/companylogo/" . $rentalagreement->rentalCompany->logoimage);
+            $licenseURL = asset("uploads/licence_images/" . $rentalagreement->licence_image);
+            // $licenseURL = env('APP_URL') . "public/uploads/licence_images/" . $rentalagreement->licence_image;
+            $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement, 'termsdata' => $termsconditions, "signatureURL" => $signatureURL, "logoURL" => $logoURL, "licenseURL" => $licenseURL]);
+           // $pdf = PDF::loadView('pdf.rental_agreement', ['data' => $rentalagreement],['termsdata' => $termsconditions]);
             
             $path = public_path('pdf');
             $pdf->save($path . '/' . $filename);
