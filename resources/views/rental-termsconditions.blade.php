@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label>Terms and Conditions</label><br>
                                 {{-- <input type="text" class="form-control" name="terms_conditions" value="{{$termsconditions->content ?? ''}}" required placeholder="Enter Model Name" data-type="add"> --}}
-                                <textarea class="form-control" id="terms_conditions" name="terms_conditions"   placeholder="Enter the Description">{{$termsconditions->terms_conditions}}</textarea>
+                                <textarea class="form-control" id="terms_conditions" name="terms_conditions"   placeholder="Enter the Description">{{$termsconditions->terms_conditions ?? ''}}</textarea>
                                 @error('terms_conditions')
                                 <span class="text-danger">{{$message}}</span>
                                  @enderror
